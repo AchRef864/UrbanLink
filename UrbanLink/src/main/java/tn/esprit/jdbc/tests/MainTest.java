@@ -1,8 +1,7 @@
 package tn.esprit.jdbc.tests;
-
-import tn.esprit.jdbc.entities.Person;
-import tn.esprit.jdbc.services.PersonService;
+import tn.esprit.jdbc.services.UserService;
 import tn.esprit.jdbc.utils.MyDatabase;
+import tn.esprit.jdbc.entities.User ;
 
 import java.sql.SQLException;
 
@@ -11,16 +10,13 @@ public class MainTest {
     public static void main(String[] args) {
         MyDatabase m1 = MyDatabase.getInstance();
 
-        Person p1 = new Person("Hbib","Khamouma",24);
-        Person p2 = new Person("Amine","Jery",21);
+        User s1 = new User("Hbib","Kham",88);
 
-        PersonService personService = new PersonService();
-
+         UserService userService = new UserService() ;
         try {
-            personService.insert(p1);
-            personService.insert1(p2);
+            userService.insert(s1);
 
-            System.out.println(personService.showAll());
+            System.out.println(userService.showAll());
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

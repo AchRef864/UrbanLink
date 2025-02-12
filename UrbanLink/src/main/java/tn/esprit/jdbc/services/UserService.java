@@ -38,13 +38,21 @@ public class UserService implements CRUD<User> {
     }
 
     @Override
-    public int update(User user) throws SQLException{
-        return 0;
+    public int update(User user) throws SQLException {
+        String req = "UPDATE `user` SET `firstname` = ?, `lastname` = ?, `age` = ? WHERE `firstname` = ?";
+        ps = cnx.prepareStatement(req);
+        ps.setString(1, user.getFirstName());
+        ps.setString(2, user.getLastName());
+        ps.setInt(3, user.getAge());
+        return ps.executeUpdate();
     }
 
     @Override
-    public int delete(User user) throws SQLException{
-        return 0;
+    public int delete(User user) throws SQLException {
+        String req = "DELETE FROM `user` WHERE `fistname` = ?";
+        ps = cnx.prepareStatement(req);
+        ps.setString(1, user.getFirstName()); ;
+        return ps.executeUpdate();
     }
 
     @Override

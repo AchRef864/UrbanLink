@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< Updated upstream:UrbanLink/.idea/misc.xml
   <component name="ComposerSettings">
     <execution />
   </component>
+=======
+>>>>>>> Stashed changes:pidev_urbain/.idea/misc.xml
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -11,7 +14,11 @@
       </list>
     </option>
   </component>
+<<<<<<< Updated upstream:UrbanLink/.idea/misc.xml
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+>>>>>>> Stashed changes:pidev_urbain/.idea/misc.xml
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

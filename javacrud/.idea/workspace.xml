@@ -4,41 +4,77 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f6a3e5b-9259-46bd-b14f-a40b51a2d11d" name="Changes" comment="" />
+    <list default="true" id="466842d2-b60a-470a-b852-7d46ed0d0588" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/AvisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/AvisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReponseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/tests/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/tests/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Avis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Avis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Reponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Reponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/AvisService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/AvisService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/CRUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/CRUD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/ReponseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/ReponseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/tests/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/tests/MainTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/utils/MyDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/utils/MyDatabase.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "HeniRidene"
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;HeniRidene&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AchRef864/UrbanLink.git",
-    "accountId": "cef7cbd5-46ed-46a2-91a5-126cb347e03f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AchRef864/UrbanLink.git&quot;,
+    &quot;accountId&quot;: &quot;cef7cbd5-46ed-46a2-91a5-126cb347e03f&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
-  <component name="ProjectId" id="2st613uhaurwQcBZTMN6MqMunLs" />
+}</component>
+  <component name="MavenRunner">
+    <option name="delegateBuildToMaven" value="true" />
+    <option name="jreName" value="jbr-17" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2sxL6XrygMsmj6khYwSQwjC1HeU" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.MainTest.executor": "Run",
+    "Maven.MainTest.executor": "Run",
+    "Maven.javacrud [install,--non-recursive].executor": "Run",
+    "Maven.javacrud [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "feature/avis",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/piiideev/javacrud",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -53,16 +89,23 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7f6a3e5b-9259-46bd-b14f-a40b51a2d11d" name="Changes" comment="" />
-      <created>1739262305971</created>
+      <changelist id="466842d2-b60a-470a-b852-7d46ed0d0588" name="Changes" comment="" />
+      <created>1739392104857</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1739262305971</updated>
-      <workItem from="1739262307759" duration="125000" />
+      <updated>1739392104857</updated>
+      <workItem from="1739392105991" duration="341000" />
+      <workItem from="1739392461051" duration="3542000" />
+      <workItem from="1739434557564" duration="6734000" />
+      <workItem from="1739618709562" duration="8936000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

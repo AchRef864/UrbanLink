@@ -1,7 +1,6 @@
 package tn.esprit.models;
 
 
-
 import java.time.LocalDate;
 public class Taxi {
     private int idTaxi;
@@ -14,14 +13,28 @@ public class Taxi {
     private String statut;
     private String licenceNumero;
     private LocalDate licenceDateObtention;
-    private double tarifBase;
+    private Double tarifBase;
 
     public Taxi() {}
 
     public Taxi(String immatriculation, String marque, String modele,
                 int anneeFabrication, int capacite, String zoneDesserte,
                 String statut, String licenceNumero, LocalDate licenceDateObtention,
-                double tarifBase) {
+                Double tarifBase) {
+        this.immatriculation = immatriculation;
+        this.marque = marque;
+        this.modele = modele;
+        this.anneeFabrication = anneeFabrication;
+        this.capacite = capacite;
+        this.zoneDesserte = zoneDesserte;
+        this.statut = statut;
+        this.licenceNumero = licenceNumero;
+        this.licenceDateObtention = licenceDateObtention;
+        this.tarifBase = tarifBase;
+    }
+
+    public Taxi(int idTaxi, String immatriculation, String marque, String modele, int anneeFabrication, int capacite, String zoneDesserte, String statut, String licenceNumero, LocalDate licenceDateObtention, Double tarifBase) {
+        this.idTaxi = idTaxi;
         this.immatriculation = immatriculation;
         this.marque = marque;
         this.modele = modele;
@@ -82,11 +95,11 @@ public class Taxi {
         this.licenceNumero = licenceNumero;
     }
 
-    public double getTarifBase() {
+    public Double getTarifBase() {
         return tarifBase;
     }
 
-    public void setTarifBase(double tarifBase) {
+    public void setTarifBase(Double tarifBase) {
         this.tarifBase = tarifBase;
     }
 

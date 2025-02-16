@@ -13,15 +13,11 @@ import java.util.List;
 public class AvisService implements CRUD<Avis> {
 
     private Connection cnx = MyDatabase.getInstance().getCnx();
-    private Statement st;
-    private PreparedStatement ps;
 
     @Override
     public int insert(Avis avis) throws SQLException {
-        String req = "INSERT INTO `avis`(`note`, `commentaire`, `date_avis`, `user_id`) " +
-                "VALUES (?, ?, ?, ?)";
-        try {
-            ps = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
+        String req = "INSERT INTO `avis`(`note`, `commentaire`, `date_avis`, `user_id`) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement ps = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, avis.getNote());
             ps.setString(2, avis.getCommentaire());
             ps.setDate(3, new java.sql.Date(avis.getDate_avis().getTime()));
@@ -36,10 +32,6 @@ public class AvisService implements CRUD<Avis> {
                 }
             }
             return rowsAffected;
-        } finally {
-            if (ps != null) {
-                ps.close();
-            }
         }
     }
 
@@ -52,22 +44,16 @@ public class AvisService implements CRUD<Avis> {
             preparedStatement.setDate(3, new java.sql.Date(avis.getDate_avis().getTime()));
             preparedStatement.setInt(4, avis.getUser_id());
             preparedStatement.setInt(5, avis.getAvis_id());
-            preparedStatement.executeUpdate();
+            return preparedStatement.executeUpdate();
         }
-        return 0;
     }
 
     @Override
     public int delete(Avis avis) throws SQLException {
-        String req = "DELETE FROM `avis` WHERE `avis_id` = ?";
-        try {
-            ps = cnx.prepareStatement(req);
+        String req = "DELETE FROM avis WHERE avis_id = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(req)) {
             ps.setInt(1, avis.getAvis_id());
             return ps.executeUpdate();
-        } finally {
-            if (ps != null) {
-                ps.close();
-            }
         }
     }
 
@@ -75,9 +61,8 @@ public class AvisService implements CRUD<Avis> {
     public List<Avis> showAll() throws SQLException {
         List<Avis> temp = new ArrayList<>();
         String req = "SELECT * FROM `avis`";
-        try {
-            st = cnx.createStatement();
-            ResultSet rs = st.executeQuery(req);
+        try (Statement st = cnx.createStatement();
+             ResultSet rs = st.executeQuery(req)) {
             while (rs.next()) {
                 Avis a = new Avis();
                 a.setAvis_id(rs.getInt("avis_id"));
@@ -87,10 +72,6 @@ public class AvisService implements CRUD<Avis> {
                 a.setUser_id(rs.getInt("user_id"));
                 temp.add(a);
             }
-        } finally {
-            if (st != null) {
-                st.close();
-            }
         }
         return temp;
     }
@@ -99,18 +80,18 @@ public class AvisService implements CRUD<Avis> {
         String query = "SELECT * FROM avis WHERE avis_id = ?";
         try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
             preparedStatement.setInt(1, avisId);
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs.next()) {
-                Avis avis = new Avis();
-                avis.setAvis_id(rs.getInt("avis_id"));
-                avis.setNote(rs.getInt("note"));
-                avis.setCommentaire(rs.getString("commentaire"));
-                avis.setDate_avis(rs.getDate("date_avis"));
-                avis.setUser_id(rs.getInt("user_id"));
-                return avis;
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                if (rs.next()) {
+                    Avis avis = new Avis();
+                    avis.setAvis_id(rs.getInt("avis_id"));
+                    avis.setNote(rs.getInt("note"));
+                    avis.setCommentaire(rs.getString("commentaire"));
+                    avis.setDate_avis(rs.getDate("date_avis"));
+                    avis.setUser_id(rs.getInt("user_id"));
+                    return avis;
+                }
             }
         }
         return null;
     }
-
 }

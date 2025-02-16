@@ -10,9 +10,9 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/addAvis.fxml"));
-        primaryStage.setTitle("Add Review");
-        primaryStage.setScene(new Scene(root));
+        Parent root = FXMLLoader.load(getClass().getResource("/AvisTable.fxml"));
+        primaryStage.setTitle("Avis Management");
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 

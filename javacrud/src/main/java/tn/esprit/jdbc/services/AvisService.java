@@ -2,8 +2,11 @@ package tn.esprit.jdbc.services;
 
 import tn.esprit.jdbc.entities.Avis;
 import tn.esprit.jdbc.utils.MyDatabase;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,19 +45,16 @@ public class AvisService implements CRUD<Avis> {
 
     @Override
     public int update(Avis avis) throws SQLException {
-        String req = "UPDATE `avis` SET `note` = ?, `commentaire` = ?, `date_avis` = ? WHERE `avis_id` = ?";
-        try {
-            ps = cnx.prepareStatement(req);
-            ps.setInt(1, avis.getNote());
-            ps.setString(2, avis.getCommentaire());
-            ps.setDate(3, new java.sql.Date(avis.getDate_avis().getTime()));
-            ps.setInt(4, avis.getAvis_id());
-            return ps.executeUpdate();
-        } finally {
-            if (ps != null) {
-                ps.close();
-            }
+        String query = "UPDATE avis SET note = ?, commentaire = ?, date_avis = ?, user_id = ? WHERE avis_id = ?";
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            preparedStatement.setInt(1, avis.getNote());
+            preparedStatement.setString(2, avis.getCommentaire());
+            preparedStatement.setDate(3, new java.sql.Date(avis.getDate_avis().getTime()));
+            preparedStatement.setInt(4, avis.getUser_id());
+            preparedStatement.setInt(5, avis.getAvis_id());
+            preparedStatement.executeUpdate();
         }
+        return 0;
     }
 
     @Override
@@ -94,4 +94,23 @@ public class AvisService implements CRUD<Avis> {
         }
         return temp;
     }
+
+    public Avis findById(int avisId) throws SQLException {
+        String query = "SELECT * FROM avis WHERE avis_id = ?";
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            preparedStatement.setInt(1, avisId);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                Avis avis = new Avis();
+                avis.setAvis_id(rs.getInt("avis_id"));
+                avis.setNote(rs.getInt("note"));
+                avis.setCommentaire(rs.getString("commentaire"));
+                avis.setDate_avis(rs.getDate("date_avis"));
+                avis.setUser_id(rs.getInt("user_id"));
+                return avis;
+            }
+        }
+        return null;
+    }
+
 }

@@ -1,0 +1,82 @@
+package tn.esprit.jdbc.controller;
+
+        import tn.esprit.jdbc.entities.Avis;
+        import tn.esprit.jdbc.services.AvisService;
+        import javafx.event.ActionEvent;
+        import javafx.fxml.FXML;
+        import javafx.fxml.FXMLLoader;
+        import javafx.scene.Parent;
+        import javafx.scene.control.Alert;
+        import javafx.scene.control.TextField;
+
+        import java.io.IOException;
+        import java.sql.SQLException;
+        import java.util.Date;
+
+        public class addAvisController {
+
+        @FXML
+        private TextField commentaireTextField;
+
+        @FXML
+        private TextField noteTextField;
+
+        @FXML
+        private TextField userIdTextField;
+
+        @FXML
+        void ajouteAvisAction(ActionEvent event) {
+        String commentaire = commentaireTextField.getText();
+        int note = Integer.parseInt(noteTextField.getText());
+        int userId = Integer.parseInt(userIdTextField.getText());
+
+        Avis avis = new Avis(note, commentaire, new Date(), userId);
+
+        AvisService avisService = new AvisService();
+        try {
+        avisService.insert(avis);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText("Review added successfully");
+        alert.showAndWait();
+
+        // Load the Detail.fxml
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Detail.fxml"));
+        Parent root = loader.load();
+        DetailController detailController = loader.getController();
+        detailController.setCommentaireTextField(commentaire);
+        detailController.setNoteTextField(String.valueOf(note));
+        commentaireTextField.getScene().setRoot(root);
+        } catch (SQLException | IOException e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Error adding review");
+        alert.setContentText(e.getMessage());
+        alert.showAndWait();
+        System.err.println(e.getMessage());
+        }
+        }
+
+        @FXML
+        void deleteAvisAction(ActionEvent event) {
+        int avisId = Integer.parseInt(userIdTextField.getText());
+
+        AvisService avisService = new AvisService();
+        try {
+        Avis avisToDelete = new Avis();
+        avisToDelete.setAvis_id(avisId);
+        avisService.delete(avisToDelete);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText("Review deleted successfully");
+        alert.showAndWait();
+        } catch (SQLException e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Error deleting review");
+        alert.setContentText(e.getMessage());
+        alert.showAndWait();
+        System.err.println(e.getMessage());
+        }
+        }
+        }

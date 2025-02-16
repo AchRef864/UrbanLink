@@ -4,35 +4,35 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Avis {
-    private int avisId;
+    private int avis_id;
     private int note;
     private String commentaire;
-    private Date dateAvis;
-    private int userId;
+    private Date date_avis;
+    private int user_id;
 
     public Avis() {}
 
-    public Avis(int note, String commentaire, Date dateAvis, int userId) {
+    public Avis(int note, String commentaire, Date date_avis, int user_id) {
         this.note = note;
         this.commentaire = commentaire;
-        this.dateAvis = dateAvis;
-        this.userId = userId;
+        this.date_avis = date_avis;
+        this.user_id = user_id;
     }
 
-    public Avis(int avisId, int note, String commentaire, Date dateAvis, int userId) {
-        this.avisId = avisId;
+    public Avis(int avis_id, int note, String commentaire, Date date_avis, int user_id) {
+        this.avis_id = avis_id;
         this.note = note;
         this.commentaire = commentaire;
-        this.dateAvis = dateAvis;
-        this.userId = userId;
+        this.date_avis = date_avis;
+        this.user_id = user_id;
     }
 
-    public int getAvisId() {
-        return avisId;
+    public int getAvis_id() {
+        return avis_id;
     }
 
-    public void setAvisId(int avisId) {
-        this.avisId = avisId;
+    public void setAvis_id(int avis_id) {
+        this.avis_id = avis_id;
     }
 
     public int getNote() {
@@ -51,30 +51,30 @@ public class Avis {
         this.commentaire = commentaire;
     }
 
-    public Date getDateAvis() {
-        return dateAvis;
+    public Date getDate_avis() {
+        return date_avis;
     }
 
-    public void setDateAvis(Date dateAvis) {
-        this.dateAvis = dateAvis;
+    public void setDate_avis(Date date_avis) {
+        this.date_avis = date_avis;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     @Override
     public String toString() {
         return "Avis{" +
-                "avisId=" + avisId +
+                "avis_id=" + avis_id +
                 ", note=" + note +
                 ", commentaire='" + commentaire + '\'' +
-                ", dateAvis=" + dateAvis +
-                ", userId=" + userId +
+                ", date_avis=" + date_avis +
+                ", user_id=" + user_id +
                 '}';
     }
 
@@ -84,21 +84,21 @@ public class Avis {
         if (!(object instanceof Avis avis)) return false;
         if (!super.equals(object)) return false;
 
-        if (avisId != avis.avisId) return false;
+        if (avis_id != avis.avis_id) return false;
         if (note != avis.note) return false;
-        if (userId != avis.userId) return false;
+        if (user_id != avis.user_id) return false;
         if (!Objects.equals(commentaire, avis.commentaire)) return false;
-        return Objects.equals(dateAvis, avis.dateAvis);
+        return Objects.equals(date_avis, avis.date_avis);
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + avisId;
+        result = 31 * result + avis_id;
         result = 31 * result + note;
         result = 31 * result + (commentaire != null ? commentaire.hashCode() : 0);
-        result = 31 * result + (dateAvis != null ? dateAvis.hashCode() : 0);
-        result = 31 * result + userId;
+        result = 31 * result + (date_avis != null ? date_avis.hashCode() : 0);
+        result = 31 * result + user_id;
         return result;
     }
 }

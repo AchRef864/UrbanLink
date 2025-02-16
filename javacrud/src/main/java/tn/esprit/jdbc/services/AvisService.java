@@ -15,15 +15,24 @@ public class AvisService implements CRUD<Avis> {
 
     @Override
     public int insert(Avis avis) throws SQLException {
-        String req = "INSERT INTO `avis`(`note`, `commentaire`, `dateAvis`, `userId`) " +
+        String req = "INSERT INTO `avis`(`note`, `commentaire`, `date_avis`, `user_id`) " +
                 "VALUES (?, ?, ?, ?)";
         try {
-            ps = cnx.prepareStatement(req);
+            ps = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, avis.getNote());
             ps.setString(2, avis.getCommentaire());
-            ps.setDate(3, new java.sql.Date(avis.getDateAvis().getTime()));
-            ps.setInt(4, avis.getUserId());
-            return ps.executeUpdate();
+            ps.setDate(3, new java.sql.Date(avis.getDate_avis().getTime()));
+            ps.setInt(4, avis.getUser_id());
+            int rowsAffected = ps.executeUpdate();
+
+            if (rowsAffected > 0) {
+                try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        avis.setAvis_id(generatedKeys.getInt(1));
+                    }
+                }
+            }
+            return rowsAffected;
         } finally {
             if (ps != null) {
                 ps.close();
@@ -33,13 +42,13 @@ public class AvisService implements CRUD<Avis> {
 
     @Override
     public int update(Avis avis) throws SQLException {
-        String req = "UPDATE `avis` SET `note` = ?, `commentaire` = ?, `dateAvis` = ? WHERE `avisId` = ?";
+        String req = "UPDATE `avis` SET `note` = ?, `commentaire` = ?, `date_avis` = ? WHERE `avis_id` = ?";
         try {
             ps = cnx.prepareStatement(req);
             ps.setInt(1, avis.getNote());
             ps.setString(2, avis.getCommentaire());
-            ps.setDate(3, new java.sql.Date(avis.getDateAvis().getTime()));
-            ps.setInt(4, avis.getAvisId());
+            ps.setDate(3, new java.sql.Date(avis.getDate_avis().getTime()));
+            ps.setInt(4, avis.getAvis_id());
             return ps.executeUpdate();
         } finally {
             if (ps != null) {
@@ -50,10 +59,10 @@ public class AvisService implements CRUD<Avis> {
 
     @Override
     public int delete(Avis avis) throws SQLException {
-        String req = "DELETE FROM `avis` WHERE `avisId` = ?";
+        String req = "DELETE FROM `avis` WHERE `avis_id` = ?";
         try {
             ps = cnx.prepareStatement(req);
-            ps.setInt(1, avis.getAvisId());
+            ps.setInt(1, avis.getAvis_id());
             return ps.executeUpdate();
         } finally {
             if (ps != null) {
@@ -71,11 +80,11 @@ public class AvisService implements CRUD<Avis> {
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
                 Avis a = new Avis();
-                a.setAvisId(rs.getInt("avisId"));
+                a.setAvis_id(rs.getInt("avis_id"));
                 a.setNote(rs.getInt("note"));
                 a.setCommentaire(rs.getString("commentaire"));
-                a.setDateAvis(rs.getDate("dateAvis"));
-                a.setUserId(rs.getInt("userId"));
+                a.setDate_avis(rs.getDate("date_avis"));
+                a.setUser_id(rs.getInt("user_id"));
                 temp.add(a);
             }
         } finally {

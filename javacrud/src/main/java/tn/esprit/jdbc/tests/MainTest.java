@@ -19,89 +19,97 @@ public class MainTest {
         ReponseService reponseService = new ReponseService();
 
         try {
-            System.out.println("Donner votre avis :");
+            System.out.println("Enter your review:");
             String commentaire = sc.nextLine();
-            System.out.println("Donner la nouvelle note de l'avis.");
+            System.out.println("Enter the new rating for the review:");
             int note = sc.nextInt();
             sc.nextLine();
-            System.out.println("Donner l'ID de l'utilisateur.");
+            System.out.println("Enter the user ID:");
             int userId = sc.nextInt();
             sc.nextLine();
 
             Avis newAvis = new Avis(note, commentaire, new Date(), userId);
             avisService.insert(newAvis);
 
-            System.out.println("Donner l'ID de l'avis a mettre a jour.");
+            System.out.println("Enter the ID of the review to update:");
             int avisIdToUpdate = sc.nextInt();
             sc.nextLine();
-            System.out.println("Donner le nouveau commentaire.");
+            System.out.println("Enter the new comment:");
             String newCommentaire = sc.nextLine();
-            System.out.println("Donner la nouvelle note.");
+            System.out.println("Enter the new rating:");
             int newNote = sc.nextInt();
             sc.nextLine();
 
             Avis avisToUpdate = new Avis(newNote, newCommentaire, new Date(), userId);
-            avisToUpdate.setAvisId(avisIdToUpdate);
+            avisToUpdate.setAvis_id(avisIdToUpdate);
             avisService.update(avisToUpdate);
 
-            System.out.println("All avis after update:");
+            System.out.println("All reviews after update:");
             displayAvisList(avisService.showAll());
 
-            // Delete an avis
-            System.out.println("Donner l'ID de l'avis a supprimer.");
+            // Delete a review
+            System.out.println("Enter the ID of the review to delete:");
             int avisIdToDelete = sc.nextInt();
             sc.nextLine();
 
             Avis avisToDelete = new Avis();
-            avisToDelete.setAvisId(avisIdToDelete);
+            avisToDelete.setAvis_id(avisIdToDelete);
             avisService.delete(avisToDelete);
 
-            System.out.println("tous les avis apres suppresion:");
+            System.out.println("All reviews after deletion:");
             displayAvisList(avisService.showAll());
 
-            // Insert initial reponse
-            System.out.println("Donner votre reponse.");
+            // Insert initial response
+            System.out.println("Enter your response:");
             String reponseCommentaire = sc.nextLine();
-            System.out.println("Donner l'ID de l'avis.");
+            System.out.println("Enter the review ID:");
             int avisId = sc.nextInt();
             sc.nextLine();
-            System.out.println("Donner l'ID de l'utilisateur.");
+            System.out.println("Enter the user ID:");
             int reponseUserId = sc.nextInt();
             sc.nextLine();
 
             Reponse newReponse = new Reponse(reponseCommentaire, new Date(), avisId, reponseUserId);
             reponseService.insert(newReponse);
 
-            // Update a reponse
-            System.out.println("Donner l'ID de la reponse a mettre a jour :");
+            // Update a response
+            System.out.println("Enter the ID of the response to update:");
             int reponseIdToUpdate = sc.nextInt();
             sc.nextLine();
-            System.out.println("Donner le nouveau commentaire :");
+            System.out.println("Enter the new comment:");
             String newReponseCommentaire = sc.nextLine();
-            System.out.println("Donner le nouvel ID de l'avis.");
-            int newAvisId = sc.nextInt();
+// Update a response
+            System.out.println("Enter the ID of the response to update:");
+
             sc.nextLine();
+            System.out.println("Enter a new response:");
 
-            // Retrieve the existing reponse to get the current userId
+// Retrieve the existing response to get the current userId
             Reponse existingReponse = reponseService.showAll().stream()
-                    .filter(r -> r.getReponseId() == reponseIdToUpdate)
+                    .filter(r -> r.getReponse_id() == reponseIdToUpdate)
                     .findFirst()
-                    .orElseThrow(() -> new SQLException("Reponse not found"));
+                    .orElseThrow(() -> new SQLException("Response not found"));
 
-            Reponse reponseToUpdate = new Reponse(newReponseCommentaire, new Date(), newAvisId, existingReponse.getUserId());
-            reponseToUpdate.setReponseId(reponseIdToUpdate);
+// Create a new Reponse object with the updated comment and existing details
+            Reponse reponseToUpdate = new Reponse();
+            reponseToUpdate.setReponse_id(reponseIdToUpdate);
+            reponseToUpdate.setCommentaire(newReponseCommentaire);
+            reponseToUpdate.setDate_reponse(existingReponse.getDate_reponse());
+            reponseToUpdate.setAvis_id(existingReponse.getAvis_id());
+            reponseToUpdate.setUser_id(existingReponse.getUser_id());
+
             reponseService.update(reponseToUpdate);
 
-            // Delete a reponse
-            System.out.println("Donner l'ID de la reponse a supprimer.");
+            // Delete a response
+            System.out.println("Enter the ID of the response to delete:");
             int reponseIdToDelete = sc.nextInt();
             sc.nextLine();
 
             Reponse reponseToDelete = new Reponse();
-            reponseToDelete.setReponseId(reponseIdToDelete);
+            reponseToDelete.setReponse_id(reponseIdToDelete);
             reponseService.delete(reponseToDelete);
 
-            System.out.println("tous les reponses apres la suppresion:");
+            System.out.println("All responses after deletion:");
             displayReponseList(reponseService.showAll());
 
         } catch (SQLException e) {

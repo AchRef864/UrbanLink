@@ -7,6 +7,8 @@
     <list default="true" id="466842d2-b60a-470a-b852-7d46ed0d0588" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Avis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Avis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Reponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Reponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/AvisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/AvisService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReponseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/tests/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/tests/MainTest.java" afterDir="false" />
@@ -66,7 +68,7 @@
     "Maven.javacrud [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature/avis",
+    "git-widget-placeholder": "#5 on feature/avis",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/piiideev/javacrud",
     "node.js.detected.package.eslint": "true",
@@ -98,6 +100,7 @@
       <workItem from="1739392461051" duration="3542000" />
       <workItem from="1739434557564" duration="6734000" />
       <workItem from="1739618709562" duration="8936000" />
+      <workItem from="1739713994781" duration="4169000" />
     </task>
     <servers />
   </component>

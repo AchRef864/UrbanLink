@@ -15,20 +15,20 @@ public class ReponseService implements CRUD<Reponse> {
 
     @Override
     public int insert(Reponse reponse) throws SQLException {
-        String req = "INSERT INTO `reponse`(`commentaire`, `dateReponse`, `avisId`, `userId`) " +
+        String req = "INSERT INTO `reponse`(`commentaire`, `date_reponse`, `avis_id`, `user_id`) " +
                 "VALUES (?, ?, ?, ?)";
         try {
             ps = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, reponse.getCommentaire());
-            ps.setDate(2, new java.sql.Date(reponse.getDateReponse().getTime()));
-            ps.setInt(3, reponse.getAvisId());
-            ps.setInt(4, reponse.getUserId());
+            ps.setDate(2, new java.sql.Date(reponse.getDate_reponse().getTime()));
+            ps.setInt(3, reponse.getAvis_id());
+            ps.setInt(4, reponse.getUser_id());
             int rowsAffected = ps.executeUpdate();
 
             if (rowsAffected > 0) {
                 try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
-                        reponse.setReponseId(generatedKeys.getInt(1));
+                        reponse.setReponse_id(generatedKeys.getInt(1));
                     }
                 }
             }
@@ -42,12 +42,11 @@ public class ReponseService implements CRUD<Reponse> {
 
     @Override
     public int update(Reponse reponse) throws SQLException {
-        String req = "UPDATE `reponse` SET `commentaire` = ?, `dateReponse` = ? WHERE `reponseId` = ?";
+        String req = "UPDATE `reponse` SET `commentaire` = ? WHERE `reponse_id` = ?";
         try {
             ps = cnx.prepareStatement(req);
             ps.setString(1, reponse.getCommentaire());
-            ps.setDate(2, new java.sql.Date(reponse.getDateReponse().getTime()));
-            ps.setInt(3, reponse.getReponseId());
+            ps.setInt(2, reponse.getReponse_id());
             return ps.executeUpdate();
         } finally {
             if (ps != null) {
@@ -58,10 +57,10 @@ public class ReponseService implements CRUD<Reponse> {
 
     @Override
     public int delete(Reponse reponse) throws SQLException {
-        String req = "DELETE FROM `reponse` WHERE `reponseId` = ?";
+        String req = "DELETE FROM `reponse` WHERE `reponse_id` = ?";
         try {
             ps = cnx.prepareStatement(req);
-            ps.setInt(1, reponse.getReponseId());
+            ps.setInt(1, reponse.getReponse_id());
             return ps.executeUpdate();
         } finally {
             if (ps != null) {
@@ -79,11 +78,11 @@ public class ReponseService implements CRUD<Reponse> {
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
                 Reponse r = new Reponse();
-                r.setReponseId(rs.getInt("reponseId"));
+                r.setReponse_id(rs.getInt("reponse_id"));
                 r.setCommentaire(rs.getString("commentaire"));
-                r.setDateReponse(rs.getDate("dateReponse"));
-                r.setAvisId(rs.getInt("avisId"));
-                r.setUserId(rs.getInt("userId"));
+                r.setDate_reponse(rs.getDate("date_reponse"));
+                r.setAvis_id(rs.getInt("avis_id"));
+                r.setUser_id(rs.getInt("user_id"));
                 temp.add(r);
             }
         } finally {

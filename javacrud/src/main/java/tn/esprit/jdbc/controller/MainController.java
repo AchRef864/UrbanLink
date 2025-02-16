@@ -78,7 +78,7 @@ public class MainController {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateAvis.fxml"));
                 Parent root = loader.load();
-                updateAvisController controller = loader.getController();
+                UpdateAvisController controller = loader.getController();
                 controller.setAvis(selectedAvis);
                 avisTableView.getScene().setRoot(root);
             } catch (IOException e) {

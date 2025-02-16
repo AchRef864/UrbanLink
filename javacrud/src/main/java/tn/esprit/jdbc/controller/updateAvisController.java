@@ -2,14 +2,13 @@ package tn.esprit.jdbc.controller;
 
 import tn.esprit.jdbc.entities.Avis;
 import tn.esprit.jdbc.services.AvisService;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-
+import javafx.event.ActionEvent;
 import java.sql.SQLException;
 
-public class updateAvisController {
+public class UpdateAvisController {
 
     @FXML
     private TextField avisIdTextField;
@@ -23,12 +22,15 @@ public class updateAvisController {
     @FXML
     private TextField userIdTextField;
 
+    private Avis avis;
     private AvisService avisService = new AvisService();
 
     public void setAvis(Avis avis) {
-        avisIdTextField.setText(String.valueOf(avis.getAvis_id()));
-        commentaireTextField.setText(avis.getCommentaire());
+        this.avis = avis;
         noteTextField.setText(String.valueOf(avis.getNote()));
+        commentaireTextField.setText(avis.getCommentaire());
+        // Assuming dateAvisField is a TextField for date
+        // dateAvisField.setText(avis.getDate_avis().toString());
         userIdTextField.setText(String.valueOf(avis.getUser_id()));
     }
 

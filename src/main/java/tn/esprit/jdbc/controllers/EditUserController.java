@@ -2,13 +2,19 @@ package tn.esprit.jdbc.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+<<<<<<< Updated upstream
 import javafx.event.ActionEvent;
+=======
+>>>>>>> Stashed changes
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+<<<<<<< Updated upstream
 import javafx.stage.Stage;
+=======
+>>>>>>> Stashed changes
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.UserService;
 
@@ -84,6 +90,9 @@ public class EditUserController {
             System.err.println("Error deleting user: " + e.getMessage());
         }
     }
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 }

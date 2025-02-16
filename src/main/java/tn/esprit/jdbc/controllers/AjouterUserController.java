@@ -23,8 +23,11 @@ public class AjouterUserController {
 
     @FXML
     private TextField phoneTextField;
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 
     @FXML
     void ajouteUserAction(ActionEvent event) {

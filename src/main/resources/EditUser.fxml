@@ -24,7 +24,10 @@
         <Label layoutX="50.0" layoutY="370.0" text="Enter User ID to Delete:" />
         <TextField fx:id="userIdTextField" layoutX="253.0" layoutY="368.0" promptText="User ID" />
         <Button layoutX="444.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
+<<<<<<< Updated upstream
         <!--   <Button fx:id="exit" layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#ExitButton" text="exit" />  -->
 
+=======
+>>>>>>> Stashed changes
     </children>
 </AnchorPane>

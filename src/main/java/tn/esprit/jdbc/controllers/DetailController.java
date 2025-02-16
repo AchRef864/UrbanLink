@@ -32,6 +32,10 @@ public class DetailController {
 
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }
 
 

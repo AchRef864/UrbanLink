@@ -15,7 +15,10 @@
         <Button layoutX="273.0" layoutY="314.0" mnemonicParsing="false" onAction="#ajouteUserAction" text="Valider" />
       <TextField fx:id="emailTextField" layoutX="222.0" layoutY="122.0" />
       <Label layoutX="115.0" layoutY="192.0" text="phone" />
+<<<<<<< Updated upstream
      <!--   <Button fx:id="exit" layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#ExitButton" text="exit" />  -->
 
+=======
+>>>>>>> Stashed changes
     </children>
 </AnchorPane>

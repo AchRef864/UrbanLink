@@ -7,8 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 public class HelloAdminController {
     @FXML
     public void OpenInsertPageAction(ActionEvent event) {
@@ -36,7 +39,10 @@ public class HelloAdminController {
         }
     }
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 }

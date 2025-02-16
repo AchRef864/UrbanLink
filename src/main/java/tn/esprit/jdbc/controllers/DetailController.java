@@ -2,20 +2,36 @@ package tn.esprit.jdbc.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+import javafx.stage.Stage;
+
 
 public class DetailController {
 
     @FXML
     private TextField nomTextField;
 
-    @FXML
-    private TextField prenomTextField;
-
     public void setNomTextField(String nom) {
         this.nomTextField.setText(nom);
     }
 
-    public void setPrenomTextField(String prenom) {
-        this.prenomTextField.setText(prenom);
+
+    @FXML
+    private TextField phoneTextField;
+
+    public void setEmailTextField(String email){
+        this.emailTextField.setText(email);
     }
+
+    @FXML
+    private TextField emailTextField;
+
+    public void setPhoneTextField(String phone ){
+        this.phoneTextField.setText(phone);
+    }
+
+
+
 }
+
+

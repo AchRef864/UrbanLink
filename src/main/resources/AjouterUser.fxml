@@ -5,13 +5,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.AjouterUserController">
+<AnchorPane prefHeight="396.0" prefWidth="594.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.AjouterUserController">
     <children>
         <TextField fx:id="nomTextField" layoutX="222.0" layoutY="66.0" />
-        <TextField fx:id="prenomTextField" layoutX="225.0" layoutY="134.0" />
+        <TextField fx:id="phoneTextField" layoutX="222.0" layoutY="188.0" />
+
         <Label layoutX="115.0" layoutY="70.0" text="Nom" />
-        <Label layoutX="115.0" layoutY="138.0" text="Prenom" />
-        <Button layoutX="273.0" layoutY="227.0" mnemonicParsing="false" onAction="#ajouteUserAction" text="Valider" />
+        <Label layoutX="115.0" layoutY="138.0" text="email" />
+        <Button layoutX="273.0" layoutY="314.0" mnemonicParsing="false" onAction="#ajouteUserAction" text="Valider" />
+      <TextField fx:id="emailTextField" layoutX="222.0" layoutY="122.0" />
+      <Label layoutX="115.0" layoutY="192.0" text="phone" />
+     <!--   <Button fx:id="exit" layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#ExitButton" text="exit" />  -->
+
     </children>
 </AnchorPane>

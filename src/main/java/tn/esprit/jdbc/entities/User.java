@@ -6,7 +6,6 @@ public class User {
     private String email;
     private String phone;
     private String password;
-
     // Default constructor (required for JavaBeans)
     public User() {
     }

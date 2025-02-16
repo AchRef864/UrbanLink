@@ -1,5 +1,6 @@
 package tn.esprit.jdbc.controllers;
 
+import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.UserService;
 import javafx.event.ActionEvent;
@@ -18,15 +19,21 @@ public class AjouterUserController {
     private TextField nomTextField;
 
     @FXML
-    private TextField prenomTextField;
+    private TextField emailTextField;
+
+    @FXML
+    private TextField phoneTextField;
+
+
 
     @FXML
     void ajouteUserAction(ActionEvent event) {
         String nom = nomTextField.getText();
-        String prenom = prenomTextField.getText();
+        String email = emailTextField.getText();
+        String phone = phoneTextField.getText();
 
         // Use the correct constructor
-        User user = new User(nom, prenom, null, null); // Assuming phone and password are not required
+        User user = new User(nom, email, phone, null);
 
         UserService serviceUser = new UserService();
         try {
@@ -39,10 +46,15 @@ public class AjouterUserController {
             // Load the Detail.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Detail.fxml"));
             Parent root = loader.load();
+
             DetailController detailController = loader.getController();
+            // from the Detail controller
             detailController.setNomTextField(nom);
-            detailController.setPrenomTextField(prenom);
+            detailController.setEmailTextField(email);
+            detailController.setPhoneTextField(phone) ;
+            //Test field --+
             nomTextField.getScene().setRoot(root);
+
         } catch (SQLException | IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");

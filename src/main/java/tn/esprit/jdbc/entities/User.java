@@ -10,6 +10,10 @@ public class User {
     // Default constructor (required for JavaBeans)
     public User() {
     }
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
 
     // Parameterized constructor
     public User(String name, String email, String phone, String password) {

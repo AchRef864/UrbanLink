@@ -10,7 +10,6 @@ import java.util.List;
 public class UserService implements CRUD<User> {
 
     private Connection cnx = MyDatabase.getInstance().getCnx();
-    private Statement st;
     private PreparedStatement ps;
 
     @Override
@@ -92,7 +91,7 @@ public class UserService implements CRUD<User> {
         List<User> temp = new ArrayList<>();
 
         String req = "SELECT * FROM `users`";
-        st = cnx.createStatement();
+        Statement st = cnx.createStatement();
         ResultSet rs = st.executeQuery(req);
 
         while (rs.next()) {

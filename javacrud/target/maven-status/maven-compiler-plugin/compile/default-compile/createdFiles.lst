@@ -1,3 +1,4 @@
+tn\esprit\jdbc\controller\AddAvisController$1.class
 tn\esprit\jdbc\controller\MainController.class
 tn\esprit\jdbc\MainApp.class
 tn\esprit\jdbc\controller\AvisTableController$1$1.class
@@ -8,3 +9,4 @@ tn\esprit\jdbc\controller\DetailController.class
 tn\esprit\jdbc\controller\AvisTableController$2.class
 tn\esprit\jdbc\controller\UpdateAvisController.class
 tn\esprit\jdbc\controller\AvisTableController$1.class
+tn\esprit\jdbc\controller\UpdateAvisController$1.class

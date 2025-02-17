@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,9 +11,9 @@
         <Label layoutX="143.0" layoutY="50.0" text="Commentaire"/>
         <TextField fx:id="commentaireTextField" layoutX="143.0" layoutY="70.0" />
         <Label layoutX="144.0" layoutY="115.0" text="Note"/>
-        <TextField fx:id="noteTextField" layoutX="144.0" layoutY="135.0" />
+        <ComboBox fx:id="noteComboBox" layoutX="144.0" layoutY="135.0" />
         <Label layoutX="144.0" layoutY="180.0" text="User ID"/>
-        <TextField fx:id="userIdTextField" layoutX="144.0" layoutY="200.0" />
-        <Button layoutX="144.0" layoutY="250.0" text="Add Review" onAction="#ajouteAvisAction"/>
+        <ComboBox fx:id="userIdComboBox" layoutX="144.0" layoutY="200.0" />
+        <Button fx:id="addReviewButton" layoutX="144.0" layoutY="250.0" text="Add Review" onAction="#ajouteAvisAction"/>
     </children>
 </AnchorPane>

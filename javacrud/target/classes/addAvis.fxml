@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.addAvisController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.AddAvisController">
     <children>
         <Label layoutX="143.0" layoutY="50.0" text="Commentaire"/>
         <TextField fx:id="commentaireTextField" layoutX="143.0" layoutY="70.0" />
@@ -13,9 +13,6 @@
         <TextField fx:id="noteTextField" layoutX="144.0" layoutY="135.0" />
         <Label layoutX="144.0" layoutY="180.0" text="User ID"/>
         <TextField fx:id="userIdTextField" layoutX="144.0" layoutY="200.0" />
-        <Button layoutX="144.0" layoutY="265.0" text="Add Review" onAction="#ajouteAvisAction"/>
-        <Button layoutX="244.0" layoutY="265.0" text="Delete Review" onAction="#deleteAvisAction"/>
-        <TextField fx:id="avisIdTextField" layoutX="344.0" layoutY="265.0" promptText="Avis ID"/>
-        <Button layoutX="144.0" layoutY="315.0" text="Update Review" onAction="#updateAvisAction"/>
+        <Button layoutX="144.0" layoutY="250.0" text="Add Review" onAction="#ajouteAvisAction"/>
     </children>
 </AnchorPane>

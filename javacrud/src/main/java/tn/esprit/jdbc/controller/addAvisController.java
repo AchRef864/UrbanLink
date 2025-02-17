@@ -4,16 +4,13 @@ import tn.esprit.jdbc.entities.Avis;
 import tn.esprit.jdbc.services.AvisService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
 
-public class addAvisController {
+public class AddAvisController {
 
     @FXML
     private TextField commentaireTextField;
@@ -24,8 +21,11 @@ public class addAvisController {
     @FXML
     private TextField userIdTextField;
 
-    @FXML
-    private TextField avisIdTextField;
+    private AvisTableController avisTableController;
+
+    public void setAvisTableController(AvisTableController avisTableController) {
+        this.avisTableController = avisTableController;
+    }
 
     @FXML
     void ajouteAvisAction(ActionEvent event) {
@@ -43,56 +43,12 @@ public class addAvisController {
             alert.setHeaderText("Review added successfully");
             alert.showAndWait();
 
-            // Load the Detail.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Detail.fxml"));
-            Parent root = loader.load();
-            DetailController detailController = loader.getController();
-            detailController.setCommentaireTextField(commentaire);
-            detailController.setNoteTextField(String.valueOf(note));
-            commentaireTextField.getScene().setRoot(root);
-        } catch (SQLException | IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error adding review");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-            System.err.println(e.getMessage());
-        }
-    }
-
-    @FXML
-    void deleteAvisAction(ActionEvent event) {
-        int avisId = Integer.parseInt(avisIdTextField.getText());
-
-        AvisService avisService = new AvisService();
-        try {
-            Avis avisToDelete = new Avis();
-            avisToDelete.setAvis_id(avisId);
-            avisService.delete(avisToDelete);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information");
-            alert.setHeaderText("Review deleted successfully");
-            alert.showAndWait();
+            // Reload the table data
+            avisTableController.loadAvisData();
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Error deleting review");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-            System.err.println(e.getMessage());
-        }
-    }
-
-    @FXML
-    void updateAvisAction(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateAvis.fxml"));
-            Parent root = loader.load();
-            avisIdTextField.getScene().setRoot(root);
-        } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error loading update interface");
+            alert.setHeaderText("Error adding review");
             alert.setContentText(e.getMessage());
             alert.showAndWait();
             System.err.println(e.getMessage());

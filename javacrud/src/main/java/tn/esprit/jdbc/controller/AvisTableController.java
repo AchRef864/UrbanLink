@@ -64,7 +64,7 @@ public class AvisTableController {
         loadAvisData();
     }
 
-    private void loadAvisData() {
+    public void loadAvisData() {
         try {
             List<Avis> avisList = avisService.showAll();
             ObservableList<Avis> avisObservableList = FXCollections.observableArrayList(avisList);
@@ -158,7 +158,7 @@ public class AvisTableController {
         }
     }
 
-    private void deleteAvis(Avis avis) {
+    public void deleteAvis(Avis avis) {
         try {
             avisService.delete(avis);
             loadAvisData();
@@ -171,7 +171,13 @@ public class AvisTableController {
     @FXML
     private void createAvisAction(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/addAvis.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/addAvis.fxml"));
+            Parent root = loader.load();
+
+            // Pass the current controller to the AddAvisController
+            AddAvisController addAvisController = loader.getController();
+            addAvisController.setAvisTableController(this);
+
             Stage stage = new Stage();
             stage.setTitle("Add Avis");
             stage.setScene(new Scene(root));

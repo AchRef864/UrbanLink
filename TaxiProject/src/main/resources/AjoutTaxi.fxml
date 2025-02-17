@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjoutTaxiController">
+    <children>
+        <Label layoutX="50.0" layoutY="30.0" text="Immatriculation:"/>
+        <TextField fx:id="txtImmatriculation" layoutX="200.0" layoutY="25.0"/>
+
+        <Label layoutX="50.0" layoutY="70.0" text="Marque:"/>
+        <TextField fx:id="txtMarque" layoutX="200.0" layoutY="65.0"/>
+
+        <Label layoutX="50.0" layoutY="110.0" text="Modèle:"/>
+        <TextField fx:id="txtModele" layoutX="200.0" layoutY="105.0"/>
+
+        <Label layoutX="50.0" layoutY="150.0" text="Année de fabrication:"/>
+        <TextField fx:id="txtAnnee" layoutX="200.0" layoutY="145.0"/>
+
+        <Label layoutX="50.0" layoutY="190.0" text="Capacité:"/>
+        <TextField fx:id="txtCapacite" layoutX="200.0" layoutY="185.0"/>
+
+        <Label layoutX="50.0" layoutY="230.0" text="Zone desserte:"/>
+        <TextField fx:id="txtZone" layoutX="200.0" layoutY="225.0"/>
+
+        <Button fx:id="btnAjouter" layoutX="200.0" layoutY="280.0" text="Ajouter Taxi" onAction="#ajouterTaxi"/>
+    </children>
+</AnchorPane>

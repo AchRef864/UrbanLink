@@ -17,7 +17,7 @@ public class ServiceTaxi implements CrudService <Taxi> {
     @Override
     public void ajouter(Taxi taxi) throws SQLException {
         String query = "INSERT INTO taxi (immatriculation, marque, modele, annee_fabrication, capacite, zone_desserte, statut, licence_numero, licence_date_obtention, tarif_base) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+        try (PreparedStatement pstmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, taxi.getImmatriculation());
             pstmt.setString(2, taxi.getMarque());
             pstmt.setString(3, taxi.getModele());
@@ -30,9 +30,17 @@ public class ServiceTaxi implements CrudService <Taxi> {
             pstmt.setDouble(10, taxi.getTarifBase());
 
             pstmt.executeUpdate();
-            System.out.println("Taxi ajouté avec succès !");
+
+            // 🔍 Récupération de l'ID généré
+            ResultSet generatedKeys = pstmt.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                taxi.setIdTaxi(generatedKeys.getInt(1));  // Mise à jour de l'objet Taxi
+            }
+
+            System.out.println("Taxi ajouté avec succès ! ID: " + taxi.getIdTaxi());
         }
     }
+
 
     @Override
     public void modifier(Taxi taxi) throws SQLException {

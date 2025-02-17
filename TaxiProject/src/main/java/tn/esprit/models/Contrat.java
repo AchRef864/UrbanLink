@@ -76,8 +76,13 @@ public class Contrat {
     }
 
     public void setStatut(String statut) {
-        this.statut = statut;
+        if (statut.equals("Active") || statut.equals("Terminated") || statut.equals("Cancelled")) {
+            this.statut = statut;
+        } else {
+            throw new IllegalArgumentException("Statut invalide : " + statut);
+        }
     }
+
 
     @Override
     public String toString() {

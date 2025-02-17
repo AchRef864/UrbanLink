@@ -6,24 +6,27 @@ public class User {
     private String email;
     private String phone;
     private String password;
+    private int admin;
 
     // Constructeur par défaut
     public User() {}
 
     // Constructeur avec paramètres
-    public User(String name, String email, String phone, String password) {
+    public User(String name, String email, String phone, String password , int admin) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.password = password;
+        this.admin = admin;
     }
 
-    public User(int userId, String name, String email, String phone, String password) {
+    public User(int userId, String name, String email, String phone, String password , int admin) {
         this.user_id = userId;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.password = password;
+        this.admin = admin;
     }
 
     // Getters & Setters (avec underscore)
@@ -65,6 +68,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public int getAdmin() {
+        return admin;
+    }
+    public void setAdmin(int admin) {
+        this.admin = admin;
     }
 
     @Override

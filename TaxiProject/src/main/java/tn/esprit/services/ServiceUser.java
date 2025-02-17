@@ -17,7 +17,7 @@ public class ServiceUser implements CrudService<User> {
 
     @Override
     public void ajouter(User user) throws SQLException {
-        String query = "INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO users (name, email, phone, password, admin) VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, user.getName());
@@ -31,6 +31,8 @@ public class ServiceUser implements CrudService<User> {
             }
 
             pstmt.setString(4, user.getPassword());
+            pstmt.setInt(5, user.getAdmin());
+
             pstmt.executeUpdate();
 
             // Récupération de l'ID auto-généré
@@ -44,13 +46,12 @@ public class ServiceUser implements CrudService<User> {
 
     @Override
     public void modifier(User user) throws SQLException {
-        String query = "UPDATE users SET name=?, email=?, phone=?, password=? WHERE user_id=?";
+        String query = "UPDATE users SET name=?, email=?, phone=?, password=?, admin=? WHERE user_id=?";
 
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setString(1, user.getName());
             pstmt.setString(2, user.getEmail());
 
-            // Gestion du numéro nullable
             if(user.getPhone() == null || user.getPhone().isEmpty()) {
                 pstmt.setNull(3, Types.VARCHAR);
             } else {
@@ -58,7 +59,8 @@ public class ServiceUser implements CrudService<User> {
             }
 
             pstmt.setString(4, user.getPassword());
-            pstmt.setInt(5, user.getuser_id());
+            pstmt.setInt(5, user.getAdmin());
+            pstmt.setInt(6, user.getuser_id());
 
             pstmt.executeUpdate();
         }
@@ -87,8 +89,9 @@ public class ServiceUser implements CrudService<User> {
                         rs.getInt("user_id"),
                         rs.getString("name"),
                         rs.getString("email"),
-                        rs.getString("phone"), // Peut être null
-                        rs.getString("password")
+                        rs.getString("phone"),
+                        rs.getString("password"),
+                        rs.getInt("admin")
                 );
                 users.add(user);
             }
@@ -96,7 +99,6 @@ public class ServiceUser implements CrudService<User> {
         return users;
     }
 
-    // Méthode supplémentaire pour trouver par email
     public User trouverParEmail(String email) throws SQLException {
         String query = "SELECT * FROM users WHERE email = ?";
 
@@ -110,7 +112,32 @@ public class ServiceUser implements CrudService<User> {
                             rs.getString("name"),
                             rs.getString("email"),
                             rs.getString("phone"),
-                            rs.getString("password")
+                            rs.getString("password"),
+                            rs.getInt("admin")
+                    );
+                }
+            }
+        }
+        return null;
+    }
+
+    // Méthode supplémentaire pour vérifier les identifiants
+    public User authentifier(String email, String password) throws SQLException {
+        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setString(1, email);
+            pstmt.setString(2, password);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return new User(
+                            rs.getInt("user_id"),
+                            rs.getString("name"),
+                            rs.getString("email"),
+                            rs.getString("phone"),
+                            rs.getString("password"),
+                            rs.getInt("admin")
                     );
                 }
             }

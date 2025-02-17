@@ -6,11 +6,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="464.0" prefWidth="859.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.EditUserController">
-    <children>
-        <!-- TableView to display the users table -->
-        <TableView fx:id="userTable" layoutX="50.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0">
+<AnchorPane prefHeight="616.0" prefWidth="990.0" style="-fx-background-color: #003D29;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.EditUserController">
+    <VBox alignment="CENTER" layoutX="50" layoutY="30" prefHeight="536.0" prefWidth="908.0" spacing="15">
+
+        <!-- Title -->
+        <Label style="-fx-font-size: 25px; -fx-font-weight: bold;" text="Gestion des utilisateurs" textFill="#3498DB" />
+
+        <!-- TableView -->
+        <TableView fx:id="userTable" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: #1E2F23; -fx-text-fill: white;">
             <columns>
                 <TableColumn fx:id="userIdColumn" prefWidth="100.0" text="User ID" />
                 <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Name" />
@@ -20,14 +26,26 @@
             </columns>
         </TableView>
 
-        <!-- TextField and Button for deleting a user -->
-        <Label layoutX="50.0" layoutY="370.0" text="Enter User ID to Delete:" />
-        <TextField fx:id="userIdTextField" layoutX="253.0" layoutY="368.0" promptText="User ID" />
-        <Button layoutX="444.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
-<<<<<<< Updated upstream
-        <!--   <Button fx:id="exit" layoutX="524.0" layoutY="14.0" mnemonicParsing="false" onAction="#ExitButton" text="exit" />  -->
+        <!-- Delete Section -->
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Entrer l'ID à supprimer:" textFill="white" />
+            <TextField fx:id="userIdTextField" promptText="User ID" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
+            <Button onAction="#handleDeleteButton" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Supprimer" />
+        </HBox>
 
-=======
->>>>>>> Stashed changes
-    </children>
+        <!-- Edit Section -->
+        <HBox alignment="CENTER" spacing="10">
+            <Button onAction="#handleEditButton" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Modifier" />
+        </HBox>
+
+        <!-- Editable Fields -->
+        <VBox fx:id="editFields" alignment="CENTER" spacing="10" visible="false">
+            <TextField fx:id="editNameTextField" promptText="Nom" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
+            <TextField fx:id="editEmailTextField" promptText="Email" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
+            <TextField fx:id="editPhoneTextField" promptText="Phone" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
+            <TextField fx:id="editPasswordTextField" promptText="Password" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
+            <Button onAction="#handleUpdateButton" style="-fx-background-color: #2ECC71; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Confirmer la modification" />
+        </VBox>
+
+    </VBox>
 </AnchorPane>

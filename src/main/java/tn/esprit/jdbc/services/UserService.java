@@ -14,13 +14,14 @@ public class UserService implements CRUD<User> {
 
     @Override
     public int insert(User user) throws SQLException {
-        String req = "INSERT INTO `users`(`name`, `email`, `phone`, `password`) VALUES (?, ?, ?, ?)";
+        String req = "INSERT INTO `users`(`name`, `email`, `phone`, `password`, `admin`) VALUES (?, ?, ?, ?, ?)";
 
         ps = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
         ps.setString(1, user.getName());
         ps.setString(2, user.getEmail());
         ps.setString(3, user.getPhone());
         ps.setString(4, user.getPassword());
+        ps.setInt(5, user.getAdmin()); // Add the admin field
 
         int rowsAffected = ps.executeUpdate();
 
@@ -35,7 +36,6 @@ public class UserService implements CRUD<User> {
 
         return rowsAffected;
     }
-
     @Override
     public int update(User user) throws SQLException {
         // Start building the SQL query dynamically based on non-null fields
@@ -106,5 +106,26 @@ public class UserService implements CRUD<User> {
         }
 
         return temp;
+    }
+
+    public User authenticate(String email, String password) throws SQLException {
+        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new User(
+                        rs.getInt("user_id"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("phone"),
+                        rs.getString("password"),
+                        rs.getInt("admin")
+                );
+            }
+        }
+        return null; // User not found
     }
 }

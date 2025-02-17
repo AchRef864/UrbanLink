@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="644.0" prefWidth="717.0" style="-fx-background-color: #003D29;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.LoginController">
+    <VBox alignment="CENTER" layoutX="110.0" layoutY="50.0" prefHeight="545.0" prefWidth="511.0" spacing="15.0">
+        <!-- Title -->
+        <Label style="-fx-font-size: 24px; -fx-font-family: Arial;" text="Login" textFill="WHITE" />
+
+        <!-- Email Field -->
+        <Label alignment="CENTER" text="Email:" textAlignment="CENTER" textFill="WHITE" />
+        <TextField fx:id="emailTextField" promptText="Enter your email" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
+
+        <!-- Password Field -->
+        <Label text="Password:" textFill="WHITE" />
+        <PasswordField fx:id="passwordTextField" promptText="Enter your password" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
+
+        <!-- Login Button -->
+        <Button onAction="#handleLoginButton" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Login" />
+    </VBox>
+</AnchorPane>

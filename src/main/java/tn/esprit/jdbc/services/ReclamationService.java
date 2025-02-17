@@ -37,11 +37,12 @@ public class ReclamationService implements CRUD<Reclamation> {
 
     @Override
     public int update(Reclamation reclamation) throws SQLException {
-        String req = "UPDATE `reclamation` SET `sujet` = ?, `description` = ? WHERE `reclamation_id` = ?";
+        String req = "UPDATE `reclamation` SET `sujet` = ?, `description` = ?, `reponse_reclamation` = ? WHERE `reclamation_id` = ?";
         ps = cnx.prepareStatement(req);
         ps.setString(1, reclamation.getSujet());
         ps.setString(2, reclamation.getDescription());
-        ps.setInt(3, reclamation.getReclamationId());
+        ps.setString(3, reclamation.getReponseReclamation());
+        ps.setInt(4, reclamation.getReclamationId());
         return ps.executeUpdate();
     }
 
@@ -68,6 +69,7 @@ public class ReclamationService implements CRUD<Reclamation> {
             reclamation.setSujet(rs.getString("sujet"));
             reclamation.setDescription(rs.getString("description"));
             reclamation.setDateReclamation(rs.getTimestamp("date_reclamation"));
+            reclamation.setReponseReclamation(rs.getString("reponse_reclamation"));
 
             temp.add(reclamation);
         }
@@ -91,10 +93,31 @@ public class ReclamationService implements CRUD<Reclamation> {
             reclamation.setSujet(rs.getString("sujet"));
             reclamation.setDescription(rs.getString("description"));
             reclamation.setDateReclamation(rs.getTimestamp("date_reclamation"));
+            reclamation.setReponseReclamation(rs.getString("reponse_reclamation"));
 
             temp.add(reclamation);
         }
 
         return temp;
+    }
+
+    public Reclamation getLastReclamationByUserId(int userId) throws SQLException {
+        String query = "SELECT * FROM reclamation WHERE user_id = ? ORDER BY date_reclamation DESC LIMIT 1";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Reclamation reclamation = new Reclamation();
+                reclamation.setReclamationId(rs.getInt("reclamation_id"));
+                reclamation.setUserId(rs.getInt("user_id"));
+                reclamation.setSujet(rs.getString("sujet"));
+                reclamation.setDescription(rs.getString("description"));
+                reclamation.setDateReclamation(rs.getTimestamp("date_reclamation"));
+                reclamation.setReponseReclamation(rs.getString("reponse_reclamation"));
+                return reclamation;
+            }
+        }
+        return null; // No reclamation found
     }
 }

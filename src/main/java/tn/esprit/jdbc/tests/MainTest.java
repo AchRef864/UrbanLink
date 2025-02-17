@@ -14,7 +14,7 @@ public class MainTest {
 
         try {
             // Test inserting a new user
-            User newUser = new User("John", "john.doe@example.com", "123456789", "password123");
+            User newUser = new User("John", "john.doe@example.com", "123456789", "password123", 0);
             int rowsInserted = userService.insert(newUser);
             System.out.println(rowsInserted + " user inserted successfully!");
 
@@ -27,7 +27,7 @@ public class MainTest {
             userService.showAll().forEach(System.out::println);
 
             // Test updating a user
-            User userToUpdate = new User(userId, "John Updated", "john.updated@example.com", "987654321", "newpassword");
+            User userToUpdate = new User(userId, "John Updated", "john.updated@example.com", "987654321", "newpassword", 0);
             int rowsUpdated = userService.update(userToUpdate);
             System.out.println(rowsUpdated + " user updated successfully!");
 

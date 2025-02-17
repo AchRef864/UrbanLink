@@ -2,21 +2,18 @@ package tn.esprit.jdbc.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-<<<<<<< Updated upstream
-import javafx.event.ActionEvent;
-=======
->>>>>>> Stashed changes
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-<<<<<<< Updated upstream
-import javafx.stage.Stage;
-=======
->>>>>>> Stashed changes
+import javafx.scene.layout.VBox;
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.UserService;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 
 import java.sql.SQLException;
 
@@ -42,6 +39,21 @@ public class EditUserController {
 
     @FXML
     private TextField userIdTextField;
+
+    @FXML
+    private VBox editFields;
+
+    @FXML
+    private TextField editNameTextField;
+
+    @FXML
+    private TextField editEmailTextField;
+
+    @FXML
+    private TextField editPhoneTextField;
+
+    @FXML
+    private TextField editPasswordTextField;
 
     private UserService userService = new UserService();
 
@@ -90,9 +102,95 @@ public class EditUserController {
             System.err.println("Error deleting user: " + e.getMessage());
         }
     }
-<<<<<<< Updated upstream
 
+    @FXML
+    public void handleEditButton() {
+        // Get the selected user from the TableView
+        User selectedUser = userTable.getSelectionModel().getSelectedItem();
 
-=======
->>>>>>> Stashed changes
+        if (selectedUser != null) {
+            // Populate the editable fields with the selected user's data
+            editNameTextField.setText(selectedUser.getName());
+            editEmailTextField.setText(selectedUser.getEmail());
+            editPhoneTextField.setText(selectedUser.getPhone());
+            editPasswordTextField.setText(selectedUser.getPassword());
+
+            // Show the editable fields
+            editFields.setVisible(true);
+        } else {
+            System.err.println("No user selected.");
+        }
+    }
+
+    @FXML
+    public void handleUpdateButton() {
+        try {
+            // Get the selected user from the TableView
+            User selectedUser = userTable.getSelectionModel().getSelectedItem();
+
+            if (selectedUser != null) {
+                // Validate input fields
+                String email = editEmailTextField.getText();
+                String phone = editPhoneTextField.getText();
+                String password = editPasswordTextField.getText();
+
+                if (!isValidEmail(email)) {
+                    showAlert("Invalid Email", "Email must contain '@'.");
+                    return;
+                }
+
+                if (!isValidPhone(phone)) {
+                    showAlert("Invalid Phone", "Phone must be a number of 8 digits.");
+                    return;
+                }
+
+                if (!isValidPassword(password)) {
+                    showAlert("Invalid Password", "Password must be at least 8 characters long.");
+                    return;
+                }
+
+                // Update the user's data with the values from the text fields
+                selectedUser.setName(editNameTextField.getText());
+                selectedUser.setEmail(email);
+                selectedUser.setPhone(phone);
+                selectedUser.setPassword(password);
+
+                // Update the user in the database using your dynamic update method
+                userService.update(selectedUser);
+
+                // Reload the data in the TableView
+                loadUserData();
+
+                // Hide the editable fields
+                editFields.setVisible(false);
+
+                System.out.println("User updated successfully!");
+            } else {
+                System.err.println("No user selected.");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error updating user: " + e.getMessage());
+        }
+    }
+
+    // Input validation methods
+    private boolean isValidEmail(String email) {
+        return email != null && email.contains("@");
+    }
+
+    private boolean isValidPhone(String phone) {
+        return phone != null && phone.matches("\\d{8}");
+    }
+
+    private boolean isValidPassword(String password) {
+        return password != null && password.length() >= 8;
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

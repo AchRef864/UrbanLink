@@ -7,14 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
 public class HelloAdminController {
+
     @FXML
-    public void OpenInsertPageAction(ActionEvent event) {
+    private void OpenInsertPageAction(ActionEvent event) {
         try {
             // Load the Insert page
             Parent root = FXMLLoader.load(getClass().getResource("/AjouterUser.fxml"));
@@ -27,9 +23,9 @@ public class HelloAdminController {
     }
 
     @FXML
-    public void OpenEditPageAction(ActionEvent event) {
+    private void OpenEditPageAction(ActionEvent event) {
         try {
-            // Load the Insert page
+            // Load the Edit page
             Parent root = FXMLLoader.load(getClass().getResource("/EditUser.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -39,10 +35,15 @@ public class HelloAdminController {
         }
     }
 
-<<<<<<< Updated upstream
-
-
-
-=======
->>>>>>> Stashed changes
+    @FXML
+    private void OpenReclamationResponsePageAction(ActionEvent event) {
+        try {
+            // Load the Reclamation Response page
+            Parent root = FXMLLoader.load(getClass().getResource("/AdminReclamationResponse.fxml"));
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

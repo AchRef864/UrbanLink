@@ -5,11 +5,7 @@
     -fx-background-color: #f4f4f4; /* Light gray background */
 }
 
-<<<<<<< Updated upstream
 /* Default style for all buttons */
-=======
-/* Style for buttons */
->>>>>>> Stashed changes
 .button {
     -fx-background-color: #4CAF50; /* Green background */
     -fx-text-fill: white; /* White text */
@@ -18,16 +14,11 @@
     -fx-border-radius: 5px;
 }
 
-<<<<<<< Updated upstream
 /* Hover effect for green buttons */
-=======
-/* Hover effect for buttons */
->>>>>>> Stashed changes
 .button:hover {
     -fx-background-color: #45a049; /* Darker green on hover */
 }
 
-<<<<<<< Updated upstream
 /* Style specifically for the exit button */
 #exit {
     -fx-background-color: #d32f2f; /* Red background */
@@ -38,8 +29,6 @@
     -fx-background-color: #b71c1c; /* Darker red on hover */
 }
 
-=======
->>>>>>> Stashed changes
 /* Style for text fields */
 .text-field {
     -fx-background-color: white;
@@ -58,8 +47,4 @@
 /* Style for the AnchorPane (if used) */
 .anchor-pane {
     -fx-background-color: #e0e0e0; /* Light gray background */
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes

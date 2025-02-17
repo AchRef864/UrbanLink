@@ -92,4 +92,28 @@ public class ReponseService implements CRUD<Reponse> {
         }
         return temp;
     }
+
+    public List<Reponse> getReponsesByAvisId(int avisId) throws SQLException {
+        List<Reponse> reponses = new ArrayList<>();
+        String req = "SELECT * FROM `reponse` WHERE `avis_id` = ?";
+        try {
+            ps = cnx.prepareStatement(req);
+            ps.setInt(1, avisId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Reponse r = new Reponse();
+                r.setReponse_id(rs.getInt("reponse_id"));
+                r.setCommentaire(rs.getString("commentaire"));
+                r.setDate_reponse(rs.getDate("date_reponse"));
+                r.setAvis_id(rs.getInt("avis_id"));
+                r.setUser_id(rs.getInt("user_id"));
+                reponses.add(r);
+            }
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return reponses;
+    }
 }

@@ -81,4 +81,12 @@ public class ServiceContrat implements CrudService<Contrat> {
         }
         return contrats;
     }
+    public boolean contratExiste(int idTaxi) throws SQLException {
+        String query = "SELECT COUNT(*) FROM contrat WHERE id_taxi = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setInt(1, idTaxi);
+            ResultSet rs = pstmt.executeQuery();
+            return rs.next() && rs.getInt(1) > 0;
+        }
+    }
 }

@@ -1,0 +1,50 @@
+/* styles.css */
+
+/* Style for the root pane (background) */
+.root {
+    -fx-background-color: #f4f4f4; /* Light gray background */
+}
+
+/* Default style for all buttons */
+.button {
+    -fx-background-color: #4CAF50; /* Green background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+}
+
+/* Hover effect for green buttons */
+.button:hover {
+    -fx-background-color: #45a049; /* Darker green on hover */
+}
+
+/* Style specifically for the exit button */
+#exit {
+    -fx-background-color: #d32f2f; /* Red background */
+}
+
+/* Hover effect for the exit button */
+#exit:hover {
+    -fx-background-color: #b71c1c; /* Darker red on hover */
+}
+
+/* Style for text fields */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+/* Style for labels */
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333; /* Dark gray text */
+    -fx-font-weight: bold;
+}
+
+/* Style for the AnchorPane (if used) */
+.anchor-pane {
+    -fx-background-color: #e0e0e0; /* Light gray background */
+}

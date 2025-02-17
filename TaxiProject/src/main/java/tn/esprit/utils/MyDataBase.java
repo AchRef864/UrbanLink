@@ -18,11 +18,11 @@ public class MyDataBase {
         try {
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println(" Connexion à la base de données établie");
+            System.out.println("Connexion à la base de données établie");
         } catch (ClassNotFoundException e) {
-            System.err.println(" Driver JDBC introuvable : " + e.getMessage());
+            System.err.println("Driver JDBC introuvable : " + e.getMessage());
         } catch (SQLException e) {
-            System.err.println(" Erreur de connexion : " + e.getMessage());
+            System.err.println("Erreur de connexion : " + e.getMessage());
         }
     }
 
@@ -48,7 +48,7 @@ public class MyDataBase {
                 System.out.println("🔌 Connexion fermée avec succès");
             }
         } catch (SQLException e) {
-            System.err.println(" Erreur lors de la fermeture : " + e.getMessage());
+            System.err.println("Erreur lors de la fermeture : " + e.getMessage());
         }
     }
 }

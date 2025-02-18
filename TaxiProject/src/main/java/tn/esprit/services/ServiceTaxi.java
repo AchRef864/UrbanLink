@@ -137,4 +137,55 @@ public class ServiceTaxi implements CrudService<Taxi> {
         }
         return taxis;
     }
+    public Taxi getTaxiById(int id) throws SQLException {
+        String query = "SELECT * FROM taxi WHERE id_taxi = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return new Taxi(
+                            rs.getInt("id_taxi"),
+                            rs.getString("immatriculation"),
+                            rs.getString("marque"),
+                            rs.getString("modele"),
+                            rs.getInt("annee_fabrication"),
+                            rs.getInt("capacite"),
+                            rs.getString("zone_desserte"),
+                            rs.getString("statut"),
+                            rs.getString("licence_numero"),
+                            rs.getDate("licence_date_obtention").toLocalDate(),
+                            rs.getDouble("tarif_base")
+                    );
+                }
+                throw new SQLException("Taxi non trouvé");
+            }
+        }
+    }
+
+    public List<Taxi> getAllTaxis() throws SQLException {
+        List<Taxi> taxis = new ArrayList<>();
+        String query = "SELECT * FROM taxi";
+
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
+            while (rs.next()) {
+                Taxi taxi = new Taxi(
+                        rs.getInt("id_taxi"),
+                        rs.getString("immatriculation"),
+                        rs.getString("marque"),
+                        rs.getString("modele"),
+                        rs.getInt("annee_fabrication"),
+                        rs.getInt("capacite"),
+                        rs.getString("zone_desserte"),
+                        rs.getString("statut"),
+                        rs.getString("licence_numero"),
+                        rs.getDate("licence_date_obtention").toLocalDate(),
+                        rs.getDouble("tarif_base")
+                );
+                taxis.add(taxi);
+            }
+        }
+        return taxis;
+    }
 }

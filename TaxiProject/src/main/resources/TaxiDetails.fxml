@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.controllers.TaxiDetailsController">
+
+    <VBox spacing="10.0" layoutX="20.0" layoutY="20.0">
+        <Label text="Détails du Taxi" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+        <Label text="ID: " fx:id="lblId"/>
+        <Label text="Immatriculation: " fx:id="lblImmatriculation"/>
+        <Label text="Marque: " fx:id="lblMarque"/>
+        <Label text="Modèle: " fx:id="lblModele"/>
+        <Label text="Année: " fx:id="lblAnnee"/>
+        <Label text="Capacité: " fx:id="lblCapacite"/>
+        <Label text="Zone: " fx:id="lblZone"/>
+        <Label text="Statut: " fx:id="lblStatut"/>
+        <Label text="Licence: " fx:id="lblLicence"/>
+        <Label text="Date Licence: " fx:id="lblDateLicence"/>
+        <Label text="Tarif de base: " fx:id="lblTarif"/>
+
+        <Button text="Fermer" onAction="#fermerDetails"
+                style="-fx-font-size: 14; -fx-pref-width: 100;"/>
+    </VBox>
+</AnchorPane>

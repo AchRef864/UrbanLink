@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServiceUser {
 
@@ -35,4 +37,28 @@ public class ServiceUser {
 
         return isAdmin;
     }
+
+    /**
+     * Vérifie si l'utilisateur est un administrateur sans se baser sur l'ID.
+     * Exemple : Cela pourrait être un utilisateur par défaut ou un rôle par défaut.
+     */
+    public boolean isUsersengeneral(int userId) {
+        boolean isUsersengeneral = false;
+        Connection cnx = MyDataBase.getInstance().getConnection();
+        String req = "SELECT user_id FROM users WHERE user_id = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(req)) {
+            ps.setInt(1, userId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    isUsersengeneral = true;
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
+    }
+        return isUsersengeneral;
+    }
+
+
 }

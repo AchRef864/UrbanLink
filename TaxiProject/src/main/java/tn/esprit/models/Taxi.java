@@ -151,4 +151,6 @@ public class Taxi {
                 ", tarifBase=" + tarifBase +
                 '}';
     }
+    // Assurez-vous que tous les getters existent
+
 }

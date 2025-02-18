@@ -18,5 +18,7 @@
 
         <Button fx:id="ajouterTaxiBtn" layoutX="252.0" layoutY="158.0"
                 onAction="#handleAjouterTaxi" text="Ajouter un Taxi" />
+        <Button fx:id="afficherListeTaxiBtn" layoutX="252.0" layoutY="200.0"
+                onAction="#handleAfficherListeTaxi" text="Afficher la liste des taxis" />
     </children>
 </AnchorPane>

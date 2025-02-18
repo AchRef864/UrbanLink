@@ -85,7 +85,7 @@ public class MainController {
                 showErrorAlert("Error loading update interface", e.getMessage());
             }
         } else {
-            showErrorAlert("No selection", "Please select an Avis to update.");
+            showErrorAlert("No selection", "Please select a review to update.");
         }
     }
 
@@ -101,7 +101,9 @@ public class MainController {
                 showErrorAlert("Error deleting review", e.getMessage());
             }
         } else {
-            showErrorAlert("No selection", "Please select an Avis to delete.");
+            showErrorAlert("No selection", "Please select " +
+                    "" +
+                    "+a review to delete.");
         }
     }
 

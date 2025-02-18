@@ -44,7 +44,7 @@ public class AddAvisController {
         noteComboBox.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5));
 
         // Populate userIdComboBox with sample user IDs
-        userIdComboBox.setItems(FXCollections.observableArrayList(Arrays.asList(1, 2, 3, 4, 5)));
+        userIdComboBox.setItems(FXCollections.observableArrayList(Arrays.asList(1, 2)));//(Arrays.asList(1, 2, 3, 4, 5)));
 
         // Add input validation for commentaireTextField
         commentaireTextField.textProperty().addListener(new ChangeListener<String>() {

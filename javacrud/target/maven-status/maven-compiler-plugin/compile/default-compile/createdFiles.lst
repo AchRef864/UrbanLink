@@ -1,10 +1,10 @@
 tn\esprit\jdbc\MainApp.class
 tn\esprit\jdbc\controller\ReponseTableController.class
+tn\esprit\jdbc\controller\UpdateReponseController$1.class
 tn\esprit\jdbc\controller\AvisTableController$2$1.class
 tn\esprit\jdbc\controller\ReponseTableController$1.class
 tn\esprit\jdbc\controller\ReponseTableController$2$1.class
 tn\esprit\jdbc\controller\UpdateReponseController.class
-tn\esprit\jdbc\controller\DetailController.class
 tn\esprit\jdbc\controller\ReponseTableController$1$1.class
 tn\esprit\jdbc\controller\AvisTableController$3$1.class
 tn\esprit\jdbc\controller\UpdateAvisController.class

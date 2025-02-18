@@ -30,8 +30,8 @@ public class AddReponseController {
     private void addReponseAction(ActionEvent event) {
         String commentaire = commentaireTextArea.getText();
 
-        if (commentaire.isEmpty()) {
-            showErrorAlert("Validation Error", "Commentaire cannot be empty");
+        if (commentaire.length() < 2) {
+            showErrorAlert("Validation Error", "Commentaire must be at least 2 characters long");
             return;
         }
 

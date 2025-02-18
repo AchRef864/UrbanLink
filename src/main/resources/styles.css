@@ -3,6 +3,7 @@
 /* Style for the root pane (background) */
 .root {
     -fx-background-color: #f4f4f4; /* Light gray background */
+    -fx-font-family: 'Poppins';
 }
 
 /* Default style for all buttons */
@@ -14,9 +15,10 @@
     -fx-border-radius: 5px;
 }
 
-/* Hover effect for green buttons */
+/* Button Hover Effect */
 .button:hover {
-    -fx-background-color: #45a049; /* Darker green on hover */
+    -fx-background-color: linear-gradient(to right, #FF4B2B, #FF416C) !important;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 65, 108, 0.5), 10, 0, 0, 0);
 }
 
 /* Style specifically for the exit button */
@@ -37,6 +39,11 @@
     -fx-padding: 5px;
 }
 
+/* Input Field Hover Effect */
+.text-field:hover, .password-field:hover {
+    -fx-border-color: #FF416C !important;
+}
+
 /* Style for labels */
 .label {
     -fx-font-size: 16px;
@@ -47,4 +54,10 @@
 /* Style for the AnchorPane (if used) */
 .anchor-pane {
     -fx-background-color: #e0e0e0; /* Light gray background */
+}
+
+/* Hyperlink Hover Effect */
+.hyperlink:hover {
+    -fx-text-fill: #FF4B2B !important;
+    -fx-underline: true;
 }

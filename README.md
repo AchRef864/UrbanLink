@@ -5,6 +5,7 @@
 
 ```
 #urbanlink/
+
 ├── src/
 │   ├── main/
 │   │   ├── java/
@@ -48,6 +49,10 @@
 │   │   ├── AdminReclamationResponse.fxml  <-- New
 │   │   ├── ClientReclamationResponse.fxml  <-- New
 │   │   ├── styles.css
+|   |   ├──images/
+│   │   │    ├──\login-background.jpg
+│   │   │    ├──\login-background2.jpg  
+
 ├── pom.xml
 ```
 

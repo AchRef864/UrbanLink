@@ -21,17 +21,17 @@
 │   │   │   │   │   │   │   ├── Home.java
 │   │   │   │   │   │   │   ├── ReclamationController.java
 │   │   │   │   │   │   │   ├── UpdateUserController.java
-│   │   │   │   │   │   │   ├── LoginController.java  <-- New
-│   │   │   │   │   │   │   ├── ClientPageController.java  <-- New
-│   │   │   │   │   │   │   ├── AdminReclamationResponseController.java  <-- New
-│   │   │   │   │   │   │   ├── ClientReclamationResponseController.java  <-- New
+│   │   │   │   │   │   │   ├── LoginController.java   
+│   │   │   │   │   │   │   ├── ClientPageController.java   
+│   │   │   │   │   │   │   ├── AdminReclamationResponseController.java  
+│   │   │   │   │   │   │   ├── ClientReclamationResponseController.java 
 │   │   │   │   │   ├── entities/
 │   │   │   │   │   │   ├── User.java
-│   │   │   │   │   │   ├── Reclamation.java  <-- Updated
+│   │   │   │   │   │   ├── Reclamation.java  
 │   │   │   │   │   ├── services/
 │   │   │   │   │   │   ├── CRUD.java
 │   │   │   │   │   │   ├── UserService.java
-│   │   │   │   │   │   ├── ReclamationService.java  <-- New
+│   │   │   │   │   │   ├── ReclamationService.java   
 │   │   │   │   │   ├── tests/
 │   │   │   │   │   │   ├── MainTest.java
 │   │   │   │   │   ├── utils/
@@ -44,14 +44,14 @@
 │   │   ├── HelloClient.fxml
 │   │   ├── Reclamation.fxml
 │   │   ├── UpdateUser.fxml
-│   │   ├── Login.fxml  <-- New
-│   │   ├── ClientPage.fxml  <-- New
-│   │   ├── AdminReclamationResponse.fxml  <-- New
-│   │   ├── ClientReclamationResponse.fxml  <-- New
-│   │   ├── styles.css
+│   │   ├── Login.fxml   <-- Updated
+│   │   ├── ClientPage.fxml   <-- Updated
+│   │   ├── AdminReclamationResponse.fxml  
+│   │   ├── ClientReclamationResponse.fxml   
+│   │   ├── styles.css  <-- Updated
 |   |   ├──images/
-│   │   │    ├──\login-background.jpg
-│   │   │    ├──\login-background2.jpg  
+│   │   │    ├──\login-background.jpg <-- New
+│   │   │    ├──\login-background2.jpg   <-- New
 
 ├── pom.xml
 ```

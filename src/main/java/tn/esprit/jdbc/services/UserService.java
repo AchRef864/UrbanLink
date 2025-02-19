@@ -36,6 +36,7 @@ public class UserService implements CRUD<User> {
 
         return rowsAffected;
     }
+
     @Override
     public int update(User user) throws SQLException {
         // Start building the SQL query dynamically based on non-null fields
@@ -101,6 +102,7 @@ public class UserService implements CRUD<User> {
             user.setEmail(rs.getString("email"));
             user.setPhone(rs.getString("phone"));
             user.setPassword(rs.getString("password"));
+            user.setAdmin(rs.getInt("admin"));
 
             temp.add(user);
         }
@@ -127,5 +129,21 @@ public class UserService implements CRUD<User> {
             }
         }
         return null; // User not found
+    }
+
+    public boolean isEmailInUse(String email) throws SQLException {
+        String query = "SELECT COUNT(*) FROM users WHERE email = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        }
+        return false;
+    }
+
+    public void addUser(User user) throws SQLException {
+        insert(user);
     }
 }

@@ -73,6 +73,17 @@ public class LoginController {
         }
     }
 
+    @FXML
+    public void handleCreateAccountLink() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/CreateNewAccount.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) emailTextField.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            showAlert("Error", "An error occurred while loading the create account page: " + e.getMessage());
+        }
+    }
 
     // Input validation methods
     private boolean isValidEmail(String email) {
@@ -80,11 +91,11 @@ public class LoginController {
     }
 
     private boolean isValidPassword(String password) {
-        return password != null && password.length() >= 8;
+        return password != null && password.length() >= 7;
     }
 
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

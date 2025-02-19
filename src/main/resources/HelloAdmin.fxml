@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #003D29;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.HelloAdminController">
-    <VBox alignment="CENTER" layoutX="100" layoutY="50" prefWidth="400.0" spacing="25">
+    <VBox alignment="CENTER" layoutX="100" layoutY="50" prefHeight="93.0" prefWidth="408.0" spacing="25">
 
         <!-- Title -->
         <Label prefHeight="179.0" prefWidth="272.0" style="-fx-font-size: 30px; -fx-font-weight: bold;" text="    HELLO ADMIN" textFill="#3498DB" />

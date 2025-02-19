@@ -1,5 +1,6 @@
 package tn.esprit.jdbc.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,8 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.Reclamation;
 import tn.esprit.jdbc.services.ReclamationService;
-import javafx.collections.FXCollections;
-
 
 import java.io.IOException;
 import java.sql.SQLException;

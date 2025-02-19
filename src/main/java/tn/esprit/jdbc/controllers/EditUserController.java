@@ -3,6 +3,8 @@ package tn.esprit.jdbc.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -10,10 +12,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.UserService;
-
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-
 
 import java.sql.SQLException;
 
@@ -66,8 +64,17 @@ public class EditUserController {
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
 
+        // Enable sorting for the TableView
+        userTable.setSortPolicy(param -> true); // Allow sorting
+        userTable.getSortOrder().add(userIdColumn); // Default sort by user ID (optional)
+
         // Load data into the TableView
         loadUserData();
+
+        // Add listener to the search TextField
+        searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterTable(newValue);
+        });
     }
 
     private void loadUserData() {
@@ -82,24 +89,23 @@ public class EditUserController {
 
     @FXML
     public void handleDeleteButton() {
-        try {
-            // Get the user ID from the TextField
-            int userId = Integer.parseInt(userIdTextField.getText());
+        // Get the selected user from the TableView
+        User selectedUser = userTable.getSelectionModel().getSelectedItem();
 
-            // Delete the user from the database
-            userService.delete(userId);
+        if (selectedUser != null) {
+            try {
+                // Delete the user from the database
+                userService.delete(selectedUser.getUserId());
 
-            // Reload the data in the TableView
-            loadUserData();
+                // Reload the data in the TableView
+                loadUserData();
 
-            // Clear the TextField
-            userIdTextField.clear();
-
-            System.out.println("User deleted successfully!");
-        } catch (NumberFormatException e) {
-            System.err.println("Invalid User ID. Please enter a valid number.");
-        } catch (SQLException e) {
-            System.err.println("Error deleting user: " + e.getMessage());
+                System.out.println("User deleted successfully!");
+            } catch (SQLException e) {
+                System.err.println("Error deleting user: " + e.getMessage());
+            }
+        } else {
+            showAlert("No Selection", "Please select a user to delete.");
         }
     }
 
@@ -118,7 +124,7 @@ public class EditUserController {
             // Show the editable fields
             editFields.setVisible(true);
         } else {
-            System.err.println("No user selected.");
+            showAlert("No Selection", "Please select a user to edit.");
         }
     }
 
@@ -187,10 +193,34 @@ public class EditUserController {
     }
 
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
+        Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    private TextField searchTextField; // Add this field
+
+
+
+    private void filterTable(String searchText) {
+        try {
+            ObservableList<User> allUsers = FXCollections.observableArrayList(userService.showAll());
+            if (searchText == null || searchText.isEmpty()) {
+                userTable.setItems(allUsers);
+            } else {
+                ObservableList<User> filteredUsers = allUsers.filtered(user ->
+                        user.getName().toLowerCase().contains(searchText.toLowerCase()) ||
+                                user.getEmail().toLowerCase().contains(searchText.toLowerCase()) ||
+                                user.getPhone().toLowerCase().contains(searchText.toLowerCase()));
+                userTable.setItems(filteredUsers);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

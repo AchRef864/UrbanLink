@@ -2,8 +2,6 @@ package tn.esprit.jdbc.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
-import javafx.stage.Stage;
 
 
 public class DetailController {

@@ -144,9 +144,26 @@ public class UserAvisController {
     }
 
     private void editAvis(Avis avis) {
-        // Open a form to edit the review
-        // You can implement this based on your requirements
-        System.out.println("Editing review: " + avis.getAvis_id());
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateAvis.fxml"));
+            Parent root = loader.load();
+
+            // Get the controller for the FXML file
+            UpdateAvisController updateAvisController = loader.getController();
+
+            // Pass the selected Avis object to the controller
+            updateAvisController.setAvis(avis);
+
+            // Create a new stage for the updateAvis page
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Edit Review");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Log the exception
+            System.err.println("Failed to load updateAvis.fxml: " + e.getMessage());
+        }
     }
 
     private void deleteAvis(Avis avis) {
@@ -161,14 +178,30 @@ public class UserAvisController {
     @FXML
     private void addAvis() {
         try {
+            // Load the hi.fxml file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/addAvis.fxml"));
+            Parent root = loader.load();
+
+            // Create a new stage for the hi.fxml page
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Adding Page");
+            stage.show();
+
+            // Insert the new review (optional, depending on your requirements)
             int note = Integer.parseInt(txtNote.getText());
             String commentaire = txtCommentaire.getText();
             int userId = Integer.parseInt(txtUserId.getText());
             Avis avis = new Avis(note, commentaire, new Date(), userId);
             avisService.insert(avis);
+
+            // Refresh the table (optional, depending on your requirements)
             loadAvis();
+        } catch (IOException e) {
+            e.printStackTrace(); // Log the exception
+            System.err.println("Failed to load hi.fxml: " + e.getMessage());
         } catch (SQLException | NumberFormatException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Log the exception
         }
     }
 

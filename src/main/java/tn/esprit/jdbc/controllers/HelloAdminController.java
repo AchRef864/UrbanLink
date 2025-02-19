@@ -8,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class HelloAdminController {
+
+    @FXML
+    private void OpenInsertPageAction(ActionEvent event) {
     @FXML
     public void OpenInsertPageAction(ActionEvent event) {
         try {
@@ -22,6 +25,9 @@ public class HelloAdminController {
     }
 
     @FXML
+    private void OpenEditPageAction(ActionEvent event) {
+        try {
+            // Load the Edit page
     public void OpenEditPageAction(ActionEvent event) {
         try {
             // Load the Insert page
@@ -33,5 +39,15 @@ public class HelloAdminController {
             e.printStackTrace();
         }
     }
-
+    @FXML
+    private void OpenReclamationResponsePageAction(ActionEvent event) {
+        try {
+            // Load the Reclamation Response page
+            Parent root = FXMLLoader.load(getClass().getResource("/AdminReclamationResponse.fxml"));
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

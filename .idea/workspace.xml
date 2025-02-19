@@ -4,6 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="4d3893fa-716f-4cc1-94d3-ab4f5519c3fb" name="Changes" comment="" />
+
     <list default="true" id="4d3893fa-716f-4cc1-94d3-ab4f5519c3fb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
@@ -19,10 +21,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
   "associatedIndex": 2
 }]]></component>
+
   <component name="ProjectId" id="2t88XYr343pD9lF2vd6OP24cG71" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,6 +38,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.untitled [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sbiss/OneDrive - ESPRIT/Desktop/UrbanLink-dev/src/main/java/tn/esprit/jdbc/controllers",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "dev",
     "kotlin-language-version-configured": "true",
@@ -44,6 +57,16 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\UrbanLink-dev\src\main\java\tn\esprit\jdbc\controllers" />
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\UrbanLink-dev\src\main\resources" />
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\UrbanLink-dev\src\main\resources\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\UrbanLink-dev\src\main\resources\images" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -61,6 +84,9 @@
       <option name="presentableId" value="Default" />
       <updated>1739722382622</updated>
       <workItem from="1739722385206" duration="732000" />
+
+      <workItem from="1739978009996" duration="953000" />
+
     </task>
     <servers />
   </component>

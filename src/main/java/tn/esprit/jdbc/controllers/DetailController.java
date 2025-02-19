@@ -29,6 +29,14 @@ public class DetailController {
 
 
 
+    @FXML
+    private TextField passwordTextField;
+   private void setPasswordTextField(String password)
+    {
+        this.passwordTextField.setText(password) ;
+    }
+
+
 
 }
 

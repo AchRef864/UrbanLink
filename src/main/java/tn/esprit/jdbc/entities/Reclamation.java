@@ -8,6 +8,7 @@ public class Reclamation {
     private String sujet;
     private String description;
     private Timestamp dateReclamation;
+    private String reponseReclamation; // New field for the response
 
     // Default constructor
     public Reclamation() {
@@ -19,6 +20,13 @@ public class Reclamation {
         this.sujet = sujet;
         this.description = description;
     }
+    // Parameterized constructor with response
+    public Reclamation(int reclamationId, int userId, String sujet, String description, String reponseReclamation) {
+        this.reclamationId = reclamationId;
+        this.userId = userId;
+        this.sujet = sujet;
+        this.description = description;
+        this.reponseReclamation = reponseReclamation;
     public Reclamation(int reclamationId , int userId, String sujet, String description )
     {   this.reclamationId=reclamationId;
         this.userId = userId;
@@ -67,6 +75,14 @@ public class Reclamation {
         this.dateReclamation = dateReclamation;
     }
 
+    public String getReponseReclamation() {
+        return reponseReclamation;
+    }
+
+    public void setReponseReclamation(String reponseReclamation) {
+        this.reponseReclamation = reponseReclamation;
+    }
+
     @Override
     public String toString() {
         return "Reclamation{" +
@@ -75,6 +91,7 @@ public class Reclamation {
                 ", sujet='" + sujet + '\'' +
                 ", description='" + description + '\'' +
                 ", dateReclamation=" + dateReclamation +
+                ", reponseReclamation='" + reponseReclamation + '\'' +
                 '}';
     }
 }

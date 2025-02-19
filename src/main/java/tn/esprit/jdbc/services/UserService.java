@@ -14,6 +14,8 @@ public class UserService implements CRUD<User> {
 
     @Override
     public int insert(User user) throws SQLException {
+        String req = "INSERT INTO `users`(`name`, `email`, `phone`, `password`, `admin`) VALUES (?, ?, ?, ?, ?)";
+
         String req = "INSERT INTO `users`(`name`, `email`, `phone`, `password`) VALUES (?, ?, ?, ?)";
 
         ps = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
@@ -21,6 +23,8 @@ public class UserService implements CRUD<User> {
         ps.setString(2, user.getEmail());
         ps.setString(3, user.getPhone());
         ps.setString(4, user.getPassword());
+        ps.setInt(5, user.getAdmin()); // Add the admin field
+
 
         int rowsAffected = ps.executeUpdate();
 
@@ -101,10 +105,48 @@ public class UserService implements CRUD<User> {
             user.setEmail(rs.getString("email"));
             user.setPhone(rs.getString("phone"));
             user.setPassword(rs.getString("password"));
+            user.setAdmin(rs.getInt("admin"));
 
             temp.add(user);
         }
 
         return temp;
+    }
+
+    public User authenticate(String email, String password) throws SQLException {
+        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new User(
+                        rs.getInt("user_id"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("phone"),
+                        rs.getString("password"),
+                        rs.getInt("admin")
+                );
+            }
+        }
+        return null; // User not found
+    }
+
+    public boolean isEmailInUse(String email) throws SQLException {
+        String query = "SELECT COUNT(*) FROM users WHERE email = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        }
+        return false;
+    }
+
+    public void addUser(User user) throws SQLException {
+        insert(user);
     }
 }

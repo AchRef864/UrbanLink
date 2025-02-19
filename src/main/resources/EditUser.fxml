@@ -52,3 +52,23 @@
 
     </VBox>
 </AnchorPane>
+
+<AnchorPane prefHeight="464.0" prefWidth="859.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.EditUserController">
+    <children>
+        <!-- TableView to display the users table -->
+        <TableView fx:id="userTable" layoutX="50.0" layoutY="50.0" prefHeight="300.0" prefWidth="700.0">
+            <columns>
+                <TableColumn fx:id="userIdColumn" prefWidth="100.0" text="User ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Name" />
+                <TableColumn fx:id="emailColumn" prefWidth="150.0" text="Email" />
+                <TableColumn fx:id="phoneColumn" prefWidth="150.0" text="Phone" />
+                <TableColumn fx:id="passwordColumn" prefWidth="150.0" text="Password" />
+            </columns>
+        </TableView>
+
+        <!-- TextField and Button for deleting a user -->
+        <Label layoutX="50.0" layoutY="370.0" text="Enter User ID to Delete:" />
+        <TextField fx:id="userIdTextField" layoutX="253.0" layoutY="368.0" promptText="User ID" />
+        <Button layoutX="444.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
+    </children>
+</AnchorPane>

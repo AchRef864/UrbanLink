@@ -1,12 +1,12 @@
-    <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.DetailController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.DetailController">
     <children>
-        <TextField fx:id="nomTextField" layoutX="220.0" layoutY="85.0" />
-        <TextField fx:id="prenomTextField" layoutX="229.0" layoutY="148.0" />
+        <TextField fx:id="nomTextField" layoutX="207.0" layoutY="84.0" />
+        <TextField fx:id="emailTextField" layoutX="207.0" layoutY="151.0" />
+        <TextField fx:id="phoneTextField" layoutX="214.0" layoutY="218.0" />
     </children>
 </AnchorPane>

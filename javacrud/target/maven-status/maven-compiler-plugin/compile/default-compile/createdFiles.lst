@@ -1,10 +1,12 @@
 tn\esprit\jdbc\controller\ReponseTableController.class
 tn\esprit\jdbc\controller\UpdateReponseController$1.class
+tn\esprit\jdbc\controller\UserAvisController$3.class
 tn\esprit\jdbc\controller\AddAvisController$2.class
 tn\esprit\jdbc\controller\UserAvisController.class
 tn\esprit\jdbc\controller\UpdateReponseController.class
 tn\esprit\jdbc\controller\DetailController.class
 tn\esprit\jdbc\controller\AvisTableController$3$1.class
+tn\esprit\jdbc\controller\UserReponseTableController.class
 tn\esprit\jdbc\controller\AjouterUserController.class
 tn\esprit\jdbc\controller\AddAvisController$1.class
 tn\esprit\jdbc\controller\MainController.class
@@ -16,6 +18,7 @@ tn\esprit\jdbc\controller\LoginController.class
 tn\esprit\jdbc\services\ReclamationService.class
 tn\esprit\jdbc\controller\HelloAdminController.class
 tn\esprit\jdbc\controller\AvisTableController$2$1.class
+tn\esprit\jdbc\controller\ReponseTableController$1.class
 tn\esprit\jdbc\services\UserService.class
 tn\esprit\jdbc\controller\ReclamationController.class
 tn\esprit\jdbc\entities\Reclamation.class

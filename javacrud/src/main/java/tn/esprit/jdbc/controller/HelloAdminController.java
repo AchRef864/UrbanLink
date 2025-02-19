@@ -46,4 +46,16 @@ public class HelloAdminController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void OpenAvistableAction(ActionEvent event) {
+        try {
+            // Load the Reclamation Response page
+            Parent root = FXMLLoader.load(getClass().getResource("/AvisTable.fxml"));
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

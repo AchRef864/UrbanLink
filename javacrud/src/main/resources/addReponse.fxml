@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.AddReponseController">
-    <children>
-        <TextArea fx:id="commentaireTextArea" layoutX="14.0" layoutY="14.0" prefHeight="100.0" prefWidth="372.0" promptText="Enter your response..."/>
-        <Button layoutX="14.0" layoutY="130.0" mnemonicParsing="false" onAction="#addReponseAction" text="Add Response" />
-    </children>
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.AddReponseController">
+    <VBox alignment="CENTER" spacing="10" layoutX="20.0" layoutY="20.0">
+        <Label text="Add Response" />
+        <TextField fx:id="commentaireField" promptText="Commentaire" />
+        <Button text="Save" onAction="#saveReponse" />
+    </VBox>
 </AnchorPane>

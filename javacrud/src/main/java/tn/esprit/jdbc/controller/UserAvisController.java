@@ -13,19 +13,15 @@ import tn.esprit.jdbc.entities.Avis;
 import tn.esprit.jdbc.services.AvisService;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-// scene import
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
 
-
 public class UserAvisController {
     @FXML
     private TableView<Avis> tableAvis;
-    @FXML
-    private TableColumn<Avis, Integer> colId;
     @FXML
     private TableColumn<Avis, Integer> colNote;
     @FXML
@@ -33,11 +29,11 @@ public class UserAvisController {
     @FXML
     private TableColumn<Avis, Date> colDate;
     @FXML
-    private TableColumn<Avis, Integer> colUserId;
-    @FXML
     private TableColumn<Avis, Void> colEdit;
     @FXML
     private TableColumn<Avis, Void> colDelete;
+    @FXML
+    private TableColumn<Avis, Void> colViewResponses;
     @FXML
     private TextField txtNote;
     @FXML
@@ -56,15 +52,14 @@ public class UserAvisController {
 
     @FXML
     public void initialize() {
-        colId.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getAvis_id()).asObject());
         colNote.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getNote()).asObject());
         colCommentaire.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCommentaire()));
         colDate.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getDate_avis()));
-        colUserId.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getUser_id()).asObject());
 
-        // Add Edit and Delete buttons to the table
+        // Add Edit, Delete, and View Responses buttons to the table
         addEditButton();
         addDeleteButton();
+        addViewResponsesButton();
 
         loadAvis();
     }
@@ -143,25 +138,60 @@ public class UserAvisController {
         });
     }
 
+    private void addViewResponsesButton() {
+        colViewResponses.setCellFactory(param -> new TableCell<>() {
+            private final Button viewResponsesButton = new Button("View Responses");
+
+            {
+                viewResponsesButton.setOnAction(event -> {
+                    Avis avis = getTableView().getItems().get(getIndex());
+                    viewResponses(avis);
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(viewResponsesButton);
+                }
+            }
+        });
+    }
+
+    private void viewResponses(Avis avis) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UserReponseTable.fxml"));
+            Parent root = loader.load();
+
+            UserReponseTableController userReponseTableController = loader.getController();
+            userReponseTableController.setAvisId(avis.getAvis_id());
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("View Responses");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void editAvis(Avis avis) {
         try {
-            // Load the FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateAvis.fxml"));
             Parent root = loader.load();
 
-            // Get the controller for the FXML file
             UpdateAvisController updateAvisController = loader.getController();
-
-            // Pass the selected Avis object to the controller
             updateAvisController.setAvis(avis);
 
-            // Create a new stage for the updateAvis page
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Edit Review");
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace(); // Log the exception
+            e.printStackTrace();
             System.err.println("Failed to load updateAvis.fxml: " + e.getMessage());
         }
     }
@@ -169,7 +199,7 @@ public class UserAvisController {
     private void deleteAvis(Avis avis) {
         try {
             avisService.delete(avis);
-            loadAvis(); // Refresh the table after deletion
+            loadAvis();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -178,30 +208,26 @@ public class UserAvisController {
     @FXML
     private void addAvis() {
         try {
-            // Load the hi.fxml file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/addAvis.fxml"));
             Parent root = loader.load();
 
-            // Create a new stage for the hi.fxml page
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Adding Page");
             stage.show();
 
-            // Insert the new review (optional, depending on your requirements)
             int note = Integer.parseInt(txtNote.getText());
             String commentaire = txtCommentaire.getText();
             int userId = Integer.parseInt(txtUserId.getText());
             Avis avis = new Avis(note, commentaire, new Date(), userId);
             avisService.insert(avis);
 
-            // Refresh the table (optional, depending on your requirements)
             loadAvis();
         } catch (IOException e) {
-            e.printStackTrace(); // Log the exception
-            System.err.println("Failed to load hi.fxml: " + e.getMessage());
+            e.printStackTrace();
+            System.err.println("Failed to load addAvis.fxml: " + e.getMessage());
         } catch (SQLException | NumberFormatException e) {
-            e.printStackTrace(); // Log the exception
+            e.printStackTrace();
         }
     }
 
@@ -212,24 +238,4 @@ public class UserAvisController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-    private void openUpdateAvisPage(Avis avis) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/updateAvis.fxml"));
-            Parent root = loader.load();
-
-            // Pass the selected review to the UpdateAvisController
-            UpdateAvisController updateAvisController = loader.getController();
-            updateAvisController.setAvis(avis);
-
-            // Show the updateAvis page
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Edit Review");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

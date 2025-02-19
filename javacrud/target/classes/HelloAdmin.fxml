@@ -14,8 +14,9 @@
 
     </VBox>
     <Button layoutX="163.0" layoutY="150.0" onAction="#OpenInsertPageAction" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Insert" />
+    <Button layoutX="332.0" layoutY="250.0" onAction="#OpenAvistableAction" prefHeight="74.0" prefWidth="170.0" style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Liste reviews" />
     <Button layoutX="332.0" layoutY="150.0" onAction="#OpenEditPageAction" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #F1C40F; -fx-text-fill: black; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Edit" />
-    <Button layoutX="247.0" layoutY="250.0" onAction="#OpenReclamationResponsePageAction" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Respond to Reclamation" />
+    <Button layoutX="163.0" layoutY="250.0" onAction="#OpenReclamationResponsePageAction" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Respond to Reclamation" />
 
      <!-- Title -->
      <Label layoutX="164.0" layoutY="-18.0" prefHeight="179.0" prefWidth="272.0" style="-fx-font-size: 30px; -fx-font-weight: bold;" text="    HELLO ADMIN" textFill="#3498DB" />

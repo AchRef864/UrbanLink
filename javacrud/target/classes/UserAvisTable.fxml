@@ -10,13 +10,12 @@
     <VBox alignment="CENTER" spacing="10">
         <TableView fx:id="tableAvis">
             <columns>
-                <TableColumn fx:id="colId" text="ID" />
                 <TableColumn fx:id="colNote" text="Note" />
                 <TableColumn fx:id="colCommentaire" text="Commentaire" />
                 <TableColumn fx:id="colDate" text="Date" />
-                <TableColumn fx:id="colUserId" text="User ID" />
                 <TableColumn fx:id="colEdit" text="Edit" />
                 <TableColumn fx:id="colDelete" text="Delete" />
+                <TableColumn fx:id="colViewResponses" text="View Responses" />
             </columns>
         </TableView>
         <HBox prefHeight="47.0" prefWidth="821.0" spacing="10">

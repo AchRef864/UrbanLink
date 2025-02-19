@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Avis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Avis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Reponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Reponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/AvisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/AvisService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/CRUD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReponseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/tests/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/tests/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Avis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Avis.class" afterDir="false" />
@@ -28,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -106,7 +107,11 @@
       <workItem from="1739618709562" duration="8936000" />
       <workItem from="1739713994781" duration="22762000" />
       <workItem from="1739812898651" duration="15408000" />
-      <workItem from="1739896847874" duration="8510000" />
+      <workItem from="1739896847874" duration="11859000" />
+      <workItem from="1739953851617" duration="562000" />
+      <workItem from="1739955381131" duration="1143000" />
+      <workItem from="1739958826517" duration="2034000" />
+      <workItem from="1739960888986" duration="2515000" />
     </task>
     <servers />
   </component>

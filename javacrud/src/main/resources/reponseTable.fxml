@@ -18,6 +18,6 @@
                 <TableColumn fx:id="deleteColumn" text="Delete" />
             </columns>
         </TableView>
-        <Button layoutX="14.0" layoutY="230.0" mnemonicParsing="false" onAction="#createReponseAction" text="Add Reponse" />
+        <Button layoutX="14.0" layoutY="230.0" mnemonicParsing="false" onAction="#createReponseAction" text="Add Response" />
     </children>
 </AnchorPane>

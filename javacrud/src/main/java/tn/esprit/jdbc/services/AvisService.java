@@ -58,6 +58,11 @@ public class AvisService implements CRUD<Avis> {
     }
 
     @Override
+    public int delete(int userId) throws SQLException {
+        return 0;
+    }
+
+    @Override
     public List<Avis> showAll() throws SQLException {
         List<Avis> temp = new ArrayList<>();
         String req = "SELECT * FROM `avis`";

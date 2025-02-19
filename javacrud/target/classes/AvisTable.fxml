@@ -9,17 +9,17 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.AvisTableController">
     <children>
         <VBox spacing="10" layoutX="20.0" layoutY="20.0">
-            <Button text="Create New Avis" onAction="#createAvisAction" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            <Button text="Create a new review" onAction="#createAvisAction" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
             <TableView fx:id="avisTableView" prefHeight="400.0" prefWidth="600.0">
                 <columns>
-                    <TableColumn fx:id="avisIdColumn" text="Avis ID"/>
+                    <TableColumn fx:id="avisIdColumn" text="Review ID"/>
                     <TableColumn fx:id="noteColumn" text="Note"/>
                     <TableColumn fx:id="commentaireColumn" text="Commentaire"/>
-                    <TableColumn fx:id="dateAvisColumn" text="Date Avis"/>
+                    <TableColumn fx:id="dateAvisColumn" text="Date review"/>
                     <TableColumn fx:id="userIdColumn" text="User ID"/>
                     <TableColumn fx:id="editColumn" text="Edit"/>
                     <TableColumn fx:id="deleteColumn" text="Delete"/>
-                    <TableColumn fx:id="viewReponsesColumn" text="View Reponses"/>
+                    <TableColumn fx:id="viewReponsesColumn" text="View Responses"/>
                 </columns>
             </TableView>
         </VBox>

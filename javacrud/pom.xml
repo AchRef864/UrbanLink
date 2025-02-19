@@ -38,7 +38,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>tn.esprit.jdbc.MainApp</mainClass>
+                    <mainClass>tn.esprit.jdbc.controller.Home</mainClass>
                 </configuration>
             </plugin>
         </plugins>

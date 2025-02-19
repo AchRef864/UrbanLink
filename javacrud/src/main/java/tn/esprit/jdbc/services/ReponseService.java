@@ -70,6 +70,11 @@ public class ReponseService implements CRUD<Reponse> {
     }
 
     @Override
+    public int delete(int userId) throws SQLException {
+        return 0;
+    }
+
+    @Override
     public List<Reponse> showAll() throws SQLException {
         List<Reponse> temp = new ArrayList<>();
         String req = "SELECT * FROM `reponse`";

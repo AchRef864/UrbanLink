@@ -1,5 +1,5 @@
 # UrbanLink 
-# date 18-02-2025 Last update for the project - on - feature/Users 
+# date 18-02-2025 Last update for the project - on - feature/Users + Transport
 
 ## Project Structure
 
@@ -13,47 +13,70 @@
 │   │   │   │   ├── esprit/
 │   │   │   │   │   ├── jdbc/
 │   │   │   │   │   │   ├── controllers/
+│   │   │   │   │   │   │   ├── AdminReclamationResponseController.java
+│   │   │   │   │   │   │   ├── AjouterMaintenanceController.java
 │   │   │   │   │   │   │   ├── AjouterUserController.java
+│   │   │   │   │   │   │   ├── AjouterVehicleController.java
+│   │   │   │   │   │   │   ├── ClientPageController.java
+│   │   │   │   │   │   │   ├── ClientReclamationResponseController.java
+│   │   │   │   │   │   │   ├── CreateNewAccountController.java
+│   │   │   │   │   │   │   ├── DashboardClientController.java
+│   │   │   │   │   │   │   ├── DashboardController.java
 │   │   │   │   │   │   │   ├── DetailController.java
+│   │   │   │   │   │   │   ├── EditMaintenanceController.java
 │   │   │   │   │   │   │   ├── EditUserController.java
+│   │   │   │   │   │   │   ├── EditVehicleController.java
 │   │   │   │   │   │   │   ├── HelloAdminController.java
-│   │   │   │   │   │   │   ├── HelloClientController.java
 │   │   │   │   │   │   │   ├── Home.java
+│   │   │   │   │   │   │   ├── HomeClientController.java
+│   │   │   │   │   │   │   ├── HomeController.java
+│   │   │   │   │   │   │   ├── ListerMaintenanceController.java
+│   │   │   │   │   │   │   ├── ListerVehicleController.java
+│   │   │   │   │   │   │   ├── LoginController.java
 │   │   │   │   │   │   │   ├── ReclamationController.java
-│   │   │   │   │   │   │   ├── UpdateUserController.java
-│   │   │   │   │   │   │   ├── LoginController.java   
-│   │   │   │   │   │   │   ├── ClientPageController.java   
-│   │   │   │   │   │   │   ├── AdminReclamationResponseController.java  
-│   │   │   │   │   │   │   ├── ClientReclamationResponseController.java 
 │   │   │   │   │   ├── entities/
-│   │   │   │   │   │   ├── User.java
+│   │   │   │   │   │   ├── Maintenance.java
 │   │   │   │   │   │   ├── Reclamation.java  
+│   │   │   │   │   │   ├── User.java
+│   │   │   │   │   │   ├── Vehicle.java
+│   │   │   │   │   │   ├── VehicleType.java
 │   │   │   │   │   ├── services/
 │   │   │   │   │   │   ├── CRUD.java
+│   │   │   │   │   │   ├── MaintenanceService.java
+│   │   │   │   │   │   ├── ReclamationService.java
 │   │   │   │   │   │   ├── UserService.java
-│   │   │   │   │   │   ├── ReclamationService.java   
+│   │   │   │   │   │   ├── VehicleService.java
 │   │   │   │   │   ├── tests/
 │   │   │   │   │   │   ├── MainTest.java
 │   │   │   │   │   ├── utils/
 │   │   │   │   │   │   ├── MyDatabase.java
 │   ├── resources/
+│   │   ├── images/
+│   │   │   ├── login-background.jpg
+│   │   │   ├── login-background2.jpg
+│   │   ├── AdminReclamationResponse.fxml
+│   │   ├── AjouterMaintenance.fxml
 │   │   ├── AjouterUser.fxml
+│   │   ├── AjouterVehicle.fxml
+│   │   ├── ClientPage.fxml
+│   │   ├── ClientReclamationResponse.fxml
+│   │   ├── CreateNewAccount.fxml
+│   │   ├── Dashboard.fxml
+│   │   ├── DashboardClient.fxml
 │   │   ├── Detail.fxml
+│   │   ├── EditMaintenance.fxml
 │   │   ├── EditUser.fxml
+│   │   ├── EditVehicle.fxml
 │   │   ├── HelloAdmin.fxml
-│   │   ├── HelloClient.fxml
+│   │   ├── Home.fxml
+│   │   ├── HomeClient.fxml
+│   │   ├── ListerMaintenance.fxml
+│   │   ├── ListerVehicle.fxml
+│   │   ├── Login.fxml
 │   │   ├── Reclamation.fxml
-│   │   ├── UpdateUser.fxml
-│   │   ├── Login.fxml   <-- Updated
-│   │   ├── ClientPage.fxml   <-- Updated
-│   │   ├── AdminReclamationResponse.fxml  
-│   │   ├── ClientReclamationResponse.fxml   
-│   │   ├── styles.css  <-- Updated
-|   |   ├──images/
-│   │   │    ├──\login-background.jpg <-- New
-│   │   │    ├──\login-background2.jpg   <-- New
-
+│   │   ├── styles.css
 ├── pom.xml
+
 ```
 
 ## Explanation of Changes

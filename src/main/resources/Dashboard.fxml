@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.DashboardController">
+
+    <top>
+        <HBox spacing="20" style="-fx-background-color: #2C3E50; -fx-padding: 10;">
+            <Label text="Dashboard" style="-fx-text-fill: white; -fx-font-size: 20px;"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" style="-fx-background-color: #34495E; -fx-padding: 10;">
+            <Button text="Home" fx:id="btnHome" />
+            <Button text="Vehicle" fx:id="btnVehicle" />
+            <Button text="Maitenance" fx:id="btnMaintenance" />
+            <Button text="Logout" fx:id="btnLogout" />
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea"/>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.jdbc.controllers.EditVehicleController"
+            prefHeight="400.0" prefWidth="400.0">
+    <children>
+        <VBox alignment="CENTER" spacing="10" layoutX="50" layoutY="50">
+            <Label text="Edit Vehicle" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <TextField fx:id="txtModel" promptText="Model"/>
+            <TextField fx:id="txtLicensePlate" promptText="License Plate"/>
+            <TextField fx:id="txtType" promptText="Type"/>
+            <TextField fx:id="txtCapacity" promptText="Capacity"/>
+
+            <HBox spacing="10">
+                <Button fx:id="btnSave" text="Save" onAction="#handleSave"/>
+                <Button text="Cancel" onAction="#handleCancel"/>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

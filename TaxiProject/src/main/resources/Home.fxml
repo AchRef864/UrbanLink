@@ -5,20 +5,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="tn.esprit.controllers.Home">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.Home">
 
     <children>
-        <Label layoutX="229.0" layoutY="52.0" text="Bienvenue sur l'application" />
+        <Label layoutX="190.0" layoutY="51.0" text="Bienvenue sur l'application entre votre ID" />
 
         <!-- Champ pour saisir l'ID utilisateur -->
-        <TextField fx:id="txtAdminId" layoutX="229.0" layoutY="80.0"
-                   promptText="Entrez votre ID" />
+        <TextField fx:id="txtAdminId" layoutX="207.0" layoutY="80.0" prefHeight="42.0" prefWidth="187.0" promptText="Entrez votre ID" />
 
-        <Button fx:id="ajouterTaxiBtn" layoutX="252.0" layoutY="158.0"
-                onAction="#handleAjouterTaxi" text="Ajouter un Taxi" />
-        <Button fx:id="afficherListeTaxiBtn" layoutX="252.0" layoutY="200.0"
-                onAction="#handleAfficherListeTaxi" text="Afficher la liste des taxis" />
+        <Button fx:id="ajouterTaxiBtn" layoutX="252.0" layoutY="156.0" onAction="#handleAjouterTaxi" text="Ajouter un Taxi" />
+        <Button fx:id="afficherListeTaxiBtn" layoutX="228.0" layoutY="200.0" onAction="#handleAfficherListeTaxi" text="Afficher la liste des taxis" />
+        <Button fx:id="afficherListeCoursesBtn" layoutX="220.0" layoutY="237.0" onAction="#handleAfficherListeCourses" text="Afficher la liste des courses" />
     </children>
 </AnchorPane>

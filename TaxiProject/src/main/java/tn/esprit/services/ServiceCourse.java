@@ -92,4 +92,30 @@ public class ServiceCourse implements CrudService<Course> {
         }
         return courses;
     }
+    public List<Course> afficherByUser(int user_id) throws SQLException {
+        List<Course> courses = new ArrayList<>();
+        String query = "SELECT * FROM course WHERE user_id=?";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setInt(1, user_id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Course course = new Course(
+                            rs.getInt("id_course"),
+                            rs.getInt("user_id"),
+                            rs.getInt("id_taxi"),
+                            rs.getTimestamp("date_reservation").toLocalDateTime(),
+                            rs.getTimestamp("date_course").toLocalDateTime(),
+                            rs.getString("ville_depart"),
+                            rs.getString("ville_arrivee"),
+                            rs.getDouble("distance_km"),
+                            rs.getDouble("montant"),
+                            rs.getString("statut")
+                    );
+                    courses.add(course);
+                }
+            }
+        }
+        return courses;
+    }
 }

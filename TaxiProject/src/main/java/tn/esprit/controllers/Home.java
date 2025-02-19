@@ -47,6 +47,25 @@ public class Home extends Application {
             }
         });
     }
+    @FXML
+    void handleAfficherListeCourses() {
+        verifierAdminoruserEtAction(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ListeCourses.fxml"));
+                Parent root = loader.load();
+                // Passer le statut admin au contrôleur de la liste
+                ListeCoursesController.setIsAdmin(isAdmin);
+                ListeCoursesController.setIsUser(isUser);
+
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Liste des Courses");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     @FXML
     private void handleAfficherListeTaxi() {
@@ -114,6 +133,31 @@ public class Home extends Application {
                 action.run();
             } else {
                 afficherAlerte("Accès refusé", "Vous devez être un administrateur pour accéder à cette page.");
+            }
+
+        } catch (NumberFormatException e) {
+            afficherAlerte("Erreur", "Veuillez saisir un ID valide (numérique) !");
+        }
+    }
+    public void verifierAdminoruserEtAction(Runnable action) {
+        String userIdString = txtAdminId.getText().trim();
+
+        try {
+            if (userIdString.isEmpty()) {
+                // Si l'ID est vide, utiliser la méthode isAdminWithoutId() pour vérifier l'admin
+                afficherAlerte("Erreur", "admin or user n'existe pas !");
+            } else {
+                // Si un ID est fourni, vérifier l'admin par ID
+                int userId = Integer.parseInt(userIdString);
+                isAdmin = userService.isAdmin(userId);
+                isUser = userService.isUsersengeneral(userId);
+            }
+
+            if (isAdmin || isUser) {
+                // Si l'utilisateur est admin, exécuter l'action
+                action.run();
+            } else {
+                afficherAlerte("Accès refusé", "Vous devez être un administrateur ou utilisateur pour accéder à cette page.");
             }
 
         } catch (NumberFormatException e) {

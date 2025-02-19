@@ -1,24 +1,18 @@
 package tn.esprit.jdbc.controller;
 
+import javafx.scene.control.*;
 import tn.esprit.jdbc.entities.Avis;
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.AvisService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import tn.esprit.jdbc.services.UserService;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class AddAvisController {
 
@@ -47,29 +41,55 @@ public class AddAvisController {
         // Populate noteComboBox with values 1 to 5
         noteComboBox.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5));
 
-        // Fetch user IDs from the database dynamically
+        // Fetch user emails and corresponding IDs from the database dynamically
         UserService userService = new UserService();
-        List<Integer> userIds = new ArrayList<>();
+        Map<Integer, String> userMap = new HashMap<>(); // Map user ID → email
+        List<Integer> userIds = new ArrayList<>(); // Store user IDs
+
         try {
             for (User user : userService.showAll()) {
-                userIds.add(user.getUserId()); // Extracting only the user ID
+                userMap.put(user.getUserId(), user.getEmail()); // Store ID and email
+                userIds.add(user.getUserId()); // Store just IDs
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        // Populate userIdComboBox with the retrieved user IDs
+        // Populate userIdComboBox with user IDs (actual values remain Integer)
         userIdComboBox.setItems(FXCollections.observableArrayList(userIds));
 
-        // Add input validation for commentaireTextField
-        commentaireTextField.textProperty().addListener(new ChangeListener<String>() {
+        // Use a Cell Factory to display emails while keeping Integer values
+        userIdComboBox.setCellFactory(comboBox -> new ListCell<Integer>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("[a-zA-Z0-9\\s]*")) {
-                    commentaireTextField.setText(newValue.replaceAll("[^a-zA-Z0-9\\s]", ""));
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(userMap.get(item)); // Show email instead of ID
                 }
-                validateInputs();
             }
+        });
+
+        // Ensure the selected value also shows as an email
+        userIdComboBox.setButtonCell(new ListCell<Integer>() {
+            @Override
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(userMap.get(item)); // Show email in selected value
+                }
+            }
+        });
+
+        // Add input validation for commentaireTextField
+        commentaireTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("[a-zA-Z0-9\\s]*")) {
+                commentaireTextField.setText(newValue.replaceAll("[^a-zA-Z0-9\\s]", ""));
+            }
+            validateInputs();
         });
 
         // Add listeners to validate inputs

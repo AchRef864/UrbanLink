@@ -12,7 +12,7 @@
         <TextField fx:id="commentaireTextField" layoutX="143.0" layoutY="70.0" />
         <Label layoutX="144.0" layoutY="115.0" text="Note"/>
         <ComboBox fx:id="noteComboBox" layoutX="144.0" layoutY="135.0" />
-        <Label layoutX="144.0" layoutY="180.0" text="User ID"/>
+        <Label layoutX="144.0" layoutY="180.0" text="User email"/>
         <ComboBox fx:id="userIdComboBox" layoutX="144.0" layoutY="200.0" />
         <Button fx:id="addReviewButton" layoutX="144.0" layoutY="250.0" text="Add Review" onAction="#ajouteAvisAction"/>
     </children>

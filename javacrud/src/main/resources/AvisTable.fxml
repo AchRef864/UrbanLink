@@ -10,7 +10,7 @@
     <children>
         <VBox spacing="10" layoutX="20.0" layoutY="20.0">
             <Button text="Create a new review" onAction="#createAvisAction" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
-            <TableView fx:id="avisTableView" prefHeight="400.0" prefWidth="600.0">
+            <TableView fx:id="avisTableView" prefHeight="500.0" prefWidth="700.0">
                 <columns>
                     <TableColumn fx:id="avisIdColumn" text="Review ID"/>
                     <TableColumn fx:id="noteColumn" text="Note"/>

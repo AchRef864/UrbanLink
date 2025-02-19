@@ -7,7 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -15,10 +16,8 @@ public class ClientPageController {
 
     private int userId; // Store the logged-in user's ID
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
+    @FXML
+    private VBox userAvisContainer;
     @FXML
     private void handleReclamationButton(ActionEvent event) {
         try {
@@ -79,6 +78,17 @@ public class ClientPageController {
         }
     }
 
+    @FXML
+    private void handleViewReviewsButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/UserAvisTable.fxml"));
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -86,5 +96,33 @@ public class ClientPageController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    // Container for the UserAvis view
+
+    private UserAvisController userAvisController; // Reference to the UserAvisController
+
+
+    // Setter for userId
+    public void setUserId(int userId) {
+        this.userId = userId;
+        if (userAvisController != null) {
+            userAvisController.setLoggedInUserId(userId); // Pass the user ID to UserAvisController
+        }
+    }
+
+    // Method to set the UserAvisController
+    public void setUserAvisController(UserAvisController userAvisController) {
+        this.userAvisController = userAvisController;
+        if (userId != 0) {
+            userAvisController.setLoggedInUserId(userId); // Pass the user ID if it's already set
+        }
+    }
+
+    //add getter to the container for Cannot resolve method 'getUserAvisContainer' in 'ClientPageController'
+
+    public VBox getUserAvisContainer() {
+        return userAvisContainer;
+    }
+
 
 }

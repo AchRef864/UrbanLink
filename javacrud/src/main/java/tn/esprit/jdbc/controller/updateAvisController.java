@@ -1,106 +1,80 @@
 package tn.esprit.jdbc.controller;
 
-import tn.esprit.jdbc.entities.Avis;
-import tn.esprit.jdbc.services.AvisService;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import tn.esprit.jdbc.entities.Avis;
+import tn.esprit.jdbc.services.AvisService;
 
 import java.sql.SQLException;
-import java.util.Arrays;
 
 public class UpdateAvisController {
-
-    @FXML
-    private ComboBox<Integer> noteComboBox;
 
     @FXML
     private TextField commentaireTextField;
 
     @FXML
-    private ComboBox<Integer> userIdComboBox;
+    private ComboBox<Integer> noteComboBox;
 
     @FXML
-    private Button updateButton;
+    private ComboBox<Integer> userIdComboBox;
 
-    private AvisService avisService = new AvisService();
-    private Avis avis;
-
-    public void setAvis(Avis avis) {
-        this.avis = avis;
-        noteComboBox.setValue(avis.getNote());
-        commentaireTextField.setText(avis.getCommentaire());
-        userIdComboBox.setValue(avis.getUser_id());
-    }
+    private Avis avis; // The review being edited
+    private final AvisService avisService = new AvisService();
 
     @FXML
     public void initialize() {
-        // Populate noteComboBox with values 1 to 5
-        noteComboBox.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5));
+        // Populate the noteComboBox with values from 1 to 10
+        ObservableList<Integer> noteValues = FXCollections.observableArrayList();
+        for (int i = 1; i <= 10; i++) {
+            noteValues.add(i);
+        }
+        noteComboBox.setItems(noteValues);
 
-        // Populate userIdComboBox with sample user IDs
-        userIdComboBox.setItems(FXCollections.observableArrayList(Arrays.asList(1, 2, 3, 4, 5)));
-
-        // Add input validation for commentaireTextField
-        commentaireTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("[a-zA-Z0-9\\s]*")) {
-                    commentaireTextField.setText(newValue.replaceAll("[^a-zA-Z0-9\\s]", ""));
-                }
-                validateInputs();
-            }
-        });
-
-        // Add listeners to validate inputs
-        noteComboBox.valueProperty().addListener((obs, oldVal, newVal) -> validateInputs());
-        userIdComboBox.valueProperty().addListener((obs, oldVal, newVal) -> validateInputs());
+        // Populate the userIdComboBox with user IDs (you can fetch this from a service)
+        ObservableList<Integer> userIdValues = FXCollections.observableArrayList();
+        userIdValues.addAll(1, 2, 3, 4, 5); // Example user IDs
+        userIdComboBox.setItems(userIdValues);
     }
 
-    private void validateInputs() {
-        String commentaire = commentaireTextField.getText();
-        Integer note = noteComboBox.getValue();
-        Integer userId = userIdComboBox.getValue();
-
-        // Enable the button only if all fields are filled out and commentaire has at least 2 characters
-        updateButton.setDisable(commentaire.length() < 2 || note == null || userId == null);
+    // Set the review to be edited
+    public void setAvis(Avis avis) {
+        this.avis = avis;
+        populateFields(); // Populate the fields with the review's data
     }
 
-    @FXML
-    void updateAvisAction(ActionEvent event) {
-        String commentaire = commentaireTextField.getText();
-        int note = noteComboBox.getValue();
-        int userId = userIdComboBox.getValue();
-
-        Avis updatedAvis = new Avis(avis.getAvis_id(), note, commentaire, new java.util.Date(), userId);
-
-        try {
-            avisService.update(updatedAvis);
-            showInfoAlert("Review updated successfully", null);
-        } catch (SQLException e) {
-            showErrorAlert("Error updating review", e.getMessage());
+    // Populate the fields with the review's data
+    private void populateFields() {
+        if (avis != null) {
+            commentaireTextField.setText(avis.getCommentaire());
+            noteComboBox.setValue(avis.getNote());
+            userIdComboBox.setValue(avis.getUser_id());
         }
     }
 
-    private void showErrorAlert(String header, String content) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(header);
-        alert.setContentText(content);
-        alert.showAndWait();
+    // Handle the update button action
+    @FXML
+    private void updateAvisAction() {
+        try {
+            // Update the review's data
+            avis.setCommentaire(commentaireTextField.getText());
+            avis.setNote(noteComboBox.getValue());
+            avis.setUser_id(userIdComboBox.getValue());
+
+            // Save the updated review
+            avisService.update(avis);
+
+            // Close the updateAvis page
+            closeWindow();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void showInfoAlert(String header, String content) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setHeaderText(header);
-        alert.setContentText(content);
-        alert.showAndWait();
+    // Close the updateAvis page
+    private void closeWindow() {
+        commentaireTextField.getScene().getWindow().hide();
     }
 }

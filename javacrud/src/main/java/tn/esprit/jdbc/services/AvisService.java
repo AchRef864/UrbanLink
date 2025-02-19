@@ -99,4 +99,24 @@ public class AvisService implements CRUD<Avis> {
         }
         return null;
     }
+
+    public List<Avis> showAllByUserId(int userId) throws SQLException {
+        List<Avis> temp = new ArrayList<>();
+        String req = "SELECT * FROM `avis` WHERE `user_id` = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(req)) {
+            ps.setInt(1, userId);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Avis a = new Avis();
+                    a.setAvis_id(rs.getInt("avis_id"));
+                    a.setNote(rs.getInt("note"));
+                    a.setCommentaire(rs.getString("commentaire"));
+                    a.setDate_avis(rs.getDate("date_avis"));
+                    a.setUser_id(rs.getInt("user_id"));
+                    temp.add(a);
+                }
+            }
+        }
+        return temp;
+    }
 }

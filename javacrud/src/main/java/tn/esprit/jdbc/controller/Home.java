@@ -10,7 +10,7 @@ public class Home extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/AvisTable.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Login.fxml"));
         primaryStage.setTitle("Avis Management");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();

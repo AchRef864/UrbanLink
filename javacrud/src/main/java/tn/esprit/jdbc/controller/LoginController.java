@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.UserService;
+import javafx.scene.layout.AnchorPane;
+import  tn.esprit.jdbc.controller.UserAvisController;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,7 +24,7 @@ public class LoginController {
     @FXML
     private PasswordField passwordTextField;
 
-    private UserService userService = new UserService();
+    private final UserService userService = new UserService();
 
     @FXML
     public void handleLoginButton() {
@@ -61,19 +63,29 @@ public class LoginController {
                     // Pass the user ID to the client page controller
                     ClientPageController clientPageController = loader.getController();
                     clientPageController.setUserId(user.getUserId());
+
+                    // Load the UserAvis view and pass its controller to ClientPageController
+                    FXMLLoader userAvisLoader = new FXMLLoader(getClass().getResource("/UserAvisTable.fxml"));
+                    AnchorPane userAvisView = userAvisLoader.load();
+                    UserAvisController userAvisController = userAvisLoader.getController();
+                    clientPageController.setUserAvisController(userAvisController);
+
+                    // Add the UserAvis view to the container
+                    clientPageController.getUserAvisContainer().getChildren().add(userAvisView);
                 }
 
-                // Set new scene
+                // Set the new scene and show the stage
                 stage.setScene(new Scene(root));
+                stage.show();
             } else {
                 showAlert("Login Failed", "Invalid email or password.");
             }
-        } catch (SQLException | IOException e) {
-            showAlert("Error", "An error occurred during login: " + e.getMessage());
+        } catch (SQLException e) {
+            showAlert("Database Error", "An error occurred while accessing the database: " + e.getMessage());
+        } catch (IOException e) {
+            showAlert("Application Error", "An error occurred while loading the page: " + e.getMessage());
         }
     }
-
-
     // Input validation methods
     private boolean isValidEmail(String email) {
         return email != null && email.contains("@");
@@ -83,6 +95,7 @@ public class LoginController {
         return password != null && password.length() >= 8;
     }
 
+    // Helper method to show alerts
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);

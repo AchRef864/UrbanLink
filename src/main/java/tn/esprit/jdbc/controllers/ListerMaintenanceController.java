@@ -158,7 +158,7 @@ public class ListerMaintenanceController {
         try {
             System.out.println("Editing Maintenance ID: " + maintenance.getMaintenanceId());
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/EditMaintenance.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/EditMaintenance.fxml"));
             Parent root = loader.load();
 
             EditMaintenanceController controller = loader.getController();

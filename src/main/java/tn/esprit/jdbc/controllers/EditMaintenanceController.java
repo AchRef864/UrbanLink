@@ -60,10 +60,8 @@ public class EditMaintenanceController {
 
         // Convert and display date properly
         if (maintenance.getMaintenanceDate() != null) {
-            LocalDate localDate = maintenance.getMaintenanceDate().toInstant()
-                    .atZone(ZoneId.systemDefault())
-                    .toLocalDate();
-            datePicker.setValue(localDate); // Set date picker value
+            Date utilDate = new Date(maintenance.getMaintenanceDate().getTime()); // Convert java.sql.Date to java.util.Date
+            datePicker.setValue(utilDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             datePicker.setDisable(false);   // Enable editing
         }
 

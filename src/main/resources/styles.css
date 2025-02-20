@@ -61,3 +61,27 @@
     -fx-text-fill: #FF4B2B !important;
     -fx-underline: true;
 }
+/* Background Image */
+.image-view {
+    -fx-opacity: 0.3; /* Adjust transparency */
+}
+
+/* Greeting Label */
+.label-greeting {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C3E50;
+}
+
+/* Date Picker */
+.date-picker {
+    -fx-font-size: 16px;
+    -fx-background-radius: 10;
+    -fx-padding: 8;
+}
+
+/* Welcome Label */
+.label-welcome {
+    -fx-font-size: 20px;
+    -fx-text-fill: #34495E;
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #003D29;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.HelloAdminController">
+    <VBox alignment="CENTER" layoutX="100.0" layoutY="25.0" prefWidth="400.0" spacing="25">
+
+        <!-- Title -->
+        <Label prefHeight="179.0" prefWidth="272.0" style="-fx-font-size: 30px; -fx-font-weight: bold;" text="    HELLO ADMIN" textFill="#3498DB" />
+
+        <!-- Buttons with modern rounded look -->
+        <HBox alignment="CENTER" spacing="20">
+            <Button onAction="#OpenInsertPageAction" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Insert" />
+            <Button onAction="#OpenEditPageAction" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #F1C40F; -fx-text-fill: black; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Edit" />
+        </HBox>
+
+        <!-- Additional Buttons -->
+        <HBox alignment="CENTER" spacing="20">
+            <Button onAction="#OpenTaxiListPageAction" prefHeight="61.0" prefWidth="240.0" style="-fx-background-color: #8E44AD; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Afficher liste taxi" />
+            <Button onAction="#OpenCourseListPageAction" prefHeight="64.0" prefWidth="258.0" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Afficher liste course" />
+        </HBox>
+
+        <!-- Respond to Reclamation Button -->
+        <Button onAction="#OpenReclamationResponsePageAction" prefHeight="74.0" prefWidth="250.0" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Respond to Reclamation" />
+
+    </VBox>
+</AnchorPane>

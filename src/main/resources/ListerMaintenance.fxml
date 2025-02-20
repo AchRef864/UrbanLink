@@ -23,7 +23,11 @@
             </columns>
         </TableView>
 
-        <!-- Add Button at Bottom -->
-        <Button text="Add Maintenance" fx:id="btnAdd" style="-fx-font-size: 14px;"/>
+        <!-- Search Bar & Add Button -->
+        <HBox spacing="10">
+            <TextField fx:id="searchField" promptText="Search..." style="-fx-font-size: 14px;"/>
+            <Button text="Search" fx:id="btnSearch" style="-fx-font-size: 14px;"/>
+            <Button text="Add Maintenance" fx:id="btnAdd" style="-fx-font-size: 14px;"/>
+        </HBox>
     </VBox>
 </AnchorPane>

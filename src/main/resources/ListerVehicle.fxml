@@ -7,12 +7,15 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="tn.esprit.jdbc.controllers.ListerVehicleController"
-            prefHeight="450.0" prefWidth="700.0">
+            prefHeight="500.0" prefWidth="700.0">
     <children>
-        <!-- VBox for layout -->
         <VBox spacing="10.0" alignment="CENTER">
             <!-- Title -->
             <Label text="Vehicle List" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+            <!-- Search Field -->
+            <TextField fx:id="searchField" promptText="Search by Model, License Plate, or Type"
+                       maxWidth="400.0"/>
 
             <!-- TableView -->
             <TableView fx:id="vehicleTableView" prefWidth="700.0" prefHeight="350.0">

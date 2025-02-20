@@ -1,6 +1,5 @@
 # UrbanLink 
 # date 20-02-2025 Last update for the project - on - feature/Users + Transport
-
 ## Project Structure
 
 ```

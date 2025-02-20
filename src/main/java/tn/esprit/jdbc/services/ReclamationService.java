@@ -37,12 +37,19 @@ public class ReclamationService implements CRUD<Reclamation> {
 
     @Override
     public int update(Reclamation reclamation) throws SQLException {
+
         String req = "UPDATE `reclamation` SET `sujet` = ?, `description` = ?, `reponse_reclamation` = ? WHERE `reclamation_id` = ?";
         ps = cnx.prepareStatement(req);
         ps.setString(1, reclamation.getSujet());
         ps.setString(2, reclamation.getDescription());
         ps.setString(3, reclamation.getReponseReclamation());
         ps.setInt(4, reclamation.getReclamationId());
+
+        String req = "UPDATE `reclamation` SET `sujet` = ?, `description` = ? WHERE `reclamation_id` = ?";
+        ps = cnx.prepareStatement(req);
+        ps.setString(1, reclamation.getSujet());
+        ps.setString(2, reclamation.getDescription());
+        ps.setInt(3, reclamation.getReclamationId());
         return ps.executeUpdate();
     }
 
@@ -71,13 +78,12 @@ public class ReclamationService implements CRUD<Reclamation> {
             reclamation.setDateReclamation(rs.getTimestamp("date_reclamation"));
             reclamation.setReponseReclamation(rs.getString("reponse_reclamation"));
 
+
             temp.add(reclamation);
         }
 
         return temp;
     }
-
-    // Optional: Fetch reclamations by user ID
     public List<Reclamation> getReclamationsByUserId(int userId) throws SQLException {
         List<Reclamation> temp = new ArrayList<>();
 
@@ -95,12 +101,12 @@ public class ReclamationService implements CRUD<Reclamation> {
             reclamation.setDateReclamation(rs.getTimestamp("date_reclamation"));
             reclamation.setReponseReclamation(rs.getString("reponse_reclamation"));
 
+
             temp.add(reclamation);
         }
 
         return temp;
     }
-
     public Reclamation getLastReclamationByUserId(int userId) throws SQLException {
         String query = "SELECT * FROM reclamation WHERE user_id = ? ORDER BY date_reclamation DESC LIMIT 1";
         try (PreparedStatement ps = cnx.prepareStatement(query)) {
@@ -120,4 +126,5 @@ public class ReclamationService implements CRUD<Reclamation> {
         }
         return null; // No reclamation found
     }
+
 }

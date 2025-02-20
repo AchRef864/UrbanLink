@@ -3,7 +3,6 @@ package tn.esprit.jdbc.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-
 public class DetailController {
 
     @FXML
@@ -29,12 +28,14 @@ public class DetailController {
     }
 
 
+
     @FXML
     private TextField passwordTextField;
    private void setPasswordTextField(String password)
     {
         this.passwordTextField.setText(password) ;
     }
+
 
 
 }

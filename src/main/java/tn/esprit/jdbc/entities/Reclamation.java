@@ -20,6 +20,7 @@ public class Reclamation {
         this.sujet = sujet;
         this.description = description;
     }
+
     // Parameterized constructor with response
     public Reclamation(int reclamationId, int userId, String sujet, String description, String reponseReclamation) {
         this.reclamationId = reclamationId;
@@ -27,11 +28,6 @@ public class Reclamation {
         this.sujet = sujet;
         this.description = description;
         this.reponseReclamation = reponseReclamation;
-    public Reclamation(int reclamationId , int userId, String sujet, String description )
-    {   this.reclamationId=reclamationId;
-        this.userId = userId;
-        this.sujet = sujet;
-        this.description = description;
     }
 
     // Getters and Setters

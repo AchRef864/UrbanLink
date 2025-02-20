@@ -11,8 +11,6 @@ public class HelloAdminController {
 
     @FXML
     private void OpenInsertPageAction(ActionEvent event) {
-    @FXML
-    public void OpenInsertPageAction(ActionEvent event) {
         try {
             // Load the Insert page
             Parent root = FXMLLoader.load(getClass().getResource("/AjouterUser.fxml"));
@@ -28,9 +26,6 @@ public class HelloAdminController {
     private void OpenEditPageAction(ActionEvent event) {
         try {
             // Load the Edit page
-    public void OpenEditPageAction(ActionEvent event) {
-        try {
-            // Load the Insert page
             Parent root = FXMLLoader.load(getClass().getResource("/EditUser.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -39,6 +34,7 @@ public class HelloAdminController {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void OpenReclamationResponsePageAction(ActionEvent event) {
         try {

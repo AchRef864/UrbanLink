@@ -16,15 +16,12 @@ public class UserService implements CRUD<User> {
     public int insert(User user) throws SQLException {
         String req = "INSERT INTO `users`(`name`, `email`, `phone`, `password`, `admin`) VALUES (?, ?, ?, ?, ?)";
 
-        String req = "INSERT INTO `users`(`name`, `email`, `phone`, `password`) VALUES (?, ?, ?, ?)";
-
         ps = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
         ps.setString(1, user.getName());
         ps.setString(2, user.getEmail());
         ps.setString(3, user.getPhone());
         ps.setString(4, user.getPassword());
         ps.setInt(5, user.getAdmin()); // Add the admin field
-
 
         int rowsAffected = ps.executeUpdate();
 

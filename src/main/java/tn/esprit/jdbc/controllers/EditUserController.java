@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -76,8 +75,6 @@ public class EditUserController {
         searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             filterTable(newValue);
         });
-        // Load data into the TableView
-        loadUserData();
     }
 
     private void loadUserData() {
@@ -226,24 +223,4 @@ public class EditUserController {
     }
 
 
-        try {
-            // Get the user ID from the TextField
-            int userId = Integer.parseInt(userIdTextField.getText());
-
-            // Delete the user from the database
-            userService.delete(userId);
-
-            // Reload the data in the TableView
-            loadUserData();
-
-            // Clear the TextField
-            userIdTextField.clear();
-
-            System.out.println("User deleted successfully!");
-        } catch (NumberFormatException e) {
-            System.err.println("Invalid User ID. Please enter a valid number.");
-        } catch (SQLException e) {
-            System.err.println("Error deleting user: " + e.getMessage());
-        }
-    }
 }

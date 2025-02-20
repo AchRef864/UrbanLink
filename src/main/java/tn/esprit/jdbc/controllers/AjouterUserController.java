@@ -1,6 +1,5 @@
 package tn.esprit.jdbc.controllers;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,15 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.UserService;
-import tn.esprit.jdbc.entities.User;
-import tn.esprit.jdbc.services.UserService;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
-
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -37,7 +27,6 @@ public class AjouterUserController {
     private TextField phoneTextField;
 
     @FXML
-
     private TextField passwordTextField;
 
     @FXML
@@ -51,13 +40,10 @@ public class AjouterUserController {
     }
 
     @FXML
-
-
     void ajouteUserAction(ActionEvent event) {
         String nom = nomTextField.getText();
         String email = emailTextField.getText();
         String phone = phoneTextField.getText();
-
         String password = passwordTextField.getText();
         int admin = adminComboBox.getValue().equals("Admin") ? 1 : 0; // Convert selection to int
 
@@ -80,11 +66,6 @@ public class AjouterUserController {
         // Use the correct constructor
         User user = new User(nom, email, phone, password, admin);
 
-
-        // Use the correct constructor
-        User user = new User(nom, email, phone, null);
-
-
         UserService serviceUser = new UserService();
         try {
             serviceUser.insert(user);
@@ -98,20 +79,12 @@ public class AjouterUserController {
             Parent root = loader.load();
 
             DetailController detailController = loader.getController();
-
             // Pass data to the Detail controller
             detailController.setNomTextField(nom);
             detailController.setEmailTextField(email);
             detailController.setPhoneTextField(phone);
 
             // Change the scene
-
-            // from the Detail controller
-            detailController.setNomTextField(nom);
-            detailController.setEmailTextField(email);
-            detailController.setPhoneTextField(phone) ;
-            //Test field --+
-
             nomTextField.getScene().setRoot(root);
 
         } catch (SQLException | IOException e) {
@@ -150,5 +123,4 @@ public class AjouterUserController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
 }

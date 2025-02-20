@@ -51,11 +51,11 @@ public class LoginController {
 
                 if (user.getAdmin() == 1) {
                     // Load Admin Page
-                    loader = new FXMLLoader(getClass().getResource("/HelloAdmin.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("/Dashboard.fxml"));
                     root = loader.load();
                 } else {
                     // Load Client Page
-                    loader = new FXMLLoader(getClass().getResource("/ClientPage.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("/DashboardClient.fxml"));
                     root = loader.load();
 
                     // Pass the user ID to the client page controller

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.jdbc.controllers.EditReservationController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <children>
+        <Label text="Edit Reservation" layoutX="20" layoutY="20" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+        <Label text="User:" layoutX="20" layoutY="60"/>
+        <ComboBox fx:id="userComboBox" layoutX="120" layoutY="60" promptText="Select a user"/>
+
+        <Label text="Trajet:" layoutX="20" layoutY="100"/>
+        <ComboBox fx:id="trajetComboBox" layoutX="120" layoutY="100" promptText="Select a trajet"/>
+
+        <Label text="Reservation Date:" layoutX="20" layoutY="140"/>
+        <DatePicker fx:id="reservationDatePicker" layoutX="120" layoutY="140"/>
+
+        <Label text="Number of Seats:" layoutX="20" layoutY="180"/>
+        <Spinner fx:id="numberOfSeatsSpinner" layoutX="120" layoutY="180" min="1" max="10" initialValue="1"/>
+
+        <Label text="Total Price:" layoutX="20" layoutY="220"/>
+        <TextField fx:id="totalPriceField" layoutX="120" layoutY="220" promptText="Enter total price"/>
+
+        <Button text="Update Reservation" layoutX="120" layoutY="260" onAction="#handleUpdateReservation"/>
+    </children>
+</AnchorPane>

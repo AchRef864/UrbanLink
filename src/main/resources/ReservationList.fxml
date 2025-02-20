@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="tn.esprit.jdbc.controllers.ReservationTableController">
+    <children>
+        <Button text="Add Reservation" layoutX="20.0" layoutY="20.0" onAction="#handleAddReservation"/>
+
+        <TableView fx:id="reservationTable" layoutX="20.0" layoutY="60.0" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="idReservationColumn" text="ID" prefWidth="50.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="idReservation" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="trajetColumn" text="Trajet" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="trajet" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="userColumn" text="User" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="user" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="reservationDateColumn" text="Date" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="reservationDate" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="numberOfSeatsColumn" text="Seats" prefWidth="50.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="numberOfSeats" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="totalPriceColumn" text="Price" prefWidth="100.0">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="totalPrice" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="editColumn" text="Edit" prefWidth="100.0"/>
+                <TableColumn fx:id="deleteColumn" text="Delete" prefWidth="100.0"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

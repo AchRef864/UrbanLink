@@ -14,12 +14,14 @@ public class Home extends Application {
     @Override
     public void start(Stage stage)  {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Dashboard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/ReservationList.fxml"));
+
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             System.err.println(e.getMessage());
+            e.printStackTrace();
         }
 
     }

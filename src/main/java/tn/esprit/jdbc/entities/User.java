@@ -72,6 +72,9 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    public void DisplayName(){
+        System.out.println(name);
+    }
 
     @Override
     public String toString() {
@@ -83,4 +86,5 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
+
 }

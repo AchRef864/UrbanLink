@@ -9,6 +9,7 @@ public class Vehicle {
     private VehicleType type;  // Use enum instead of String
     private int capacity;
     private List<Maintenance> maintenanceRecords;
+    private Trajet trajet;
 
     // Constructor
     public Vehicle(String model, String licensePlate, VehicleType type, int capacity) {
@@ -36,6 +37,9 @@ public class Vehicle {
 
     public List<Maintenance> getMaintenanceRecords() { return maintenanceRecords; }
     public void setMaintenanceRecords(List<Maintenance> maintenanceRecords) { this.maintenanceRecords = maintenanceRecords; }
+
+    public Trajet getTrajet() { return trajet; }
+    public void setTrajet(Trajet trajet) { this.trajet = trajet; }
 
     @Override
     public String toString() {

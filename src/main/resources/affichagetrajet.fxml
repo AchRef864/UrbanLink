@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="802.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.TrajetListController">
+
+    <VBox alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="731.0" prefWidth="1246.0" spacing="10.0">
+
+        <!-- Title -->
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Liste des Trajets" />
+
+        <!-- TableView pour afficher les trajets -->
+        <TableView fx:id="trajetTableView" prefHeight="628.0" prefWidth="1246.0">
+            <columns>
+
+                <!-- Colonne Départ -->
+                <TableColumn fx:id="departureColumn" prefWidth="118.933349609375" text="Départ" />
+
+                <!-- Colonne Destination -->
+                <TableColumn fx:id="destinationColumn" prefWidth="139.4666290283203" text="Destination" />
+
+                <!-- Colonne Distance -->
+                <TableColumn fx:id="distanceColumn" prefWidth="117.60000610351562" text="Distance (km)" />
+
+                <!-- Colonne Durée -->
+                <TableColumn fx:id="durationColumn" prefWidth="120.80001831054688" text="Durée" />
+
+                <!-- Colonne Heure de départ -->
+                <TableColumn fx:id="departureTimeColumn" prefWidth="162.4000244140625" text="Heure de départ" />
+
+                <!-- Colonne Heure d'arrivée -->
+                <TableColumn fx:id="arrivalTimeColumn" prefWidth="199.20001220703125" text="Heure d'arrivée" />
+
+                <!-- Colonne Prix -->
+                <TableColumn fx:id="priceColumn" prefWidth="142.4000244140625" text="Prix (TND)" />
+
+                <!-- Colonne Actions -->
+                <TableColumn fx:id="actionColumn" prefWidth="247.20001220703125" text="Actions" />
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

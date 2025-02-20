@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.EditTrajetController">
+
+    <VBox alignment="CENTER" layoutX="50.0" layoutY="50.0" spacing="10.0">
+
+        <!-- Title -->
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Modifier un Trajet" />
+
+        <!-- Departure -->
+        <HBox spacing="10.0">
+            <Label text="Départ:" />
+            <TextField fx:id="departureField" prefHeight="26.0" prefWidth="157.0" promptText="Lieu de départ" />
+        </HBox>
+
+        <!-- Destination -->
+        <HBox spacing="10.0">
+            <Label text="Destination:" />
+            <TextField fx:id="destinationField" promptText="Lieu de destination" />
+        </HBox>
+
+        <!-- Distance -->
+        <HBox spacing="10.0">
+            <Label text="Distance (km):" />
+            <TextField fx:id="distanceField" promptText="Distance en km" />
+        </HBox>
+
+        <!-- Duration -->
+        <HBox spacing="10.0">
+            <Label text="Durée:" />
+            <HBox spacing="5.0">
+                <TextField fx:id="durationHourField" maxWidth="50" promptText="HH" />
+                <Label text=":" />
+                <TextField fx:id="durationMinuteField" maxWidth="50" promptText="MM" />
+            </HBox>
+        </HBox>
+
+        <!-- Departure Time -->
+        <HBox spacing="10.0">
+            <Label text="Heure de départ:" />
+            <HBox spacing="5.0">
+                <TextField fx:id="departureHourField" maxWidth="50" promptText="HH" />
+                <Label text=":" />
+                <TextField fx:id="departureMinuteField" maxWidth="50" promptText="MM" />
+            </HBox>
+        </HBox>
+
+        <!-- Arrival Time -->
+        <HBox spacing="10.0">
+            <Label text="Heure d'arrivée:" />
+            <HBox spacing="5.0">
+                <TextField fx:id="arrivalHourField" maxWidth="50" promptText="HH" />
+                <Label text=":" />
+                <TextField fx:id="arrivalMinuteField" maxWidth="50" promptText="MM" />
+            </HBox>
+        </HBox>
+
+        <!-- Price -->
+        <HBox spacing="10.0">
+            <Label text="Prix:" />
+            <TextField fx:id="priceField" promptText="Prix en dinars" />
+        </HBox>
+
+        <!-- Submit Button -->
+        <Button onAction="#saveChanges" text="Ajouter Trajet" />
+
+    </VBox>
+</AnchorPane>

@@ -115,4 +115,31 @@ public class vehicleService implements CRUD<Vehicle> {
         }
         return null; // No vehicle found with this license plate
     }
+
+    public List<Vehicle> searchVehicles(String keyword) throws SQLException {
+        List<Vehicle> vehicles = new ArrayList<>();
+        String query = "SELECT * FROM vehicule WHERE model LIKE ? OR license_plate LIKE ? OR type LIKE ?";
+
+        PreparedStatement statement = connection.prepareStatement(query);
+        String searchPattern = "%" + keyword + "%";
+        statement.setString(1, searchPattern);
+        statement.setString(2, searchPattern);
+        statement.setString(3, searchPattern);
+
+        ResultSet resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {
+            Vehicle vehicle = new Vehicle(
+                    resultSet.getString("model"),
+                    resultSet.getString("license_plate"),
+                    VehicleType.valueOf(resultSet.getString("type")),  // Convert String to ENUM
+                    resultSet.getInt("capacity")
+            );
+            vehicle.setVehicleId(resultSet.getInt("vehicle_id"));
+            vehicles.add(vehicle);
+        }
+
+        return vehicles;
+    }
+
 }

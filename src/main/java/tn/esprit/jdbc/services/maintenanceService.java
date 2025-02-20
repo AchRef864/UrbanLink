@@ -100,4 +100,27 @@ public class maintenanceService implements CRUD<Maintenance> {
 
         return maintenanceRecords;
     }
+
+    public List<Maintenance> search(String keyword) throws SQLException {
+        List<Maintenance> maintenanceRecords = new ArrayList<>();
+        String query = "SELECT * FROM maintenance WHERE description LIKE ? OR maintenance_date LIKE ? OR cost LIKE ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        String searchKeyword = "%" + keyword + "%";
+        statement.setString(1, searchKeyword);
+        statement.setString(2, searchKeyword);
+        statement.setString(3, searchKeyword);
+        ResultSet resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {
+            Maintenance maintenance = new Maintenance(
+                    null,
+                    resultSet.getString("description"),
+                    resultSet.getDate("maintenance_date"),
+                    resultSet.getDouble("cost")
+            );
+            maintenance.setMaintenanceId(resultSet.getInt("maintenance_id"));
+            maintenanceRecords.add(maintenance);
+        }
+        return maintenanceRecords;
+    }
 }

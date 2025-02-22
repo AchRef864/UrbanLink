@@ -5,7 +5,7 @@ import tn.esprit.jdbc.utils.MyDatabase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import tn.esprit.jdbc.entities.Taxi;
+import tn.esprit.jdbc.entities.Taxii;
 
 public class TaxiService {
 
@@ -35,13 +35,13 @@ public class TaxiService {
         return -1; // Return -1 if no matching taxi is found
     }
 
-    public List<Taxi> getAllTaxis() throws SQLException {
-        List<Taxi> taxis = new ArrayList<>();
+    public List<Taxii> getAllTaxis() throws SQLException {
+        List<Taxii> taxis = new ArrayList<>();
         String query = "SELECT * FROM taxi";
         try (Statement st = cnx.createStatement();
              ResultSet rs = st.executeQuery(query)) {
             while (rs.next()) {
-                Taxi taxi = new Taxi(
+                Taxii taxii = new Taxii(
                         rs.getInt("id_taxi"),
                         rs.getString("immatriculation"),
                         rs.getString("marque"),
@@ -55,7 +55,7 @@ public class TaxiService {
                         rs.getInt("user_id"),
                         rs.getInt("maintenance_id")
                 );
-                taxis.add(taxi);
+                taxis.add(taxii);
             }
         }
         return taxis;

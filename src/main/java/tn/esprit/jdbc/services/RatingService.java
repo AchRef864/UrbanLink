@@ -6,6 +6,7 @@ import tn.esprit.jdbc.utils.MyDatabase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import tn.esprit.jdbc.entities.Rating;
 
 public class RatingService {
 
@@ -66,10 +67,10 @@ public class RatingService {
         }
     }
 
+    // Get all ratings
     public List<Rating> getAllRatings() throws SQLException {
         List<Rating> ratings = new ArrayList<>();
-        String query = "SELECT * FROM ratings"; // Fetch all ratings
-
+        String query = "SELECT * FROM ratings";
         try (PreparedStatement ps = cnx.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
@@ -86,5 +87,15 @@ public class RatingService {
         return ratings;
     }
 
-
+    // Get the average rating across all ratings
+    public double getAverageRating() throws SQLException {
+        String query = "SELECT AVG(rating) AS average_rating FROM ratings";
+        try (PreparedStatement ps = cnx.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getDouble("average_rating");
+            }
+        }
+        return 0.0;
+    }
 }

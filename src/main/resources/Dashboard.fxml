@@ -24,6 +24,8 @@
             <Button fx:id="btnEditUser" text="Edit User" />
             <Button fx:id="btnViewRatings" text="View Ratings" /> <!-- New button for viewing ratings -->
             <Button fx:id="btnLogout" text="Logout" />
+            <Button fx:id="btnChat" text="Chat" onAction="#handleChat" />
+
         </VBox>
     </left>
 

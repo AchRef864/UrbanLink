@@ -13,6 +13,11 @@ import tn.esprit.jdbc.entities.User;
 public class DashboardController {
 
     @FXML
+    private void handleChat() {
+        loadPage("/Chat.fxml");
+    }
+
+    @FXML
     private StackPane contentArea;
 
     @FXML

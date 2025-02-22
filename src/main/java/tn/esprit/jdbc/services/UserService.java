@@ -6,7 +6,12 @@ import tn.esprit.jdbc.utils.MyDatabase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import tn.esprit.jdbc.entities.User;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 public class UserService implements CRUD<User> {
 
     private Connection cnx = MyDatabase.getInstance().getCnx();
@@ -150,4 +155,53 @@ public class UserService implements CRUD<User> {
     public void addUser(User user) throws SQLException {
         insert(user);
     }
+
+    public int countClients() throws SQLException {
+        int count = 0;
+        String query = "SELECT COUNT(*) AS client_count FROM users WHERE role = 'client'"; // Query the `users` table
+
+        try (Connection connection = MyDatabase.getInstance().getCnx();
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            if (resultSet.next()) {
+                count = resultSet.getInt("client_count");
+            }
+        }
+
+        return count;
+    }
+
+    // UserService.java
+    public List<User> getAllClients() throws SQLException {
+        List<User> clients = new ArrayList<>();
+        String query = "SELECT * FROM users WHERE role = 'client'";
+        // Execute query and populate the list
+        return clients;
+    }
+
+    public List<User> getAllAdmins() throws SQLException {
+        List<User> admins = new ArrayList<>();
+        String query = "SELECT * FROM users WHERE role = 'admin'";
+        // Execute query and populate the list
+        return admins;
+    }
+
+    public int countAdmins() throws SQLException {
+        int count = 0;
+        String query = "SELECT COUNT(*) AS admin_count FROM users WHERE role = 'admin'"; // Query the `users` table
+
+        try (Connection connection = MyDatabase.getInstance().getCnx();
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            if (resultSet.next()) {
+                count = resultSet.getInt("admin_count");
+            }
+        }
+
+        return count;
+    }
+
+
 }

@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.UserService;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 
 public class LoginController {

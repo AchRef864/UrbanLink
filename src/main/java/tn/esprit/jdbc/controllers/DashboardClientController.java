@@ -3,21 +3,20 @@ package tn.esprit.jdbc.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import java.io.IOException;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tn.esprit.jdbc.entities.User ;
-
+import tn.esprit.jdbc.entities.User;
 
 public class DashboardClientController {
+
     @FXML
     private StackPane contentArea;
 
     @FXML
-    private Button btnHome, btnVehicle, btnMaintenance, btnInsertUser, btnEditUser, btnLogout;
+    private Button btnHome, btnVehicle, btnMaintenance, btnInsertUser, btnEditUser, btnRateRide, btnLogout;
 
     private User currentUser; // Store the logged-in user
 
@@ -29,6 +28,7 @@ public class DashboardClientController {
         btnMaintenance.setOnAction(e -> loadPage("/ListerMaintenance.fxml"));
         btnInsertUser.setOnAction(e -> loadPage("/AjouterUser.fxml"));
         btnEditUser.setOnAction(e -> loadPage("/EditUser.fxml"));
+        btnRateRide.setOnAction(e -> loadPage("/RatingForm.fxml")); // Load the rating form
         btnLogout.setOnAction(e -> logout());
     }
 
@@ -67,7 +67,15 @@ public class DashboardClientController {
      */
     private void loadPage(String fxml) {
         try {
-            Parent page = FXMLLoader.load(getClass().getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent page = loader.load();
+
+            // Pass the user ID to the RatingController if the loaded page is the rating form
+            if (fxml.equals("/RatingForm.fxml")) {
+                RatingController ratingController = loader.getController();
+                ratingController.setUserId(currentUser.getUserId()); // Pass the user ID
+            }
+
             contentArea.getChildren().setAll(page);
         } catch (IOException e) {
             e.printStackTrace();
@@ -87,5 +95,4 @@ public class DashboardClientController {
             e.printStackTrace();
         }
     }
-
 }

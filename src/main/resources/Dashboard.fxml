@@ -20,8 +20,9 @@
             <Button fx:id="btnHome" text="Home" />
             <Button fx:id="btnVehicle" text="Vehicle" />
             <Button fx:id="btnMaintenance" text="Maintenance" />
-             <Button fx:id="btnInsertUser" text="Insert User" />
+            <Button fx:id="btnInsertUser" text="Insert User" />
             <Button fx:id="btnEditUser" text="Edit User" />
+            <Button fx:id="btnViewRatings" text="View Ratings" /> <!-- New button for viewing ratings -->
             <Button fx:id="btnLogout" text="Logout" />
         </VBox>
     </left>

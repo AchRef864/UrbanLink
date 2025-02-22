@@ -11,6 +11,9 @@ import java.util.List;
 public class vehicleService implements CRUD<Vehicle> {
     private final Connection connection;
 
+    private Connection cnx = MyDatabase.getInstance().getCnx();
+
+
     public vehicleService() {
         this.connection = MyDatabase.getInstance().getCnx();
     }
@@ -140,6 +143,31 @@ public class vehicleService implements CRUD<Vehicle> {
         }
 
         return vehicles;
+    }
+
+    // Get all vehicle license plates
+    public List<String> getAllVehicleLicensePlates() throws SQLException {
+        List<String> licensePlates = new ArrayList<>();
+        String query = "SELECT license_plate FROM vehicule";
+        try (Statement st = cnx.createStatement();
+             ResultSet rs = st.executeQuery(query)) {
+            while (rs.next()) {
+                licensePlates.add(rs.getString("license_plate"));
+            }
+        }
+        return licensePlates;
+    }
+
+    public int getVehicleIdByLicensePlate(String licensePlate) throws SQLException {
+        String query = "SELECT vehicle_id FROM vehicule WHERE license_plate = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, licensePlate);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("vehicle_id");
+            }
+        }
+        return -1; // Return -1 if no matching vehicle is found
     }
 
 }

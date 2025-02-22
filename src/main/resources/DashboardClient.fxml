@@ -19,6 +19,7 @@
             <Button fx:id="btnMaintenance" text="Maintenance" />
             <Button fx:id="btnInsertUser" text="Insert User" />
             <Button fx:id="btnEditUser" text="Edit User" />
+            <Button fx:id="btnRateRide" text="Rate Ride" /> <!-- New button -->
             <Button fx:id="btnLogout" text="Logout" />
         </VBox>
     </left>

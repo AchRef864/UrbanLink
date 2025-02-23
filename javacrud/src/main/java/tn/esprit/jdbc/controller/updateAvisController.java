@@ -18,9 +18,6 @@ public class UpdateAvisController {
     @FXML
     private ComboBox<Integer> noteComboBox;
 
-    @FXML
-    private ComboBox<Integer> userIdComboBox;
-
     private Avis avis; // The review being edited
     private final AvisService avisService = new AvisService();
 
@@ -32,11 +29,6 @@ public class UpdateAvisController {
             noteValues.add(i);
         }
         noteComboBox.setItems(noteValues);
-
-        // Populate the userIdComboBox with user IDs (you can fetch this from a service)
-        ObservableList<Integer> userIdValues = FXCollections.observableArrayList();
-        userIdValues.addAll(1, 2, 3, 4, 5); // Example user IDs
-        userIdComboBox.setItems(userIdValues);
     }
 
     // Set the review to be edited
@@ -50,7 +42,6 @@ public class UpdateAvisController {
         if (avis != null) {
             commentaireTextField.setText(avis.getCommentaire());
             noteComboBox.setValue(avis.getNote());
-            userIdComboBox.setValue(avis.getUser_id());
         }
     }
 
@@ -61,7 +52,6 @@ public class UpdateAvisController {
             // Update the review's data
             avis.setCommentaire(commentaireTextField.getText());
             avis.setNote(noteComboBox.getValue());
-            avis.setUser_id(userIdComboBox.getValue());
 
             // Save the updated review
             avisService.update(avis);

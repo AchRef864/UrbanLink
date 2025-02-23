@@ -17,9 +17,9 @@
                     <TableColumn fx:id="commentaireColumn" text="Commentaire"/>
                     <TableColumn fx:id="dateAvisColumn" text="Date review"/>
                     <TableColumn fx:id="userIdColumn" text="User ID"/>
-                    <TableColumn fx:id="editColumn" text="Edit" style="-fx-background-color: #F1C40F; -fx-text-fill: black; -fx-font-size: 16px; -fx-background-radius: 15; -fx-font-weight: bold; -fx-cursor: hand;"/>
-                    <TableColumn fx:id="deleteColumn" text="Delete" style="-fx-background-color: #d20a2e; -fx-text-fill: black; -fx-font-size: 16px; -fx-background-radius: 15; -fx-font-weight: bold; -fx-cursor: hand;"/>
-                    <TableColumn fx:id="viewReponsesColumn" text="View Responses" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15;-fx-font-weight: bold; -fx-cursor: hand;"/>
+                    <TableColumn fx:id="editColumn" text="Edit" style="-fx-background-color: #F1C40F; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"/>
+                    <TableColumn fx:id="deleteColumn" text="Delete" style="-fx-background-color: #d20a2e; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"/>
+                    <TableColumn fx:id="viewReponsesColumn" text="View Responses" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 16px;-fx-font-weight: bold; -fx-cursor: hand;"/>
                 </columns>
             </TableView>
         </VBox>

@@ -10,6 +10,8 @@
             <columns>
                 <TableColumn fx:id="commentaireColumn" text="Commentaire" />
                 <TableColumn fx:id="dateReponseColumn" text="Date Reponse" />
+                <TableColumn fx:id="editColumn" text="Edit" />
+                <TableColumn fx:id="deleteColumn" text="Delete" />
             </columns>
         </TableView>
         <Button layoutX="14.0" layoutY="230.0" mnemonicParsing="false" onAction="#createReponseAction" text="Add Response" />

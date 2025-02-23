@@ -208,7 +208,7 @@ public class AvisTableController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Delete Avis");
             alert.setHeaderText(null);
-            alert.setContentText("Deleted Avis ID: " + avis.getAvis_id());
+            alert.setContentText("Deleted review");
             alert.showAndWait();
         } catch (SQLException e) {
             e.printStackTrace();

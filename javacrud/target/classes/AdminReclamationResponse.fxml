@@ -25,7 +25,7 @@
 
         <!-- Response Field -->
         <Label text="Response:" textFill="WHITE" />
-        <TextArea fx:id="responseTextArea" promptText="Enter response" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
+        <TextArea fx:id="responseTextArea" promptText="Enter response" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: black; -fx-prompt-text-fill: #bbb;" />
 
         <!-- Submit Button -->
         <Button onAction="#handleSubmitResponseButton" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Submit Response" />

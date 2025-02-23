@@ -14,12 +14,13 @@ public class ReclamationService implements CRUD<Reclamation> {
 
     @Override
     public int insert(Reclamation reclamation) throws SQLException {
-        String req = "INSERT INTO `reclamation` (`user_id`, `sujet`, `description`) VALUES (?, ?, ?)";
+        String req = "INSERT INTO `reclamation` (`user_id`, `sujet`, `description`, `reponse_reclamation`) VALUES (?, ?, ?, ?)";
 
         ps = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
         ps.setInt(1, reclamation.getUserId());
         ps.setString(2, reclamation.getSujet());
         ps.setString(3, reclamation.getDescription());
+        ps.setString(4, reclamation.getReponseReclamation()); // Set the response field
 
         int rowsAffected = ps.executeUpdate();
 
@@ -125,4 +126,25 @@ public class ReclamationService implements CRUD<Reclamation> {
         }
         return null; // No reclamation found
     }
+
+    public String getUserPhoneNumber(int userId) {
+        String phoneNumber = null;
+        String query = "SELECT phone FROM users WHERE user_id = ?"; // Adjust if needed
+
+        try (Connection conn = MyDatabase.getInstance().getCnx(); // Use MyDatabase
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                phoneNumber = rs.getString("phone");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return phoneNumber;
+    }
+
+
 }

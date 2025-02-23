@@ -19,6 +19,7 @@ public class Reclamation {
         this.userId = userId;
         this.sujet = sujet;
         this.description = description;
+        this.reponseReclamation = ""; // Default value for the response
     }
 
     // Parameterized constructor with response

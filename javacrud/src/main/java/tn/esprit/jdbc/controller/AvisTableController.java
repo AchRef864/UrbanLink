@@ -1,30 +1,35 @@
 package tn.esprit.jdbc.controller;
 
-import tn.esprit.jdbc.entities.Reponse;
 import tn.esprit.jdbc.entities.Avis;
 import tn.esprit.jdbc.services.AvisService;
-import tn.esprit.jdbc.services.ReponseService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.util.Callback;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import tn.esprit.jdbc.services.ReponseService;
+
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
+import javafx.stage.FileChooser;
+import java.io.File;
 
 public class AvisTableController {
 
@@ -35,16 +40,19 @@ public class AvisTableController {
     private TableColumn<Avis, Integer> avisIdColumn;
 
     @FXML
-    private TableColumn<Avis, String> commentaireColumn;
+    private TableColumn<Avis, Integer> noteColumn;
 
     @FXML
-    private TableColumn<Avis, Integer> noteColumn;
+    private TableColumn<Avis, String> commentaireColumn;
 
     @FXML
     private TableColumn<Avis, Date> dateAvisColumn;
 
     @FXML
     private TableColumn<Avis, Integer> userIdColumn;
+
+    @FXML
+    private TableColumn<Avis, String> userEmailColumn;
 
     @FXML
     private TableColumn<Avis, Void> editColumn;
@@ -54,6 +62,9 @@ public class AvisTableController {
 
     @FXML
     private TableColumn<Avis, Void> viewReponsesColumn;
+
+    @FXML
+    private Button exportPdfButton;
 
     private AvisService avisService = new AvisService();
     private ReponseService reponseService = new ReponseService();
@@ -231,5 +242,73 @@ public class AvisTableController {
         }
     }
 
+    @FXML
+    private void exportToPdf(ActionEvent event) {
+        Document document = new Document();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save PDF");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+        File file = fileChooser.showSaveDialog(exportPdfButton.getScene().getWindow());
 
+        if (file != null) {
+            try {
+                PdfWriter.getInstance(document, new FileOutputStream(file));
+                document.open();
+
+                Font titleFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+                Paragraph title = new Paragraph("Avis Table", titleFont);
+                title.setAlignment(Element.ALIGN_CENTER);
+                document.add(title);
+                document.add(new Paragraph("\n"));
+
+                PdfPTable table = new PdfPTable(4);
+                table.setWidthPercentage(100);
+
+                addTableHeader(table);
+                addRows(table);
+
+                document.add(table);
+
+                showInfoAlert("PDF Generated", "The PDF file has been successfully created: " + file.getAbsolutePath());
+
+            } catch (Exception e) {
+                showErrorAlert("PDF Generation Error", "An error occurred while generating the PDF.");
+                e.printStackTrace();
+            } finally {
+                document.close();
+            }
+        }
+    }
+
+    private void addTableHeader(PdfPTable table) {
+        table.addCell("Avis ID");
+        table.addCell("Commentaire");
+        table.addCell("Note");
+        table.addCell("Date Avis");
+    }
+
+    private void addRows(PdfPTable table) {
+        for (Avis avis : avisTableView.getItems()) {
+            table.addCell(String.valueOf(avis.getAvis_id()));
+            table.addCell(avis.getCommentaire());
+            table.addCell(String.valueOf(avis.getNote()));
+            table.addCell(avis.getDate_avis().toString());
+        }
+    }
+
+    private void showInfoAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void showErrorAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

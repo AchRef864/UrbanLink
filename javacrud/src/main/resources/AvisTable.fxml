@@ -9,7 +9,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.AvisTableController">
     <children>
         <VBox spacing="10" layoutX="20.0" layoutY="20.0">
-            <Button text="Create a new review" onAction="#createAvisAction" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            <Button text="Create a new review" onAction="#createAvisAction" style="-fx-background-color: #98FB98; -fx-text-fill: white;"/>
             <TableView fx:id="avisTableView" prefHeight="500.0" prefWidth="700.0">
                 <columns>
                     <TableColumn fx:id="avisIdColumn" text="Review ID"/>
@@ -17,11 +17,13 @@
                     <TableColumn fx:id="commentaireColumn" text="Commentaire"/>
                     <TableColumn fx:id="dateAvisColumn" text="Date review"/>
                     <TableColumn fx:id="userIdColumn" text="User ID"/>
-                    <TableColumn fx:id="editColumn" text="Edit" style="-fx-background-color: #F1C40F; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"/>
-                    <TableColumn fx:id="deleteColumn" text="Delete" style="-fx-background-color: #d20a2e; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"/>
-                    <TableColumn fx:id="viewReponsesColumn" text="View Responses" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 16px;-fx-font-weight: bold; -fx-cursor: hand;"/>
+                    <TableColumn fx:id="editColumn" text="Edit" style="-fx-background-color: #FFD700; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"/>
+                    <TableColumn fx:id="deleteColumn" text="Delete" style="-fx-background-color: #98FB98; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"/>
+                    <TableColumn fx:id="viewReponsesColumn" text="View Responses" style="-fx-background-color: #87CEEB; -fx-text-fill: white; -fx-font-size: 16px;-fx-font-weight: bold; -fx-cursor: hand;"/>
                 </columns>
             </TableView>
+            <Button fx:id="exportPdfButton" text="Export to PDF" onAction="#exportToPdf" style="-fx-background-color: #696969; -fx-text-fill: white;"/>
+
         </VBox>
     </children>
 </AnchorPane>

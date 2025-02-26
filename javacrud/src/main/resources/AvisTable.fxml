@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.AvisTableController">
     <children>
-        <VBox spacing="10" layoutX="20.0" layoutY="20.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+        <VBox spacing="10" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
             <HBox spacing="10">
                 <TextField fx:id="searchTextField" promptText="Search..." />
                 <Button text="Search" onAction="#searchAvisAction" style="-fx-background-color: #ADD8E6; -fx-text-fill: white;"/>

@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 public class UserAvisController {
     @FXML
@@ -40,6 +41,8 @@ public class UserAvisController {
     private TextField txtCommentaire;
     @FXML
     private TextField txtUserId;
+    @FXML
+    private TextField searchTextField;
 
     private final AvisService avisService = new AvisService();
     private final ObservableList<Avis> avisList = FXCollections.observableArrayList();
@@ -72,6 +75,15 @@ public class UserAvisController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void searchAvis() {
+        String searchText = searchTextField.getText().toLowerCase();
+        ObservableList<Avis> filteredList = avisList.stream()
+                .filter(avis -> avis.getCommentaire().toLowerCase().contains(searchText))
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
+        tableAvis.setItems(filteredList);
     }
 
     private void addEditButton() {

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.jdbc.controllers.ListerVehicleController"
+            prefHeight="500.0" prefWidth="700.0">
+    <children>
+        <VBox spacing="10.0" alignment="CENTER">
+            <!-- Title -->
+            <Label text="Vehicle List" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+            <!-- Search Field -->
+            <TextField fx:id="searchField" promptText="Search by Model, License Plate, or Type"
+                       maxWidth="400.0" />
+
+            <!-- TableView -->
+            <TableView fx:id="vehicleTableView" prefWidth="700.0" prefHeight="350.0">
+                <columns>
+                    <TableColumn fx:id="colModel" text="Model" prefWidth="120"/>
+                    <TableColumn fx:id="colLicensePlate" text="License Plate" prefWidth="120"/>
+                    <TableColumn fx:id="colType" text="Type" prefWidth="100"/>
+                    <TableColumn fx:id="colCapacity" text="Capacity" prefWidth="75"/>
+                    <TableColumn fx:id="colDriver" text="Driver" prefWidth="75"/>
+                    <TableColumn fx:id="colEdit" text="Edit" prefWidth="75"/>
+                    <TableColumn fx:id="colDelete" text="Delete" prefWidth="75"/>
+                </columns>
+            </TableView>
+
+            <!-- Button at Bottom -->
+            <Button fx:id="addVehicleButton" text="Add Vehicle" maxWidth="200.0"
+                    onAction="#openAddVehicleForm" />
+        </VBox>
+    </children>
+</AnchorPane>

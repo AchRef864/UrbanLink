@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.RatingController">
+    <VBox spacing="10" alignment="CENTER">
+        <Label text="Rate your ride:" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <ComboBox fx:id="transportTypeComboBox" promptText="Select transport type"/>
+        <ComboBox fx:id="transportComboBox" promptText="Select transport"/>
+        <TextField fx:id="ratingField" promptText="Enter rating (1-5)"/>
+        <TextArea fx:id="commentField" promptText="Optional comment" wrapText="true"/>
+        <Button text="Submit Rating" onAction="#handleSubmitRating" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </VBox>
+</AnchorPane>

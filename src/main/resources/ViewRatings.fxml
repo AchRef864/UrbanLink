@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.ViewRatingsController">
+    <TableView fx:id="ratingsTable">
+        <columns>
+            <TableColumn text="User ID" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="userId" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Vehicle ID" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="vehicleId" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Taxi ID" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="taxiId" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Rating" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="rating" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Comment" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="comment" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Timestamp" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="timestamp" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>

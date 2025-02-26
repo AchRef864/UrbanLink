@@ -131,7 +131,11 @@ public class AddAvisController {
             showInfoAlert("Information", "Review added successfully");
 
             // Reload the table data
-            avisTableController.loadAvisData();
+            if (avisTableController != null) {
+                avisTableController.loadAvisData();
+            } else {
+                System.err.println("avisTableController is not set.");
+            }
         } catch (SQLException e) {
             showErrorAlert("Error adding review", e.getMessage());
         }

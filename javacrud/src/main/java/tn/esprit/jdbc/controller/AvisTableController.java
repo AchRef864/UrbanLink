@@ -14,6 +14,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.util.Callback;
+import javafx.scene.Node;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
@@ -30,14 +31,12 @@ import java.util.Date;
 import java.util.List;
 import javafx.stage.FileChooser;
 import java.io.File;
+import java.util.stream.Collectors;
 
 public class AvisTableController {
 
     @FXML
     private TableView<Avis> avisTableView;
-
-    @FXML
-    private TableColumn<Avis, Integer> avisIdColumn;
 
     @FXML
     private TableColumn<Avis, Integer> noteColumn;
@@ -47,12 +46,6 @@ public class AvisTableController {
 
     @FXML
     private TableColumn<Avis, Date> dateAvisColumn;
-
-    @FXML
-    private TableColumn<Avis, Integer> userIdColumn;
-
-    @FXML
-    private TableColumn<Avis, String> userEmailColumn;
 
     @FXML
     private TableColumn<Avis, Void> editColumn;
@@ -66,32 +59,44 @@ public class AvisTableController {
     @FXML
     private Button exportPdfButton;
 
+    @FXML
+    private TextField searchTextField;
+
+    @FXML
+    private Pagination pagination;
+
     private AvisService avisService = new AvisService();
     private ReponseService reponseService = new ReponseService();
+    private ObservableList<Avis> avisObservableList = FXCollections.observableArrayList();
+    private static final int ROWS_PER_PAGE = 13;
 
     @FXML
     public void initialize() {
-        avisIdColumn.setCellValueFactory(new PropertyValueFactory<>("avis_id"));
         commentaireColumn.setCellValueFactory(new PropertyValueFactory<>("commentaire"));
         noteColumn.setCellValueFactory(new PropertyValueFactory<>("note"));
         dateAvisColumn.setCellValueFactory(new PropertyValueFactory<>("date_avis"));
-        userIdColumn.setCellValueFactory(new PropertyValueFactory<>("user_id"));
 
+        // Set custom cell factories for edit, delete, and view responses columns
+        setCustomCellFactories();
+
+        // Load data and set up search functionality
+        loadAvisData();
+        setupSearchFunctionality();
+    }
+
+    private void setCustomCellFactories() {
         // Set custom cell factory for editColumn
         editColumn.setCellFactory(new Callback<TableColumn<Avis, Void>, TableCell<Avis, Void>>() {
             @Override
             public TableCell<Avis, Void> call(final TableColumn<Avis, Void> param) {
                 final TableCell<Avis, Void> cell = new TableCell<Avis, Void>() {
-
                     private final Button btn = new Button("Edit");
-
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             Avis avis = getTableView().getItems().get(getIndex());
                             editAvis(avis);
                         });
                     }
-
                     @Override
                     public void updateItem(Void item, boolean empty) {
                         super.updateItem(item, empty);
@@ -111,16 +116,13 @@ public class AvisTableController {
             @Override
             public TableCell<Avis, Void> call(final TableColumn<Avis, Void> param) {
                 final TableCell<Avis, Void> cell = new TableCell<Avis, Void>() {
-
                     private final Button btn = new Button("Delete");
-
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             Avis avis = getTableView().getItems().get(getIndex());
                             deleteAvis(avis);
                         });
                     }
-
                     @Override
                     public void updateItem(Void item, boolean empty) {
                         super.updateItem(item, empty);
@@ -140,16 +142,13 @@ public class AvisTableController {
             @Override
             public TableCell<Avis, Void> call(final TableColumn<Avis, Void> param) {
                 final TableCell<Avis, Void> cell = new TableCell<Avis, Void>() {
-
                     private final Button btn = new Button("View Reponses");
-
                     {
                         btn.setOnAction((ActionEvent event) -> {
                             Avis avis = getTableView().getItems().get(getIndex());
                             viewReponses(avis);
                         });
                     }
-
                     @Override
                     public void updateItem(Void item, boolean empty) {
                         super.updateItem(item, empty);
@@ -163,18 +162,54 @@ public class AvisTableController {
                 return cell;
             }
         });
-
-        loadAvisData();
     }
 
     public void loadAvisData() {
         try {
             List<Avis> avisList = avisService.showAll();
-            ObservableList<Avis> avisObservableList = FXCollections.observableArrayList(avisList);
-            avisTableView.setItems(avisObservableList);
+            avisObservableList.setAll(avisList);
+            pagination.setPageCount((int) Math.ceil((double) avisObservableList.size() / ROWS_PER_PAGE));
+            pagination.setPageFactory(this::createPage);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private Node createPage(int pageIndex) {
+        int fromIndex = pageIndex * ROWS_PER_PAGE;
+        int toIndex = Math.min(fromIndex + ROWS_PER_PAGE, avisObservableList.size());
+        avisTableView.setItems(FXCollections.observableArrayList(avisObservableList.subList(fromIndex, toIndex)));
+        return avisTableView;
+    }
+
+    private void setupSearchFunctionality() {
+        searchTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterAvisList(newValue);
+        });
+    }
+
+    private void filterAvisList(String searchQuery) {
+        if (searchQuery == null || searchQuery.isEmpty()) {
+            pagination.setPageCount((int) Math.ceil((double) avisObservableList.size() / ROWS_PER_PAGE));
+            pagination.setPageFactory(this::createPage);
+        } else {
+            List<Avis> filteredList = avisObservableList.stream()
+                    .filter(avis -> avis.getCommentaire().toLowerCase().contains(searchQuery.toLowerCase()))
+                    .collect(Collectors.toList());
+            pagination.setPageCount((int) Math.ceil((double) filteredList.size() / ROWS_PER_PAGE));
+            pagination.setPageFactory(pageIndex -> {
+                int fromIndex = pageIndex * ROWS_PER_PAGE;
+                int toIndex = Math.min(fromIndex + ROWS_PER_PAGE, filteredList.size());
+                avisTableView.setItems(FXCollections.observableArrayList(filteredList.subList(fromIndex, toIndex)));
+                return avisTableView;
+            });
+        }
+    }
+
+    @FXML
+    private void searchAvisAction(ActionEvent event) {
+        String searchQuery = searchTextField.getText();
+        filterAvisList(searchQuery);
     }
 
     @FXML

@@ -203,5 +203,57 @@ public class UserService implements CRUD<User> {
         return count;
     }
 
+    public boolean doesEmailExist(String email) throws SQLException {
+        String query = "SELECT COUNT(*) FROM users WHERE email = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0; // Returns true if the email exists
+            }
+        }
+        return false; // Email does not exist
+    }
+
+    // Generate a random 6-digit verification code
+    public String generateVerificationCode() {
+        return String.valueOf((int) (Math.random() * 900000) + 100000); // 6-digit code
+    }
+
+    // Save the verification code to the database
+    public void saveVerificationCode(String email, String code) throws SQLException {
+        String query = "UPDATE users SET code = ? WHERE email = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, code);
+            ps.setString(2, email);
+            ps.executeUpdate();
+        }
+    }
+
+    // Verify the code entered by the user
+    public boolean verifyCode(String email, String code) throws SQLException {
+        String query = "SELECT code FROM users WHERE email = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String savedCode = rs.getString("code");
+                return savedCode != null && savedCode.equals(code);
+            }
+        }
+        return false;
+    }
+
+    public void updatePassword(String email, String newPassword) throws SQLException {
+        String query = "UPDATE users SET password = ? WHERE email = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, newPassword);
+            ps.setString(2, email);
+            ps.executeUpdate();
+        }
+    }
+
+
+
 
 }

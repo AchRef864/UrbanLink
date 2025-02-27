@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.LoginController">
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1A1A2E;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.LoginController" stylesheets="@styles.css">
     <!-- Background Image -->
     <ImageView fitHeight="1500.0" fitWidth="875.0" preserveRatio="true">
         <image>
@@ -17,29 +22,33 @@
     <!-- Dark Overlay -->
     <AnchorPane layoutY="6.0" prefHeight="709.0" prefWidth="875.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);">
         <children>
-
             <!-- Login Form -->
-            <VBox alignment="CENTER" layoutX="190.0" layoutY="240.0" prefHeight="455.0" prefWidth="520.0" spacing="20.0" style="-fx-background-color: rgba(255, 255, 255, 0.1); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: linear-gradient(to right, #FF416C, #FF4B2B); -fx-border-width: 2; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);">
+            <VBox alignment="CENTER" layoutX="190.0" layoutY="46.0" prefHeight="649.0" prefWidth="520.0" spacing="20.0" style="-fx-background-color: rgba(26, 26, 46, 0.8); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #00BFA5; -fx-border-width: 2; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);">
+                <!-- Bear ImageView -->
+                <ImageView fx:id="bearImageView" fitHeight="150.0" fitWidth="150.0" preserveRatio="true"> </ImageView>
+
                 <!-- Title -->
-                <Label prefHeight="60.0" prefWidth="104.0" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold; -fx-font-family: 'Poppins';" text="Login">
+                <Label prefHeight="74.0" prefWidth="89.0" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold; -fx-font-family: 'Poppins';" text="Login">
                     <font>
-                        <Font name="Algerian" size="24.0" />
-                    </font></Label>
+                        <Font name="Algerian" size="32.0" />
+                    </font>
+                </Label>
 
                 <!-- Email Field -->
-                <TextField fx:id="emailTextField" promptText="Email" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+                <TextField fx:id="emailTextField" promptText="Email" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
 
                 <!-- Password Field -->
-                <PasswordField fx:id="passwordTextField" promptText="Password" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+                <PasswordField fx:id="passwordTextField" promptText="Password" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
 
                 <!-- Login Button -->
-                <Button onAction="#handleLoginButton" style="-fx-background-color: linear-gradient(to right, #FF416C, #FF4B2B); -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 30; -fx-cursor: hand;" text="Login" />
+                <Button onAction="#handleLoginButton" style="-fx-background-color: #00BFA5; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 30; -fx-cursor: hand;" text="Login" />
 
                 <!-- Forgot Password Link -->
-                <Hyperlink style="-fx-text-fill: #FF416C; -fx-font-size: 14px; -fx-underline: false;" text="Forgot Password?" />
+                <Hyperlink onAction="#handleForgotPasswordLink" style="-fx-text-fill: #FFC107; -fx-font-size: 14px; -fx-underline: false;" text="Forgot Password?" />
 
                 <!-- Create Account Link -->
-                <Hyperlink onAction="#handleCreateAccountLink" style="-fx-text-fill: #FF416C; -fx-font-size: 14px; -fx-underline: false;" text="Create Account" />
+                <Hyperlink onAction="#handleCreateAccountLink" style="-fx-text-fill: #FFC107; -fx-font-size: 14px; -fx-underline: false;" text="Create Account" />
             </VBox>
-        </children></AnchorPane>
+        </children>
+    </AnchorPane>
 </AnchorPane>

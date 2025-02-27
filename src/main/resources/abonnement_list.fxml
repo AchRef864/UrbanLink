@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.collections.FXCollections?>
+
+<?import java.lang.String?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AbonnementListeController" spacing="10">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Titre -->
+    <Label text="Liste des Abonnements" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <!-- Tableau des abonnements -->
+    <TableView fx:id="tableAbonnements" prefHeight="300" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" />
+            <TableColumn fx:id="colType" text="Type" />
+            <TableColumn fx:id="colPrix" text="Prix" />
+            <TableColumn fx:id="colDateDebut" text="Date Début" />
+            <TableColumn fx:id="colDateFin" text="Date Fin" />
+            <TableColumn fx:id="colEtat" text="État" />
+            <TableColumn fx:id="colAction" text="actions" />
+        </columns>
+    </TableView>
+
+    <!-- Formulaire d'ajout d'abonnement -->
+    <HBox spacing="10">
+        <Label text="État :"/>
+        <ComboBox fx:id="cbType" promptText="Sélectionner un type">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Actif" />
+                    <String fx:value="Inactif" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Prix :"/>
+        <TextField fx:id="tfPrix" promptText="Prix de l'abonnement" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Date Début :"/>
+        <DatePicker fx:id="dpDateDebut" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Date Fin :"/>
+        <DatePicker fx:id="dpDateFin" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="État :"/>
+        <ComboBox fx:id="cbEtat" promptText="Sélectionner un état">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Actif" />
+                    <String fx:value="Inactif" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </HBox>
+
+
+
+    <!-- Bouton Ajouter -->
+    <Button text="Ajouter Abonnement" onAction="#ajouterAbonnement" />
+
+    <!-- Retour à l'accueil -->
+    <Button text="Retour" onAction="#retourAccueil" />
+</VBox>

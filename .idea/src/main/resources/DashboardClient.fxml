@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.DashboardClientController">
+    <Label fx:id="welcomeLabel" layoutX="50" layoutY="50" text="Welcome, Client!" />
+    <!-- Top Bar -->
+    <HBox alignment="CENTER" prefHeight="45.0" prefWidth="209.0" style="-fx-background-color: #2C3E50; -fx-padding: 10;">
+        <Label style="-fx-text-fill: white; -fx-font-size: 20px;" text="Client Dashboard" />
+    </HBox>
+
+    <!-- Content Area -->
+    <StackPane fx:id="contentArea" layoutX="150.0" layoutY="50.0" prefHeight="500.0" prefWidth="600.0">
+      <children>
+      
+                <!-- Left Menu -->
+          <VBox alignment="CENTER" prefHeight="500.0" prefWidth="554.0" spacing="10" style="-fx-background-color: #34495E; -fx-padding: 10;">
+              <Button fx:id="btnHome" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Home" />
+              <Button fx:id="btnCreateReclamation" style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Create Reclamation" />
+              <Button fx:id="btnCheckResponse" style="-fx-background-color: #F1C40F; -fx-text-fill: black; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Check Response" />
+              <Button fx:id="btnLogout" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Logout" />
+          </VBox>
+      </children></StackPane>
+</AnchorPane>

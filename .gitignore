@@ -1,21 +1,9 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-
-# Editor-based HTTP Client requests
-/httpRequests/
-
-# Datasource local storage ignored files
-/dataSources/
-/dataSources.local.xml
-
-# Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-# IntelliJ IDEA
+### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -24,7 +12,7 @@ target/
 *.iml
 *.ipr
 
-# Eclipse
+### Eclipse ###
 .apt_generated
 .classpath
 .factorypath
@@ -33,7 +21,7 @@ target/
 .springBeans
 .sts4-cache
 
-# NetBeans
+### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -43,8 +31,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-# VS Code
+### VS Code ###
 .vscode/
 
-# Mac OS
+### Mac OS ###
 .DS_Store

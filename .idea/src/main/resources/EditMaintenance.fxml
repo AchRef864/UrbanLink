@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.jdbc.controllers.EditMaintenanceController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <VBox spacing="10" layoutX="50" layoutY="50">
+        <Label text="Modifier Maintenance" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+        <Label text="Véhicule:" />
+        <ComboBox fx:id="vehicleComboBox"/>
+
+        <Label text="Description:" />
+        <TextField fx:id="descriptionField" />
+
+        <Label text="Date de Maintenance:" />
+        <DatePicker fx:id="datePicker" />
+
+        <Label text="Coût:" />
+        <TextField fx:id="costField" />
+
+        <Button text="Modifier" onAction="#handleUpdateMaintenance"/>
+    </VBox>
+</AnchorPane>

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import tn.esprit.jdbc.entities.User;
 
 import java.io.IOException;
 
@@ -38,5 +39,9 @@ public class DashboardController {
     private void logout() {
         System.out.println("User logged out.");
         // Implement logout logic
+    }
+
+    public void setUser(User user) {
+
     }
 }

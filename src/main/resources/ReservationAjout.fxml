@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.ReservationController">
+    <children>
+        <Label text="Add Reservation" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+        <Label text="User:"/>
+        <ComboBox fx:id="userComboBox" promptText="Select a user"/>
+
+        <Label text="Trajet:"/>
+        <ComboBox fx:id="trajetComboBox" promptText="Select a trajet"/>
+
+        <Label text="Reservation Date:"/>
+        <DatePicker fx:id="reservationDatePicker"/>
+
+        <Label text="Number of Seats:"/>
+        <Spinner fx:id="numberOfSeatsSpinner" min="1" max="10" initialValue="1"/>
+
+        <Label text="Total Price:"/>
+        <TextField fx:id="totalPriceField" promptText="Enter total price"/>
+
+        <Button text="Add Reservation" onAction="#handleAddReservation"/>
+    </children>
+</VBox>

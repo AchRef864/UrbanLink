@@ -2,14 +2,15 @@ package tn.esprit.jdbc.entities;
 
 import java.util.List;
 
-public class Vehicle {
+public class Vehicle
+    {
     private int vehicleId;
     private String model;
     private String licensePlate;
     private VehicleType type;  // Use enum instead of String
     private int capacity;
+    private User driver;
     private List<Maintenance> maintenanceRecords;
-    private Trajet trajet;
 
     // Constructor
     public Vehicle(String model, String licensePlate, VehicleType type, int capacity) {
@@ -18,7 +19,9 @@ public class Vehicle {
         this.type = type;
         this.capacity = capacity;
     }
-
+    //add a constructor without parameters in the Vehicle class
+    public Vehicle() {
+    }
     // Getters & Setters
     public int getVehicleId() { return vehicleId; }
     public void setVehicleId(int vehicleId) { this.vehicleId = vehicleId; }
@@ -38,8 +41,8 @@ public class Vehicle {
     public List<Maintenance> getMaintenanceRecords() { return maintenanceRecords; }
     public void setMaintenanceRecords(List<Maintenance> maintenanceRecords) { this.maintenanceRecords = maintenanceRecords; }
 
-    public Trajet getTrajet() { return trajet; }
-    public void setTrajet(Trajet trajet) { this.trajet = trajet; }
+    public User getDriver() { return driver; }
+    public void setDriver(User driver) { this.driver = driver; }
 
     @Override
     public String toString() {

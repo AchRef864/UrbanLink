@@ -8,7 +8,7 @@ public class MyDatabase {
 
     private final String USER = "root";
     private final String PWD = "";
-    private final String URL = "jdbc:mysql://localhost:3306/urbanlink";
+    private final String URL = "jdbc:mysql://localhost:3306/projet";
 
     //1st STEP
     public static MyDatabase instance;

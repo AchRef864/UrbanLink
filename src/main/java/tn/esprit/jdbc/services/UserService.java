@@ -6,7 +6,12 @@ import tn.esprit.jdbc.utils.MyDatabase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import tn.esprit.jdbc.entities.User;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 public class UserService implements CRUD<User> {
 
     private Connection cnx = MyDatabase.getInstance().getCnx();
@@ -14,13 +19,14 @@ public class UserService implements CRUD<User> {
 
     @Override
     public int insert(User user) throws SQLException {
-        String req = "INSERT INTO `users`(`name`, `email`, `phone`, `password`) VALUES (?, ?, ?, ?)";
+        String req = "INSERT INTO `users`(`name`, `email`, `phone`, `password`, `role`) VALUES (?, ?, ?, ?, ?)";
 
         ps = cnx.prepareStatement(req, Statement.RETURN_GENERATED_KEYS);
         ps.setString(1, user.getName());
         ps.setString(2, user.getEmail());
         ps.setString(3, user.getPhone());
         ps.setString(4, user.getPassword());
+        ps.setString(5, user.getRole()); // Use the role field
 
         int rowsAffected = ps.executeUpdate();
 
@@ -57,6 +63,10 @@ public class UserService implements CRUD<User> {
         if (user.getPassword() != null) {
             queryBuilder.append("`password` = ?, ");
             parameters.add(user.getPassword());
+        }
+        if (user.getRole() != null) {
+            queryBuilder.append("`role` = ?, ");
+            parameters.add(user.getRole());
         }
 
         // Remove the trailing comma and space
@@ -101,10 +111,97 @@ public class UserService implements CRUD<User> {
             user.setEmail(rs.getString("email"));
             user.setPhone(rs.getString("phone"));
             user.setPassword(rs.getString("password"));
+            user.setRole(rs.getString("role")); // Use the role field
 
             temp.add(user);
         }
 
         return temp;
     }
+
+    public User authenticate(String email, String password) throws SQLException {
+        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new User(
+                        rs.getInt("user_id"),
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("phone"),
+                        rs.getString("password"),
+                        rs.getString("role") // Use the role field
+                );
+            }
+        }
+        return null; // User not found
+    }
+
+    public boolean isEmailInUse(String email) throws SQLException {
+        String query = "SELECT COUNT(*) FROM users WHERE email = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        }
+        return false;
+    }
+
+    public void addUser(User user) throws SQLException {
+        insert(user);
+    }
+
+    public int countClients() throws SQLException {
+        int count = 0;
+        String query = "SELECT COUNT(*) AS client_count FROM users WHERE role = 'client'"; // Query the `users` table
+
+        try (Connection connection = MyDatabase.getInstance().getCnx();
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            if (resultSet.next()) {
+                count = resultSet.getInt("client_count");
+            }
+        }
+
+        return count;
+    }
+
+    // UserService.java
+    public List<User> getAllClients() throws SQLException {
+        List<User> clients = new ArrayList<>();
+        String query = "SELECT * FROM users WHERE role = 'client'";
+        // Execute query and populate the list
+        return clients;
+    }
+
+    public List<User> getAllAdmins() throws SQLException {
+        List<User> admins = new ArrayList<>();
+        String query = "SELECT * FROM users WHERE role = 'admin'";
+        // Execute query and populate the list
+        return admins;
+    }
+
+    public int countAdmins() throws SQLException {
+        int count = 0;
+        String query = "SELECT COUNT(*) AS admin_count FROM users WHERE role = 'admin'"; // Query the `users` table
+
+        try (Connection connection = MyDatabase.getInstance().getCnx();
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            if (resultSet.next()) {
+                count = resultSet.getInt("admin_count");
+            }
+        }
+
+        return count;
+    }
+
+
 }

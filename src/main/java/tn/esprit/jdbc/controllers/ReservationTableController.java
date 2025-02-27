@@ -123,6 +123,7 @@ public class ReservationTableController {
                     {
                         deleteButton.setOnAction(event -> {
                             Reservation reservation = getTableView().getItems().get(getIndex());
+
                             handleDeleteReservation(reservation);
                         });
                     }

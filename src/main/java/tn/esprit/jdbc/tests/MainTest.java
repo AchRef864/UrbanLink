@@ -1,10 +1,11 @@
 package tn.esprit.jdbc.tests;
 
-import tn.esprit.jdbc.entities.Vehicle;
-import tn.esprit.jdbc.entities.VehicleType;
-import tn.esprit.jdbc.services.vehicleService;
+import tn.esprit.jdbc.entities.Trajet;
+import tn.esprit.jdbc.entities.TrajetType;
+import tn.esprit.jdbc.services.TrajetService;
 import tn.esprit.jdbc.utils.MyDatabase;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class MainTest {
@@ -13,30 +14,56 @@ public class MainTest {
 
         // Initialize database connection
         MyDatabase dbInstance = MyDatabase.getInstance();
+        Connection connection = dbInstance.getCnx();
 
-        if (dbInstance.getCnx() != null) {
-            System.out.println("Database connection successful!");
-        } else {
-            System.err.println("Failed to connect to the database.");
-            return; // Stop execution if no database connection
-        }
-
-        // Create an instance of vehicleService
-        vehicleService service = new vehicleService();
-
-        // Define a test vehicle
-        Vehicle testVehicle = new Vehicle("Toyota Corolla", "123-TUN-456", VehicleType.BUS, 50);
-
-        // Insert the test vehicle
+        // Check if the connection is open
         try {
-            int result = service.insert(testVehicle);
-            if (result > 0) {
-                System.out.println("Vehicle inserted successfully!");
+            if (connection != null && !connection.isClosed()) {
+                System.out.println("Database connection successful!");
             } else {
-                System.err.println("Failed to insert vehicle.");
+                System.err.println("Failed to connect to the database or connection is closed.");
+                return; // Stop execution if no database connection
             }
         } catch (SQLException e) {
-            System.err.println("SQL Error: " + e.getMessage());
+            System.err.println("Error checking connection status: " + e.getMessage());
+            return;
+        }
+
+        // Create an instance of TrajetService
+        TrajetService service = new TrajetService();
+
+        // Define a test trajet for insertion
+        Trajet testTrajet = new Trajet("ariana", "tunis", 15.0, "00:30", "12:30", "13:00", 12.00, TrajetType.PublicTransport);
+
+        // Try inserting the test trajet
+        try {
+            // Ensure the connection is still open before inserting
+            if (connection != null && !connection.isClosed()) {
+                System.out.println("Connection is open. Proceeding with insert...");
+            } else {
+                System.err.println("Connection was closed before insert.");
+                return;
+            }
+
+            // Try inserting the test trajet
+            int result = service.insert(testTrajet); // Assuming you have an insert method in your TrajetService
+            if (result > 0) {
+                System.out.println("Trajet inserted successfully!");
+            } else {
+                System.err.println("Failed to insert trajet.");
+            }
+        } catch (SQLException e) {
+            System.err.println("SQL Error during insert: " + e.getMessage());
+        } finally {
+            try {
+                // Close the connection explicitly when done
+                if (connection != null && !connection.isClosed()) {
+                    connection.close();
+                    System.out.println("Connection closed.");
+                }
+            } catch (SQLException e) {
+                System.err.println("Error closing connection: " + e.getMessage());
+            }
         }
     }
 }

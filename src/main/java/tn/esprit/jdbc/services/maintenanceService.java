@@ -6,6 +6,8 @@ import tn.esprit.jdbc.entities.Vehicle;
 import tn.esprit.jdbc.entities.VehicleType;
 import tn.esprit.jdbc.utils.MyDatabase;
 
+import tn.esprit.jdbc.services.CRUD;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,5 +101,46 @@ public class maintenanceService implements CRUD<Maintenance> {
         }
 
         return maintenanceRecords;
+    }
+
+    public List<Maintenance> search(String keyword) throws SQLException {
+        List<Maintenance> maintenanceRecords = new ArrayList<>();
+        String query = "SELECT * FROM maintenance WHERE description LIKE ? OR maintenance_date LIKE ? OR cost LIKE ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        String searchKeyword = "%" + keyword + "%";
+        statement.setString(1, searchKeyword);
+        statement.setString(2, searchKeyword);
+        statement.setString(3, searchKeyword);
+        ResultSet resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {
+            Maintenance maintenance = new Maintenance(
+                    null,
+                    resultSet.getString("description"),
+                    resultSet.getDate("maintenance_date"),
+                    resultSet.getDouble("cost")
+            );
+            maintenance.setMaintenanceId(resultSet.getInt("maintenance_id"));
+            maintenanceRecords.add(maintenance);
+        }
+        return maintenanceRecords;
+    }
+
+    // MaintenanceService.java
+    public List<Maintenance> getAllMaintenanceRecords() throws SQLException {
+        List<Maintenance> maintenanceRecords = new ArrayList<>();
+        String query = "SELECT * FROM maintenance";
+        // Execute query and populate the list
+        return maintenanceRecords;
+    }
+    public int countMaintenanceRecords() throws SQLException {
+        String query = "SELECT COUNT(*) AS total FROM maintenance";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+
+        if (resultSet.next()) {
+            return resultSet.getInt("total");
+        }
+        return 0; // Return 0 if no records are found
     }
 }

@@ -1,33 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="tn.esprit.jdbc.controllers.ListerVehicleController"
-            prefHeight="450.0" prefWidth="700.0">
-    <children>
-        <!-- VBox for layout -->
-        <VBox spacing="10.0" alignment="CENTER">
-            <!-- Title -->
-            <Label text="Vehicle List" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+<?import java.lang.String?>
+<AnchorPane prefHeight="802.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.TrajetListController">
 
-            <!-- TableView -->
-            <TableView fx:id="vehicleTableView" prefWidth="700.0" prefHeight="350.0">
-                <columns>
-                    <TableColumn fx:id="colModel" text="Model" prefWidth="120"/>
-                    <TableColumn fx:id="colLicensePlate" text="License Plate" prefWidth="120"/>
-                    <TableColumn fx:id="colType" text="Type" prefWidth="100"/>
-                    <TableColumn fx:id="colCapacity" text="Capacity" prefWidth="75"/>
-                    <TableColumn fx:id="colEdit" text="Edit" prefWidth="75"/>
-                    <TableColumn fx:id="colDelete" text="Delete" prefWidth="75"/>
-                </columns>
-            </TableView>
+    <VBox alignment="CENTER" layoutX="20.0" layoutY="20.0" prefHeight="731.0" prefWidth="1246.0" spacing="10.0">
 
-            <!-- Button at Bottom -->
-            <Button fx:id="addVehicleButton" text="Add Vehicle" maxWidth="200.0" />
-        </VBox>
-    </children>
+        <!-- Title -->
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Liste des Trajets" />
+
+        <!-- TableView to display trajets -->
+        <TableView fx:id="trajetTableView" prefHeight="628.0" prefWidth="1246.0">
+            <columns>
+
+                <!-- Departure Column -->
+                <TableColumn fx:id="departureColumn" prefWidth="118.933349609375" text="Départ" />
+
+                <!-- Destination Column -->
+                <TableColumn fx:id="destinationColumn" prefWidth="139.4666290283203" text="Destination" />
+
+                <!-- Distance Column -->
+                <TableColumn fx:id="distanceColumn" prefWidth="117.60000610351562" text="Distance (km)" />
+
+                <!-- Duration Column -->
+                <TableColumn fx:id="durationColumn" prefWidth="120.80001831054688" text="Durée" />
+
+                <!-- Departure Time Column -->
+                <TableColumn fx:id="departureTimeColumn" prefWidth="162.4000244140625" text="Heure de départ" />
+
+                <!-- Arrival Time Column -->
+                <TableColumn fx:id="arrivalTimeColumn" prefWidth="199.20001220703125" text="Heure d'arrivée" />
+
+                <!-- Price Column -->
+                <TableColumn fx:id="priceColumn" prefWidth="142.4000244140625" text="Prix (TND)" />
+
+                <!-- Action Column -->
+                <TableColumn fx:id="actionColumn" prefWidth="247.20001220703125" text="Actions" />
+            </columns>
+        </TableView>
+    </VBox>
+
+    <!-- ComboBox for selecting transport type -->
+    <VBox layoutX="20.0" layoutY="660.0" spacing="10.0">
+        <Label text="Type de Transport:" />
+        <ComboBox fx:id="typeTransportComboBox" prefWidth="200.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Transport Public" />
+                    <String fx:value="Covoiturage" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+    </VBox>
+
+    <!-- Button to add a new trajet -->
+    <Button fx:id="addTrajetButton" layoutX="20.0" layoutY="751.0" prefHeight="8.0" prefWidth="137.0" style="-fx-font-size: 16px; -fx-padding: 10px 20px;" text="Ajouter Trajet" />
 </AnchorPane>

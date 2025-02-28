@@ -106,11 +106,6 @@
     -fx-background-color: #D50000; /* Darker red on hover */
 }
 
-/* Button Hover Effects */
-.button:hover {
-    -fx-opacity: 0.9;
-}
-
 /* TableView Styling */
 .table-view {
     -fx-background-color: #1E2F23;
@@ -139,46 +134,36 @@
     -fx-text-fill: white;
 }
 
-/* Button Hover Effects */
+/* Star Rating */
+.star {
+    -fx-opacity: 0.5;
+    -fx-cursor: hand;
+}
+
+.star:hover {
+    -fx-opacity: 1.0;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px;
+    -fx-padding: 12px 24px; /* Padding */
+    -fx-border-radius: 8px; /* Rounded corners */
+    -fx-background-radius: 8px; /* Rounded corners */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0); /* Subtle shadow */
+    -fx-cursor: hand; /* Pointer cursor */
+}
+
+/* Button Hover Effect */
 .button:hover {
-    -fx-opacity: 0.9;
+    -fx-background-color: #009688; /* Darker green on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 0); /* Stronger shadow */
 }
 
-/* Password Field Hover Effect */
-.password-field:hover {
-    -fx-border-color: #00BFA5 !important;
+/* Button Pressed Effect */
+.button:pressed {
+    -fx-background-color: #00796B; /* Even darker green when pressed */
 }
 
-/* Password Field Focus Effect */
-.password-field:focused {
-    -fx-border-color: #00BFA5 !important;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 191, 165, 0.2), 10, 0, 0, 0);
-}
-
-/* Hyperlink Hover Effect */
-.hyperlink:hover {
-    -fx-text-fill: #FFA000 !important;
-    -fx-underline: true;
-}
-
-/* Button Hover Effects */
-.button:hover {
-    -fx-opacity: 0.9;
-}
-
-/* Text Field Hover Effect */
-.text-field:hover {
-    -fx-border-color: #00BFA5 !important;
-}
-
-/* Text Field Focus Effect */
-.text-field:focused {
-    -fx-border-color: #00BFA5 !important;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 191, 165, 0.2), 10, 0, 0, 0);
-}
-
-/* Hyperlink Hover Effect */
-.hyperlink:hover {
-    -fx-text-fill: #FFA000 !important;
-    -fx-underline: true;
-}

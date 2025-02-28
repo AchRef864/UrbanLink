@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4d3893fa-716f-4cc1-94d3-ab4f5519c3fb" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AboutUsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/CentralMenuController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ChatController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/EmailUtil.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ForgotPasswordController.java" afterDir="false" />
@@ -19,11 +21,20 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/PdfViewerApp.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/RatingService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/TaxiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CentralMenu.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/Chat.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/ForgotPassword.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/RatingForm.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/ResetPassword.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/ViewRatings.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/about_us.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/abonnement_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/avis_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/background_image.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/chat_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/edit_user_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/gold_star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/home_icon.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/image1.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/image2.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/image3.png" afterDir="false" />
@@ -32,6 +43,14 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/image6.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/image7.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/images/image8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/insert_user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/logout_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/maintenance_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/rate_ride.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/reservation_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/taxi_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/user_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/vehicule_icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AjouterMaintenanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AjouterMaintenanceController.java" afterDir="false" />
@@ -39,6 +58,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/EditUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/EditUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/Home.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/UserService.java" afterDir="false" />
@@ -115,8 +135,8 @@
       <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\GitHub\UrbanLink_user\UrbanLink\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\urbanlink\UrbanLink\src\main\resources" />
       <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\urbanlink\UrbanLink\src\main\resources\images" />
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\urbanlink\UrbanLink\src\main\resources" />
       <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\UrbanLink-dev\src\main\resources\images" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -186,6 +206,10 @@
       <workItem from="1740576979230" duration="8688000" />
       <workItem from="1740593758674" duration="11397000" />
       <workItem from="1740627308488" duration="65000" />
+      <workItem from="1740627843228" duration="5064000" />
+      <workItem from="1740642564658" duration="8249000" />
+      <workItem from="1740749892628" duration="4187000" />
+      <workItem from="1740763484748" duration="625000" />
     </task>
     <servers />
   </component>

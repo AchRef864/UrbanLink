@@ -78,7 +78,6 @@ public class ChatController {
                 List<Vehicle> vehicles = vehicleService.getAllVehicles();
                 chatHistory.appendText("System: Vehicles: " + vehicles.toString() + "\n");
             }
-            // Check if the question is about ratings
             else if (question.contains("rating") || question.contains("ratings")) {
                 if (question.contains("average")) {
                     double averageRating = ratingService.getAverageRating();

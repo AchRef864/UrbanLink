@@ -1,0 +1,168 @@
+/* Root and General Styles */
+.root {
+    -fx-background-color: #1A1A2E; /* Dark blue background */
+    -fx-font-family: 'Poppins', sans-serif; /* Modern font */
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #00BFA5; /* Green background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px;
+    -fx-padding: 12px 24px; /* Padding */
+    -fx-border-radius: 8px; /* Rounded corners */
+    -fx-background-radius: 8px; /* Rounded corners */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0); /* Subtle shadow */
+    -fx-cursor: hand; /* Pointer cursor */
+}
+
+/* Button Hover Effect */
+.button:hover {
+    -fx-background-color: #009688; /* Darker green on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 0); /* Stronger shadow */
+}
+
+/* Button Pressed Effect */
+.button:pressed {
+    -fx-background-color: #00796B; /* Even darker green when pressed */
+}
+
+/* Text Fields */
+.text-field, .password-field {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-border-color: #E0E0E0; /* Light gray border */
+    -fx-border-radius: 8px; /* Rounded corners */
+    -fx-background-radius: 8px; /* Rounded corners */
+    -fx-padding: 10px; /* Padding */
+    -fx-font-size: 14px; /* Font size */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 0); /* Subtle shadow */
+}
+
+/* Text Field Hover Effect */
+.text-field:hover, .password-field:hover {
+    -fx-border-color: #00BFA5; /* Green border on hover */
+}
+
+/* Text Field Focus Effect */
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #00BFA5; /* Green border when focused */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 191, 165, 0.2), 10, 0, 0, 0); /* Green shadow */
+}
+
+/* Labels */
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff; /* White text */
+    -fx-font-weight: bold;
+}
+
+/* Hyperlinks */
+.hyperlink {
+    -fx-text-fill: #FFC107; /* Yellow text */
+    -fx-underline: false; /* No underline by default */
+    -fx-font-size: 14px;
+    -fx-cursor: hand; /* Pointer cursor */
+}
+
+/* Hyperlink Hover Effect */
+.hyperlink:hover {
+    -fx-text-fill: #FFA000; /* Darker yellow on hover */
+    -fx-underline: true; /* Underline on hover */
+}
+
+/* Navigation Buttons */
+.nav-button {
+    -fx-background-color: #1A1A2E; /* Dark blue background */
+    -fx-text-fill: white; /* White text */
+    -fx-padding: 12px 24px; /* Padding */
+    -fx-font-size: 14px; /* Font size */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-background-radius: 8px; /* Rounded corners */
+    -fx-border-radius: 8px; /* Rounded corners */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0); /* Subtle shadow */
+    -fx-cursor: hand; /* Pointer cursor */
+    -fx-alignment: center-left; /* Align text to the left */
+    -fx-min-width: 200px; /* Minimum width for buttons */
+}
+
+/* Navigation Button Hover Effect */
+.nav-button:hover {
+    -fx-background-color: #00BFA5; /* Green background on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 0); /* Stronger shadow */
+}
+
+/* Navigation Button Pressed Effect */
+.nav-button:pressed {
+    -fx-background-color: #009688; /* Darker green when pressed */
+}
+
+/* Logout Button */
+#btnLogout {
+    -fx-background-color: #FF1744; /* Red background */
+}
+
+/* Logout Button Hover Effect */
+#btnLogout:hover {
+    -fx-background-color: #D50000; /* Darker red on hover */
+}
+
+/* TableView Styling */
+.table-view {
+    -fx-background-color: #1E2F23;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: #1E2F23;
+    -fx-text-fill: white;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: white;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-row-cell:even {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #3498DB;
+    -fx-text-fill: white;
+}
+
+/* Star Rating */
+.star {
+    -fx-opacity: 0.5;
+    -fx-cursor: hand;
+}
+
+.star:hover {
+    -fx-opacity: 1.0;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px;
+    -fx-padding: 12px 24px; /* Padding */
+    -fx-border-radius: 8px; /* Rounded corners */
+    -fx-background-radius: 8px; /* Rounded corners */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 0); /* Subtle shadow */
+    -fx-cursor: hand; /* Pointer cursor */
+}
+
+/* Button Hover Effect */
+.button:hover {
+    -fx-background-color: #009688; /* Darker green on hover */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 0); /* Stronger shadow */
+}
+
+/* Button Pressed Effect */
+.button:pressed {
+    -fx-background-color: #00796B; /* Even darker green when pressed */
+}

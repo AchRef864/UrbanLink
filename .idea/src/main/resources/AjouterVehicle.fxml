@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="396.0" prefWidth="594.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.AjouterVehicleController">
+    <children>
+        <TextField fx:id="modelTextField" layoutX="222.0" layoutY="39.0" />
+
+        <Label layoutX="115.0" layoutY="41.0" text="model" />
+        <Label layoutX="113.0" layoutY="97.0" text="license plate" />
+        <Button layoutX="273.0" layoutY="314.0" mnemonicParsing="false" onAction="#ajouterVehicleAction"  text="Valider" />
+        <TextField fx:id="licenseTextField" layoutX="222.0" layoutY="95.0" />
+        <Label layoutX="110.0" layoutY="150.0" text="capacity" />
+      <Label layoutX="110.0" layoutY="209.0" text="type" />
+        <MenuButton fx:id="typeMenuButton" layoutX="222.0" layoutY="204.0" mnemonicParsing="false" text="Select one">
+            <items>
+                <MenuItem fx:id="covoiturageItem" mnemonicParsing="false" text="Carpooling" />
+                <MenuItem fx:id="transportItem" mnemonicParsing="false" text="Public transport" />
+            </items>
+        </MenuButton>
+        <Spinner fx:id="capacitySpinner" layoutX="221.0" layoutY="150.0" />
+    </children>
+</AnchorPane>

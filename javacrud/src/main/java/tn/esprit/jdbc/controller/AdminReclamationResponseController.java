@@ -43,9 +43,9 @@ public class AdminReclamationResponseController {
     private ReclamationService reclamationService = new ReclamationService();
 
     // Twilio Credentials (Replace with your own credentials)
-    private static final String ACCOUNT_SID = "xxxxxxxxx";
-    private static final String AUTH_TOKEN = "xxxxxxxxx";
-    private static final String TWILIO_NUMBER = "+xxxxxxx"; // Your Twilio phone number
+    private static final String ACCOUNT_SID = "xxxxxxxxxxxxx";
+    private static final String AUTH_TOKEN = "xxxxxxxxxxxxxxx";
+    private static final String TWILIO_NUMBER = "+xxxxxxxxxxxxx"; // Your Twilio phone number
 
     @FXML
     public void initialize() {

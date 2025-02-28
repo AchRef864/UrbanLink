@@ -6,26 +6,46 @@ public class User {
     private String email;
     private String phone;
     private String password;
+<<<<<<< HEAD
     private int admin; // 1 for admin, 0 for client
 
     // Constructors, getters, and setters
     public User() {}
 
     public User(String name, String email, String phone, String password, int admin) {
+=======
+    private String role; // "admin", "client", or any other role
+
+    // Constructors
+    public User() {}
+
+    public User(String name, String email, String phone, String password, String role) {
+>>>>>>> 0c71dfb834f6add887b2b67a7725ae848c89067d
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.password = password;
+<<<<<<< HEAD
         this.admin = admin;
     }
 
     public User(int userId, String name, String email, String phone, String password, int admin) {
+=======
+        this.role = role;
+    }
+
+    public User(int userId, String name, String email, String phone, String password, String role) {
+>>>>>>> 0c71dfb834f6add887b2b67a7725ae848c89067d
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.password = password;
+<<<<<<< HEAD
         this.admin = admin;
+=======
+        this.role = role;
+>>>>>>> 0c71dfb834f6add887b2b67a7725ae848c89067d
     }
 
     // Getters and Setters
@@ -69,12 +89,21 @@ public class User {
         this.password = password;
     }
 
+<<<<<<< HEAD
     public int getAdmin() {
         return admin;
     }
 
     public void setAdmin(int admin) {
         this.admin = admin;
+=======
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+>>>>>>> 0c71dfb834f6add887b2b67a7725ae848c89067d
     }
 
     @Override
@@ -85,7 +114,11 @@ public class User {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
+<<<<<<< HEAD
                 ", admin=" + admin +
+=======
+                ", role='" + role + '\'' +
+>>>>>>> 0c71dfb834f6add887b2b67a7725ae848c89067d
                 '}';
     }
 }

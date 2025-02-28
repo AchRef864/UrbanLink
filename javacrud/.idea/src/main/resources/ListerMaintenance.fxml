@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tn.esprit.jdbc.controllers.ListerMaintenanceController"
+            prefHeight="500.0" prefWidth="700.0">
+
+    <VBox spacing="10" alignment="CENTER" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+        <!-- Title -->
+        <Label text="Maintenance Records" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+        <!-- Table -->
+        <TableView fx:id="maintenanceTable">
+            <columns>
+                <TableColumn fx:id="colVehicle" text="Vehicle ID"/>
+                <TableColumn fx:id="colDescription" text="Description"/>
+                <TableColumn fx:id="colDate" text="Date"/>
+                <TableColumn fx:id="colCost" text="Cost"/>
+                <TableColumn fx:id="colActions" text="Actions"/>
+            </columns>
+        </TableView>
+
+        <!-- Add Button at Bottom -->
+        <Button text="Add Maintenance" fx:id="btnAdd" style="-fx-font-size: 14px;"/>
+    </VBox>
+</AnchorPane>

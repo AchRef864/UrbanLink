@@ -4,23 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="466842d2-b60a-470a-b852-7d46ed0d0588" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="4d3893fa-716f-4cc1-94d3-ab4f5519c3fb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ChatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/RatingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ViewRatingsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Rating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Taxii.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/DatabaseMetadataService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/PdfGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/PdfViewerApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/RatingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/TaxiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Chat.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RatingForm.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ViewRatings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Avis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Avis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Reponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Reponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/AvisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/AvisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReponseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/tests/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/tests/MainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Avis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Avis.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Reponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/entities/Reponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/AvisService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/AvisService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/CRUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/CRUD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/ReponseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/services/ReponseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/tests/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/tests/MainTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/utils/MyDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tn/esprit/jdbc/utils/MyDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/maintenanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/maintenanceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/vehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/vehicleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/DashboardClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DashboardClient.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,64 +48,80 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;HeniRidene&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/AchRef864/UrbanLink.git&quot;,
-    &quot;accountId&quot;: &quot;cef7cbd5-46ed-46a2-91a5-126cb347e03f&quot;
-  }
-}</component>
-  <component name="MavenRunner">
-    <option name="delegateBuildToMaven" value="true" />
-    <option name="jreName" value="jbr-17" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2sxL6XrygMsmj6khYwSQwjC1HeU" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="2t88XYr343pD9lF2vd6OP24cG71" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.MainTest.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Home.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.MainTest.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.javacrud [install,--non-recursive].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.javacrud [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.javacrud [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Application.PdfViewerApp.executor&quot;: &quot;Debug&quot;,
+    &quot;Maven.untitled [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [versions:display-dependency-updates].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/avis&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/piiideev/javacrud&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sbiss/OneDrive - ESPRIT/Desktop/GitHub/UrbanLink_user/UrbanLink/src/main/resources/images&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\GitHub\UrbanLink_user\UrbanLink\src\main\resources\images" />
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\GitHub\UrbanLink_user\UrbanLink\src\main\java\tn\esprit\jdbc\controllers" />
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\GitHub\UrbanLink_user\UrbanLink\src\main\resources" />
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\UrbanLink-dev\src\main\java\tn\esprit\jdbc\controllers" />
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\UrbanLink-dev\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\urbanlink\UrbanLink\src\main\resources" />
+      <recent name="C:\Users\sbiss\OneDrive - ESPRIT\Desktop\UrbanLink-dev\src\main\resources\images" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tn.esprit.jdbc.services" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn versions:display-dependency-updates " />
+      <command value="mvn clean install " />
+      <command value="implementation 'com.google.code.gson:gson:2.10.1'" />
+    </option>
+  </component>
   <component name="RunManager">
-    <configuration name="Home" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="tn.esprit.jdbc.controller.Home" />
-      <module name="javacrud" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\PC\Downloads\openjfx-23.0.2_windows-x64_bin-sdk\javafx-sdk-23.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml  " />
+    <configuration name="PdfViewerApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tn.esprit.jdbc.services.PdfViewerApp" />
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tn.esprit.jdbc.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PdfViewerApp" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -108,41 +134,24 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="466842d2-b60a-470a-b852-7d46ed0d0588" name="Changes" comment="" />
-      <created>1739392104857</created>
+      <changelist id="4d3893fa-716f-4cc1-94d3-ab4f5519c3fb" name="Changes" comment="" />
+      <created>1739722382622</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1739392104857</updated>
-      <workItem from="1739392105991" duration="341000" />
-      <workItem from="1739392461051" duration="3542000" />
-      <workItem from="1739434557564" duration="6734000" />
-      <workItem from="1739618709562" duration="8936000" />
-      <workItem from="1739713994781" duration="22762000" />
-      <workItem from="1739812898651" duration="15408000" />
-      <workItem from="1739896847874" duration="11859000" />
-      <workItem from="1739953851617" duration="562000" />
-      <workItem from="1739955381131" duration="1143000" />
-      <workItem from="1739958826517" duration="2034000" />
-      <workItem from="1739960888986" duration="16885000" />
-      <workItem from="1739985508405" duration="21985000" />
-      <workItem from="1740039572434" duration="8793000" />
-      <workItem from="1740303454226" duration="7435000" />
-      <workItem from="1740311505503" duration="19000" />
-      <workItem from="1740311538633" duration="16000" />
-      <workItem from="1740429342544" duration="544000" />
-      <workItem from="1740435134317" duration="202000" />
-      <workItem from="1740436246964" duration="271000" />
-      <workItem from="1740564084273" duration="191000" />
-      <workItem from="1740575047424" duration="12070000" />
-      <workItem from="1740597465469" duration="4278000" />
+      <updated>1739722382622</updated>
+      <workItem from="1739722385206" duration="732000" />
+      <workItem from="1739978009996" duration="953000" />
+      <workItem from="1740043550031" duration="7007000" />
+      <workItem from="1740068660105" duration="10102000" />
+      <workItem from="1740164872576" duration="1219000" />
+      <workItem from="1740215007642" duration="10785000" />
+      <workItem from="1740226452600" duration="977000" />
+      <workItem from="1740234489183" duration="16530000" />
+      <workItem from="1740259533918" duration="186000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

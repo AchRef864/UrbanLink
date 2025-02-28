@@ -1,24 +1,35 @@
 package tn.esprit.jdbc.tests;
 
-import tn.esprit.jdbc.entities.Avis;
-import tn.esprit.jdbc.entities.Reponse;
-import tn.esprit.jdbc.services.AvisService;
-import tn.esprit.jdbc.services.ReponseService;
+import tn.esprit.jdbc.entities.Vehicle;
+import tn.esprit.jdbc.entities.VehicleType;
+import tn.esprit.jdbc.services.vehicleService;
 import tn.esprit.jdbc.utils.MyDatabase;
-import java.util.Scanner;
+
 import java.sql.SQLException;
-import java.util.Date;
-import java.util.List;
 
 public class MainTest {
-
     public static void main(String[] args) {
-        MyDatabase m1 = MyDatabase.getInstance();
-        Scanner sc = new Scanner(System.in);
-        AvisService avisService = new AvisService();
-        ReponseService reponseService = new ReponseService();
+        System.out.println("Testing database connection...");
 
+        // Initialize database connection
+        MyDatabase dbInstance = MyDatabase.getInstance();
+
+        if (dbInstance.getCnx() != null) {
+            System.out.println("Database connection successful!");
+        } else {
+            System.err.println("Failed to connect to the database.");
+            return; // Stop execution if no database connection
+        }
+
+        // Create an instance of vehicleService
+        vehicleService service = new vehicleService();
+
+        // Define a test vehicle
+        Vehicle testVehicle = new Vehicle("Toyota Corolla", "123-TUN-456", VehicleType.BUS, 50);
+
+        // Insert the test vehicle
         try {
+<<<<<<< HEAD
             System.out.println("Enter your review:");
             String commentaire = sc.nextLine();
             System.out.println("Enter the new rating for the review:");
@@ -112,22 +123,16 @@ public class MainTest {
             System.out.println("All responses after deletion:");
             displayReponseList(reponseService.showAll());
 
+=======
+            int result = service.insert(testVehicle);
+            if (result > 0) {
+                System.out.println("Vehicle inserted successfully!");
+            } else {
+                System.err.println("Failed to insert vehicle.");
+            }
+>>>>>>> 0c71dfb834f6add887b2b67a7725ae848c89067d
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    private static void displayAvisList(List<Avis> avisList) {
-        for (Avis avis : avisList) {
-            System.out.println(avis);
-            System.out.println();
-        }
-    }
-
-    private static void displayReponseList(List<Reponse> reponseList) {
-        for (Reponse reponse : reponseList) {
-            System.out.println(reponse);
-            System.out.println();
+            System.err.println("SQL Error: " + e.getMessage());
         }
     }
 }

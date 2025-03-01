@@ -3,13 +3,10 @@
 /* Style for the root pane (background) */
 .root {
     -fx-background-color: #f4f4f4; /* Light gray background */
-     -fx-font-family: 'Poppins';
+    -fx-font-family: 'Poppins';
 }
 
- 
-}
-
- 
+/* Default style for all buttons */
 .button {
     -fx-background-color: #4CAF50; /* Green background */
     -fx-text-fill: white; /* White text */
@@ -32,10 +29,6 @@
 /* Hover effect for the exit button */
 #exit:hover {
     -fx-background-color: #b71c1c; /* Darker red on hover */
-=======
-/* Hover effect for buttons */
-.button:hover {
-    -fx-background-color: #45a049; /* Darker green on hover */
 }
 
 /* Style for text fields */
@@ -68,5 +61,3 @@
     -fx-text-fill: #FF4B2B !important;
     -fx-underline: true;
 }
-}
- 

@@ -6,26 +6,26 @@ public class User {
     private String email;
     private String phone;
     private String password;
-    private String role; // "admin", "client", or any other role
+    private int admin; // 1 for admin, 0 for client
 
-    // Constructors
+    // Constructors, getters, and setters
     public User() {}
 
-    public User(String name, String email, String phone, String password, String role) {
+    public User(String name, String email, String phone, String password, int admin) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.password = password;
-        this.role = role;
+        this.admin = admin;
     }
 
-    public User(int userId, String name, String email, String phone, String password, String role) {
+    public User(int userId, String name, String email, String phone, String password, int admin) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.password = password;
-        this.role = role;
+        this.admin = admin;
     }
 
     // Getters and Setters
@@ -69,12 +69,12 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public int getAdmin() {
+        return admin;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setAdmin(int admin) {
+        this.admin = admin;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
+                ", admin=" + admin +
                 '}';
     }
 }

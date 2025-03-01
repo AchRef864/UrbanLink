@@ -2,36 +2,54 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.UserAvisController">
 
-    <!-- Wrap everything in a ScrollPane to make it scrollable -->
-    <ScrollPane fitToWidth="true" prefHeight="600" prefWidth="800">
-        <VBox alignment="CENTER" spacing="10">
+    <!-- Scrollable Content -->
+    <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="600" prefWidth="800">
+        <AnchorPane>
+            <VBox alignment="CENTER" spacing="15" prefWidth="800" layoutX="10" layoutY="10">
 
-            <HBox spacing="10">
-                <TextField fx:id="searchTextField" promptText="Search..." />
-                <Button text="Search" onAction="#searchAvis" style="-fx-background-color: #87CEEB" />
-            </HBox>
+                <!-- Search Bar -->
+                <HBox spacing="10">
+                    <TextField fx:id="searchTextField" promptText="Search..." />
+                    <Button text="Search" onAction="#searchAvis" style="-fx-background-color: #87CEEB;" />
+                </HBox>
 
-            <TableView fx:id="tableAvis" prefWidth="750">
-                <columns>
-                    <TableColumn fx:id="colNote" text="Note" />
-                    <TableColumn fx:id="colCommentaire" text="Commentaire" />
-                    <TableColumn fx:id="colDate" text="Date" />
-                    <TableColumn fx:id="colEdit" text="Edit" />
-                    <TableColumn fx:id="colDelete" text="Delete" />
-                    <TableColumn fx:id="colViewResponses" text="View Responses" />
-                </columns>
-            </TableView>
+                <!-- Table View -->
+                <TableView fx:id="tableAvis" prefWidth="750">
+                    <columns>
+                        <TableColumn fx:id="colNote" text="Note" />
+                        <TableColumn fx:id="colCommentaire" text="Commentaire" />
+                        <TableColumn fx:id="colDate" text="Date" />
+                        <TableColumn fx:id="colEdit" text="Edit" />
+                        <TableColumn fx:id="colDelete" text="Delete" />
+                        <TableColumn fx:id="colViewResponses" text="View Responses" />
+                    </columns>
+                </TableView>
 
-            <Pagination fx:id="pagination" pageCount="1" />
+                <!-- Pagination Control -->
+                <Pagination fx:id="pagination" pageCount="1" />
 
-            <HBox spacing="10">
-                <Button alignment="CENTER" onAction="#addAvis" text="Ajouter" textAlignment="CENTER" style="-fx-background-color: #87CEEB"/>
-            </HBox>
+                <!-- Add Avis Button -->
+                <HBox spacing="10">
+                    <Button text="Ajouter" onAction="#addAvis" style="-fx-background-color: #87CEEB;" />
+                </HBox>
 
-        </VBox>
+                <!-- Chatbot Section -->
+                <VBox spacing="10" style="-fx-border-color: #B0C4DE; -fx-border-width: 2; -fx-padding: 10;">
+                    <Label text="Chatbot Assistant" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
 
+                    <TextArea fx:id="chatArea" editable="false" wrapText="true" prefHeight="200" prefWidth="750" />
+
+                    <HBox spacing="10">
+                        <TextField fx:id="inputField" promptText="Ask me something..." />
+                        <Button text="Send" onAction="#sendMessage" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                    </HBox>
+                </VBox>
+
+            </VBox>
+        </AnchorPane>
     </ScrollPane>
 
 </AnchorPane>

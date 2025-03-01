@@ -25,7 +25,7 @@ public class GeminiAPI {
         Request request = new Request.Builder()
                 .url(GEMINI_API_URL)
                 .post(body)
-                .addHeader("Authorization", "Bearer " + "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")
+                .addHeader("Authorization", "Bearer " + "xxxxxxxxxxx")
                 .addHeader("Content-Type", "application/json")
                 .build();
 

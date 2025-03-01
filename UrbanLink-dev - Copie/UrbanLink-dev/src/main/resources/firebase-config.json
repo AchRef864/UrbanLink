@@ -1,0 +1,5 @@
+FileInputStream serviceAccount = new FileInputStream("firebase-config.json");
+FirebaseOptions options = new FirebaseOptions.Builder()
+.setCredentials(GoogleCredentials.fromStream(serviceAccount))
+.build();
+FirebaseApp.initializeApp(options);

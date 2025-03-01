@@ -16,16 +16,23 @@
     </top>
 
     <left>
+        <!-- Dans la section <left> -->
         <VBox spacing="10" style="-fx-background-color: #34495E; -fx-padding: 10;">
-            <Button fx:id="btnHome" text="Home" />
-            <Button fx:id="btnVehicle" text="Vehicle" />
-            <Button fx:id="btnMaintenance" text="Maintenance" />
-            <Button fx:id="btnInsertUser" text="Insert User" />
-            <Button fx:id="btnEditUser" text="Edit User" />
-            <Button fx:id="btnViewRatings" text="View Ratings" /> <!-- New button for viewing ratings -->
-            <Button fx:id="btnLogout" text="Logout" />
-            <Button fx:id="btnChat" text="Chat" onAction="#handleChat" />
+            <!-- Boutons existants -->
+            <Button fx:id="btnHome" text="Home"/>
+            <Button fx:id="btnVehicle" text="Vehicle"/>
+            <Button fx:id="btnMaintenance" text="Maintenance"/>
+            <Button fx:id="btnInsertUser" text="Insert User"/>
+            <Button fx:id="btnEditUser" text="Edit User"/>
+            <Button fx:id="btnViewRatings" text="View Ratings"/>
+            <Button onAction="#OpenTaxiListPageAction" prefHeight="61.0" prefWidth="240.0" style="-fx-background-color: #8E44AD; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Afficher liste taxi" />
+            <Button onAction="#OpenCourseListPageAction" prefHeight="64.0" prefWidth="258.0" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Afficher liste course" />
 
+            <!-- Nouveau bouton Ajouté ici -->
+            <Button fx:id="btnModifyCourse" text="Modify Course"/>
+
+            <Button fx:id="btnLogout" text="Logout"/>
+            <Button fx:id="btnChat" text="Chat" onAction="#handleChat"/>
         </VBox>
     </left>
 

@@ -24,7 +24,6 @@
                     <TableColumn fx:id="colLicensePlate" text="License Plate" prefWidth="120"/>
                     <TableColumn fx:id="colType" text="Type" prefWidth="100"/>
                     <TableColumn fx:id="colCapacity" text="Capacity" prefWidth="75"/>
-                    <TableColumn fx:id="colDriver" text="Driver" prefWidth="75"/>
                     <TableColumn fx:id="colEdit" text="Edit" prefWidth="75"/>
                     <TableColumn fx:id="colDelete" text="Delete" prefWidth="75"/>
                 </columns>

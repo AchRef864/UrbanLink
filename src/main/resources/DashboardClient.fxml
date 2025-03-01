@@ -19,7 +19,8 @@
             <Button fx:id="btnMaintenance" text="Maintenance" />
             <Button fx:id="btnInsertUser" text="Insert User" />
             <Button fx:id="btnEditUser" text="Edit User" />
-            <Button fx:id="btnRateRide" text="Rate Ride" /> <!-- New button -->
+            <Button fx:id="btnRateRide" text="Rate Ride" />
+            <Button onAction="#handleListeTaxisEtCoursesButton" style="-fx-background-color: #F39C12; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Liste Taxis et Courses" />        <!-- Logout Button --><!-- New button -->
             <Button fx:id="btnLogout" text="Logout" />
         </VBox>
     </left>

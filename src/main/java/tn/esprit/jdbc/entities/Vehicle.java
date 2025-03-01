@@ -9,7 +9,6 @@ public class Vehicle
     private String licensePlate;
     private VehicleType type;  // Use enum instead of String
     private int capacity;
-    private User driver;
     private List<Maintenance> maintenanceRecords;
 
     // Constructor
@@ -40,9 +39,6 @@ public class Vehicle
 
     public List<Maintenance> getMaintenanceRecords() { return maintenanceRecords; }
     public void setMaintenanceRecords(List<Maintenance> maintenanceRecords) { this.maintenanceRecords = maintenanceRecords; }
-
-    public User getDriver() { return driver; }
-    public void setDriver(User driver) { this.driver = driver; }
 
     @Override
     public String toString() {

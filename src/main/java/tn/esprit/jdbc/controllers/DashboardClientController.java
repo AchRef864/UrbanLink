@@ -9,6 +9,15 @@ import java.io.IOException;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.User;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class DashboardClientController {
 
@@ -32,14 +41,33 @@ public class DashboardClientController {
         btnLogout.setOnAction(e -> logout());
     }
 
+    @FXML
+    private void handleListeTaxisEtCoursesButton(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ListeTaxisEtCourses.fxml"));
+            Parent root = loader.load();
+
+
+            ListeTaxisEtCoursesController controller = loader.getController();
+            controller.setUserId(currentUser.getUserId()); // ← Important !
+
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace(); // Affiche l'erreur complète dans la console
+            showAlert("Erreur", "Problème lors du chargement de la page Liste Taxis et Courses : " + e.getMessage());
+        }
+
+    }
+
     /**
      * Sets the logged-in user and updates the UI based on their role.
      *
      * @param user The logged-in user.
      */
     public void setUser(User user) {
-        this.currentUser = user;
-        updateUIForRole(); // Update UI based on the user's role
+        currentUser = user;
+        updateUIForRole();
     }
 
     /**
@@ -59,6 +87,7 @@ public class DashboardClientController {
             }
         }
     }
+
 
     /**
      * Loads the specified FXML page into the content area.
@@ -94,5 +123,13 @@ public class DashboardClientController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

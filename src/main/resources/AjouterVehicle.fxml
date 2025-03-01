@@ -11,27 +11,19 @@
 <AnchorPane prefHeight="396.0" prefWidth="594.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.AjouterVehicleController">
     <children>
         <TextField fx:id="modelTextField" layoutX="222.0" layoutY="39.0" />
-        <Label layoutX="115.0" layoutY="41.0" text="Model" />
 
-        <Label layoutX="113.0" layoutY="97.0" text="License Plate" />
+        <Label layoutX="115.0" layoutY="41.0" text="model" />
+        <Label layoutX="113.0" layoutY="97.0" text="license plate" />
+        <Button layoutX="273.0" layoutY="314.0" mnemonicParsing="false" onAction="#ajouterVehicleAction"  text="Valider" />
         <TextField fx:id="licenseTextField" layoutX="222.0" layoutY="95.0" />
-
-        <!-- Hint label for license plate format -->
-        <Label fx:id="licenseHintLabel" layoutX="222.0" layoutY="120.0" text="" style="-fx-text-fill: gray; -fx-font-size: 12px;" visible="false"/>
-
-        <Label layoutX="110.0" layoutY="150.0" text="Capacity" />
-        <Spinner fx:id="capacitySpinner" layoutX="221.0" layoutY="150.0" />
-
-        <Label layoutX="110.0" layoutY="209.0" text="Type" />
+        <Label layoutX="110.0" layoutY="150.0" text="capacity" />
+      <Label layoutX="110.0" layoutY="209.0" text="type" />
         <MenuButton fx:id="typeMenuButton" layoutX="222.0" layoutY="204.0" mnemonicParsing="false" text="Select one">
             <items>
-                <MenuItem fx:id="busItem" mnemonicParsing="false" text="Bus" />
-                <MenuItem fx:id="carItem" mnemonicParsing="false" text="Car" />
-                <MenuItem fx:id="truckItem" mnemonicParsing="false" text="Truck" />
-                <MenuItem fx:id="motorcycleItem" mnemonicParsing="false" text="Motorcycle" />
+                <MenuItem fx:id="covoiturageItem" mnemonicParsing="false" text="Carpooling" />
+                <MenuItem fx:id="transportItem" mnemonicParsing="false" text="Public transport" />
             </items>
         </MenuButton>
-
-        <Button layoutX="273.0" layoutY="314.0" mnemonicParsing="false" onAction="#ajouterVehicleAction" text="Valider" />
+        <Spinner fx:id="capacitySpinner" layoutX="221.0" layoutY="150.0" />
     </children>
 </AnchorPane>

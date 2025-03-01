@@ -8,57 +8,85 @@ import javafx.scene.layout.StackPane;
 import java.io.IOException;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 import tn.esprit.jdbc.entities.User;
 
 public class DashboardController {
 
     @FXML
-    private void handleChat() {
-        loadPage("/Chat.fxml");
-    }
-
-    @FXML
     private StackPane contentArea;
 
+    // Ajout du bouton ModifyCourse dans la déclaration
     @FXML
-    private Button btnHome, btnVehicle, btnMaintenance, btnInsertUser, btnEditUser, btnLogout, btnViewRatings;
+    private Button btnHome, btnVehicle, btnMaintenance, btnInsertUser,
+            btnEditUser, btnLogout, btnViewRatings;
 
     @FXML
     public void initialize() {
-        // Set actions for buttons
-        btnHome.setOnAction(e -> loadPage("/Home.fxml")); // Load Home page
-        btnVehicle.setOnAction(e -> loadPage("/ListerVehicle.fxml")); // Load Vehicle page
-        btnMaintenance.setOnAction(e -> loadPage("/ListerMaintenance.fxml")); // Load Maintenance page
-        btnInsertUser.setOnAction(e -> loadPage("/AjouterUser.fxml")); // Load Insert User page
-        btnEditUser.setOnAction(e -> loadPage("/EditUser.fxml")); // Load Edit User page
-        btnViewRatings.setOnAction(e -> loadPage("/ViewRatings.fxml")); // Load View Ratings page
-        btnLogout.setOnAction(e -> logout()); // Logout
+        // Configuration des actions pour TOUS les boutons
+        btnHome.setOnAction(e -> loadPage("/Home.fxml"));
+        btnVehicle.setOnAction(e -> loadPage("/ListerVehicle.fxml"));
+        btnMaintenance.setOnAction(e -> loadPage("/ListerMaintenance.fxml"));
+        btnInsertUser.setOnAction(e -> loadPage("/AjouterUser.fxml"));
+        btnEditUser.setOnAction(e -> loadPage("/EditUser.fxml"));
+        btnViewRatings.setOnAction(e -> loadPage("/ViewRatings.fxml"));
+        btnLogout.setOnAction(e -> logout());
     }
 
     private void loadPage(String fxml) {
         try {
-            System.out.println("Loading page: " + fxml);
+            System.out.println("Chargement de : " + fxml);
             Parent page = FXMLLoader.load(getClass().getResource(fxml));
             contentArea.getChildren().setAll(page);
         } catch (IOException e) {
+            System.err.println("Échec du chargement de : " + fxml);
             e.printStackTrace();
-            System.err.println("Error loading page: " + fxml);
+            // Ajouter une alerte d'erreur si besoin
         }
     }
 
     public void setUser(User user) {
-        // Use the user data as needed
+        // Logique utilisateur si nécessaire
+    }
+    @FXML
+    private void OpenTaxiListPageAction(ActionEvent event) {
+        try {
+            // Load the Taxi List page
+            Parent root = FXMLLoader.load(getClass().getResource("/ListeTaxi.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+    @FXML
+    private void OpenCourseListPageAction(ActionEvent event) {
+        try {
+            // Load the Course List page
+            Parent root = FXMLLoader.load(getClass().getResource("/ListeCourses.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void logout() {
-        System.out.println("User logged out.");
-        // Implement logout logic (e.g., redirect to login page)
         try {
             Parent loginPage = FXMLLoader.load(getClass().getResource("/Login.fxml"));
             Stage stage = (Stage) btnLogout.getScene().getWindow();
             stage.setScene(new Scene(loginPage));
         } catch (IOException e) {
+            System.err.println("Échec de la déconnexion");
             e.printStackTrace();
         }
+    }
+
+    // Méthode handleChat() si vous en avez besoin
+    @FXML
+    private void handleChat() {
+        loadPage("/Chat.fxml");
     }
 }

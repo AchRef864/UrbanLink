@@ -1,6 +1,5 @@
 package tn.esprit.jdbc.services;
 
-import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.entities.Vehicle;
 import tn.esprit.jdbc.entities.VehicleType;
 import tn.esprit.jdbc.utils.MyDatabase;
@@ -8,25 +7,19 @@ import tn.esprit.jdbc.utils.MyDatabase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import tn.esprit.jdbc.entities.Vehicle;
 
 public class vehicleService {
 
     private Connection cnx = MyDatabase.getInstance().getCnx();
 
-    private static final String CAR_REGEX = "\\d{3}-\\d{4}"; // Example: 123-4567
-    private static final String BUS_REGEX = "\\d{2}-\\d{3}-\\d{2}"; // Example: 12-345-67
-    private static final String TRUCK_REGEX = "\\d{4}-[A-Z]{2}"; // Example: 1234-AB
-    private static final String MOTORCYCLE_REGEX = "[A-Z]{2}-\\d{3}-[A-Z]"; // Example: AB-123-C
-
     public int insert(Vehicle vehicle) throws SQLException {
-        if (!isValidLicensePlate(vehicle.getLicensePlate(), vehicle.getType())) {
-            throw new IllegalArgumentException("Invalid license plate format for " + vehicle.getType());
-        }
-        if (!isValidCapacity(vehicle.getCapacity(), vehicle.getType())) {
-            throw new IllegalArgumentException("Invalid capacity for " + vehicle.getType());
-        }
-
         String query = "INSERT INTO vehicule (model, license_plate, type, capacity) VALUES (?, ?, ?, ?)";
         try (PreparedStatement ps = cnx.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, vehicle.getModel());
@@ -35,22 +28,16 @@ public class vehicleService {
             ps.setInt(4, vehicle.getCapacity());
             ps.executeUpdate();
 
+            // Retrieve generated vehicle ID
             ResultSet generatedKeys = ps.getGeneratedKeys();
             if (generatedKeys.next()) {
                 return generatedKeys.getInt(1);
             }
         }
-        return -1;
+        return -1; // Return -1 if no ID was generated
     }
 
     public int update(Vehicle vehicle) throws SQLException {
-        if (!isValidLicensePlate(vehicle.getLicensePlate(), vehicle.getType())) {
-            throw new IllegalArgumentException("Invalid license plate format for " + vehicle.getType());
-        }
-        if (!isValidCapacity(vehicle.getCapacity(), vehicle.getType())) {
-            throw new IllegalArgumentException("Invalid capacity for " + vehicle.getType());
-        }
-
         String query = "UPDATE vehicule SET model = ?, license_plate = ?, type = ?, capacity = ? WHERE vehicle_id = ?";
         try (PreparedStatement ps = cnx.prepareStatement(query)) {
             ps.setString(1, vehicle.getModel());
@@ -72,23 +59,10 @@ public class vehicleService {
 
     public List<Vehicle> getAllVehicles() throws SQLException {
         List<Vehicle> vehicles = new ArrayList<>();
-        String query = "SELECT v.*, u.user_id, u.name, u.email, u.phone, u.password, u.role " +
-                "FROM vehicule v " +
-                "JOIN user u ON v.user_id = u.user_id";
-
+        String query = "SELECT * FROM vehicule";
         try (Statement st = cnx.createStatement();
              ResultSet rs = st.executeQuery(query)) {
             while (rs.next()) {
-                // Creating the driver (User) object
-                User driver = new User();
-                driver.setUserId(rs.getInt("user_id"));
-                driver.setName(rs.getString("name"));
-                driver.setEmail(rs.getString("email"));
-                driver.setPhone(rs.getString("phone"));
-                driver.setPassword(rs.getString("password")); // Be careful with security
-                driver.setRole(rs.getString("role"));
-
-                // Creating the vehicle object
                 Vehicle vehicle = new Vehicle(
                         rs.getString("model"),
                         rs.getString("license_plate"),
@@ -96,8 +70,6 @@ public class vehicleService {
                         rs.getInt("capacity")
                 );
                 vehicle.setVehicleId(rs.getInt("vehicle_id"));
-                vehicle.setDriver(driver); // Set the driver
-
                 vehicles.add(vehicle);
             }
         }
@@ -155,61 +127,27 @@ public class vehicleService {
                 return rs.getInt("vehicle_id");
             }
         }
-        return -1;
+        return -1; // Return -1 if no matching vehicle is found
     }
-
+    //showAll
     public List<Vehicle> showAll() throws SQLException {
         List<Vehicle> temp = new ArrayList<>();
-        String req = "SELECT * FROM vehicule";
-        try (Statement st = cnx.createStatement();
-             ResultSet rs = st.executeQuery(req)) {
-            while (rs.next()) {
-                Vehicle vehicle = new Vehicle();
-                vehicle.setVehicleId(rs.getInt("vehicle_id"));
-                vehicle.setModel(rs.getString("model"));
-                vehicle.setLicensePlate(rs.getString("license_plate"));
-                vehicle.setType(VehicleType.valueOf(rs.getString("type")));
-                vehicle.setCapacity(rs.getInt("capacity"));
 
-                temp.add(vehicle);
-            }
+        String req = "SELECT * FROM `vehicule`";
+        Statement st = cnx.createStatement();
+        ResultSet rs = st.executeQuery(req);
+
+        while (rs.next()) {
+            Vehicle vehicle = new Vehicle();
+            vehicle.setVehicleId(rs.getInt("vehicle_id"));
+            vehicle.setModel(rs.getString("model"));
+            vehicle.setLicensePlate(rs.getString("license_plate"));
+            vehicle.setType(VehicleType.valueOf(rs.getString("type")));
+            vehicle.setCapacity(rs.getInt("capacity"));
+
+            temp.add(vehicle);
         }
+
         return temp;
-    }
-
-    private boolean isValidLicensePlate(String licensePlate, VehicleType type) {
-        String pattern;
-        switch (type) {
-            case Car:
-                pattern = CAR_REGEX;
-                break;
-            case Bus:
-                pattern = BUS_REGEX;
-                break;
-            case Truck:
-                pattern = TRUCK_REGEX;
-                break;
-            case Motorcycle:
-                pattern = MOTORCYCLE_REGEX;
-                break;
-            default:
-                return false;
-        }
-        return Pattern.matches(pattern, licensePlate);
-    }
-
-    private boolean isValidCapacity(int capacity, VehicleType type) {
-        switch (type) {
-            case Car:
-                return capacity >= 1 && capacity <= 7;
-            case Bus:
-                return capacity >= 10 && capacity <= 50;
-            case Truck:
-                return capacity >= 2 && capacity <= 10;
-            case Motorcycle:
-                return capacity == 1 || capacity == 2;
-            default:
-                return false;
-        }
     }
 }

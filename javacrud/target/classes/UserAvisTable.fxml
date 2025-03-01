@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.UserAvisController">
+    <VBox alignment="CENTER" spacing="10">
+        <HBox spacing="10">
+            <TextField fx:id="searchTextField" promptText="Search..." />
+            <Button text="Search" onAction="#searchAvis" style="-fx-background-color: #87CEEB" />
+        </HBox>
+        <TableView fx:id="tableAvis">
+            <columns>
+                <TableColumn fx:id="colNote" text="Note" />
+                <TableColumn fx:id="colCommentaire" text="Commentaire" />
+                <TableColumn fx:id="colDate" text="Date" />
+                <TableColumn fx:id="colEdit" text="Edit" />
+                <TableColumn fx:id="colDelete" text="Delete" />
+                <TableColumn fx:id="colViewResponses" text="View Responses" />
+            </columns>
+        </TableView>
+        <HBox prefHeight="47.0" prefWidth="821.0" spacing="10">
+            <Button alignment="CENTER" onAction="#addAvis" text="Ajouter" textAlignment="CENTER" style="-fx-background-color: #87CEEB"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

@@ -9,49 +9,54 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<<<<<<< Updated upstream
 <AnchorPane prefHeight="616.0" prefWidth="990.0" style="-fx-background-color: #003D29;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.EditUserController">
     <VBox alignment="CENTER" layoutX="50" layoutY="30" prefHeight="536.0" prefWidth="908.0" spacing="15">
+=======
+<AnchorPane prefHeight="668.0" prefWidth="994.0" style="-fx-background-color: #1A1A2E;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.EditUserController">
+    <VBox alignment="CENTER" layoutX="21.0" layoutY="30" prefHeight="607.0" prefWidth="937.0" spacing="15" style="-fx-background-color: rgba(26, 26, 46, 0.9); -fx-background-radius: 15; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);">
+>>>>>>> Stashed changes
 
         <!-- Title -->
-        <Label style="-fx-font-size: 25px; -fx-font-weight: bold;" text="Gestion des utilisateurs" textFill="#3498DB" />
+        <Label style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;" text="Gestion des utilisateurs" />
 
         <!-- Search Section -->
         <HBox alignment="CENTER" spacing="10">
-            <TextField fx:id="searchTextField" promptText="Search by name, email, or phone" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
+            <TextField fx:id="searchTextField" promptText="Search by name, email, or phone" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1e1f2f; -fx-text-fill: white; -fx-prompt-text-fill: #bbb; -fx-pref-width: 400;" />
+            <Button onAction="#handleSearchButton" style="-fx-background-color: #00BFA5; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Search" />
         </HBox>
 
         <!-- TableView -->
-        <TableView fx:id="userTable" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: #1E2F23; -fx-text-fill: white;">
+        <TableView fx:id="userTable" prefHeight="53.0" prefWidth="817.0" style="-fx-background-color: #1E2F23FF; -fx-text-fill: white;">
             <columns>
-                <TableColumn fx:id="userIdColumn" prefWidth="100.0" text="User ID" sortable="true" />
-                <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Name" sortable="true" />
-                <TableColumn fx:id="emailColumn" prefWidth="150.0" text="Email" sortable="true" />
-                <TableColumn fx:id="phoneColumn" prefWidth="150.0" text="Phone" sortable="true" />
-                <TableColumn fx:id="passwordColumn" prefWidth="150.0" text="Password" sortable="true" />
+                <TableColumn fx:id="userIdColumn" prefWidth="100.0" sortable="true" style="-fx-text-fill: white;" text="User ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="150.0" sortable="true" style="-fx-text-fill: white;" text="Name" />
+                <TableColumn fx:id="emailColumn" prefWidth="150.0" sortable="true" style="-fx-text-fill: white;" text="Email" />
+                <TableColumn fx:id="phoneColumn" prefWidth="150.0" sortable="true" style="-fx-text-fill: white;" text="Phone" />
+                <TableColumn fx:id="passwordColumn" prefWidth="150.0" sortable="true" style="-fx-text-fill: white;" text="Password" />
             </columns>
         </TableView>
 
-        <!-- Delete Section -->
-        <HBox alignment="CENTER" spacing="10">
-            <Button onAction="#handleDeleteButton" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Supprimer" />
-        </HBox>
+        <!-- Action Buttons -->
+        <HBox alignment="CENTER" spacing="20" />
 
-        <!-- Edit Section -->
-        <HBox alignment="CENTER" spacing="10">
-            <Button onAction="#handleEditButton" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Modifier" />
-        </HBox>
+         <!-- Edit Button -->
+         <Button onAction="#handleEditButton" style="-fx-background-color: #00BFA5; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Modifier" />
+         <!-- Delete Button -->
+         <Button onAction="#handleDeleteButton" style="-fx-background-color: #FF416C; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Supprimer" />
 
         <!-- Editable Fields -->
-        <VBox fx:id="editFields" alignment="CENTER" spacing="10" visible="false">
-            <TextField fx:id="editNameTextField" promptText="Nom" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
-            <TextField fx:id="editEmailTextField" promptText="Email" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
-            <TextField fx:id="editPhoneTextField" promptText="Phone" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
-            <TextField fx:id="editPasswordTextField" promptText="Password" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23; -fx-text-fill: white; -fx-prompt-text-fill: #bbb;" />
-            <Button onAction="#handleUpdateButton" style="-fx-background-color: #2ECC71; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Confirmer la modification" />
+        <VBox fx:id="editFields" alignment="CENTER" spacing="10" style="-fx-background-color: rgba(26, 26, 46, 0.9); -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);" visible="false">
+            <TextField fx:id="editNameTextField" promptText="Nom" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23FF; -fx-text-fill: white; -fx-prompt-text-fill: #bbb; -fx-pref-width: 300;" />
+            <TextField fx:id="editEmailTextField" promptText="Email" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23FF; -fx-text-fill: white; -fx-prompt-text-fill: #bbb; -fx-pref-width: 300;" />
+            <TextField fx:id="editPhoneTextField" promptText="Phone" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23FF; -fx-text-fill: white; -fx-prompt-text-fill: #bbb; -fx-pref-width: 300;" />
+            <TextField fx:id="editPasswordTextField" promptText="Password" style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: #1E2F23FF; -fx-text-fill: white; -fx-prompt-text-fill: #bbb; -fx-pref-width: 300;" />
+            <Button onAction="#handleUpdateButton" style="-fx-background-color: #FFC107; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 8 20; -fx-cursor: hand;" text="Confirmer la modification" />
         </VBox>
 
     </VBox>
 </AnchorPane>
+<<<<<<< Updated upstream
 
 <AnchorPane prefHeight="464.0" prefWidth="859.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.EditUserController">
     <children>
@@ -72,3 +77,5 @@
         <Button layoutX="444.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
     </children>
 </AnchorPane>
+=======
+>>>>>>> Stashed changes

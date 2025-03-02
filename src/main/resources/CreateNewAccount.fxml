@@ -5,12 +5,13 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.CreateNewAccountController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1A1A2E;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.CreateNewAccountController" stylesheets="@styles.css">
     <!-- Background Image -->
     <ImageView fitHeight="1500.0" fitWidth="875.0" preserveRatio="true">
         <image>
@@ -21,29 +22,48 @@
     <!-- Dark Overlay -->
     <AnchorPane layoutY="6.0" prefHeight="709.0" prefWidth="875.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);">
         <children>
-
             <!-- Create Account Form -->
-            <VBox alignment="CENTER" layoutX="190.0" layoutY="240.0" prefHeight="455.0" prefWidth="520.0" spacing="20.0" style="-fx-background-color: rgba(255, 255, 255, 0.1); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: linear-gradient(to right, #FF416C, #FF4B2B); -fx-border-width: 2; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);">
+            <VBox alignment="CENTER" layoutX="190.0" layoutY="240.0" prefHeight="455.0" prefWidth="520.0" spacing="20.0" style="-fx-background-color: rgba(26, 26, 46, 0.8); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #00BFA5; -fx-border-width: 2; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);">
                 <!-- Title -->
                 <Label prefHeight="60.0" prefWidth="104.0" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold; -fx-font-family: 'Poppins';" text="Create Account">
                     <font>
-                        <Font name="Algerian" size="24.0" />
-                    </font></Label>
+                        <Font name="Algerian" size="32.0" />
+                    </font>
+                </Label>
 
                 <!-- Name Field -->
-                <TextField fx:id="nameTextField" promptText="Name" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+                <TextField fx:id="nameTextField" promptText="Name" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
 
                 <!-- Email Field -->
-                <TextField fx:id="emailTextField" promptText="Email" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+                <TextField fx:id="emailTextField" promptText="Email" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
 
+<<<<<<< Updated upstream
+=======
+                <!-- Phone Field -->
+                <TextField fx:id="phoneTextField" promptText="Phone (less than 8 digits)" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+
+>>>>>>> Stashed changes
                 <!-- Password Field -->
-                <PasswordField fx:id="passwordTextField" promptText="Password" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <PasswordField fx:id="passwordField" promptText="Password" onMouseClicked="#handlePasswordFieldClick" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 250;" />
+                    <Label fx:id="suggestedPasswordLabel" style="-fx-text-fill: white; -fx-font-size: 14px;" text="" />
+                </HBox>
 
                 <!-- Confirm Password Field -->
-                <PasswordField fx:id="confirmPasswordTextField" promptText="Confirm Password" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+                <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
 
                 <!-- Create Account Button -->
+<<<<<<< Updated upstream
                 <Button onAction="#handleCreateAccountButton" style="-fx-background-color: linear-gradient(to right, #FF416C, #FF4B2B); -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 30; -fx-cursor: hand;" text="Create Account" />
             </VBox>
         </children></AnchorPane>
+=======
+                <Button onAction="#handleCreateAccountButton" style="-fx-background-color: #00BFA5; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 30; -fx-cursor: hand;" text="Create Account" />
+
+                <!-- Back to Login Button -->
+                <Button onAction="#handleBackToLoginButton" style="-fx-background-color: transparent; -fx-text-fill: #FFC107; -fx-font-size: 14px; -fx-border-color: #FFC107; -fx-border-radius: 10; -fx-padding: 10 30; -fx-cursor: hand;" text="Back to Login" />
+            </VBox>
+        </children>
+    </AnchorPane>
+>>>>>>> Stashed changes
 </AnchorPane>

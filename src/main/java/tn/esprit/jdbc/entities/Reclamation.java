@@ -19,7 +19,13 @@ public class Reclamation {
         this.userId = userId;
         this.sujet = sujet;
         this.description = description;
+<<<<<<< Updated upstream
     }
+=======
+        this.reponseReclamation = ""; // Default value for the response
+    }
+
+>>>>>>> Stashed changes
     // Parameterized constructor with response
     public Reclamation(int reclamationId, int userId, String sujet, String description, String reponseReclamation) {
         this.reclamationId = reclamationId;
@@ -27,11 +33,14 @@ public class Reclamation {
         this.sujet = sujet;
         this.description = description;
         this.reponseReclamation = reponseReclamation;
+<<<<<<< Updated upstream
     public Reclamation(int reclamationId , int userId, String sujet, String description )
     {   this.reclamationId=reclamationId;
         this.userId = userId;
         this.sujet = sujet;
         this.description = description;
+=======
+>>>>>>> Stashed changes
     }
 
     // Getters and Setters

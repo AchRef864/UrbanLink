@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="500.0" prefWidth="650.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.jdbc.controllers.AjoutCourseController" stylesheets="styles.css" >
+    <children>
+
+        <!-- Ville de départ -->
+        <Label layoutX="50.0" layoutY="70.0" text="Ville de départ:"/>
+        <ComboBox fx:id="comboVilleDepart" layoutX="200.0" layoutY="65.0" prefWidth="200.0" promptText="Sélectionnez une ville"/>
+
+        <Label layoutX="50.0" layoutY="30.0" text="Taxi:"/>
+        <ComboBox fx:id="comboBoxTaxi" layoutX="200.0" layoutY="25.0" prefWidth="200.0" promptText="Sélectionnez un taxi"/>
+
+        <!-- Ville d'arrivée -->
+        <Label layoutX="50.0" layoutY="110.0" text="Ville d'arrivée:"/>
+        <ComboBox fx:id="comboVilleArrivee" layoutX="200.0" layoutY="105.0" prefWidth="200.0" promptText="Sélectionnez une ville"/>
+
+        <!-- Date de course -->
+        <Label layoutX="50.0" layoutY="150.0" text="Date de course:"/>
+        <DatePicker fx:id="datePickerCourse" layoutX="200.0" layoutY="145.0" prefWidth="200.0"/>
+
+        <!-- Heure de course -->
+        <Label layoutX="50.0" layoutY="190.0" text="Heure de course:"/>
+        <TextField fx:id="txtHeureCourse" layoutX="200.0" layoutY="185.0" prefWidth="200.0" promptText="HH:mm"/>
+
+        <!-- Distance -->
+        <Label layoutX="50.0" layoutY="230.0" text="Distance (km):"/>
+        <TextField fx:id="txtDistance" layoutX="200.0" layoutY="225.0" prefWidth="200.0"/>
+
+        <!-- Montant -->
+        <Label layoutX="50.0" layoutY="270.0" text="Montant (TND):"/>
+        <TextField fx:id="txtMontant" layoutX="200.0" layoutY="265.0" prefWidth="200.0" editable="false"/>
+
+        <!-- Statut -->
+        <Label layoutX="50.0" layoutY="310.0" text="Statut:"/>
+        <ComboBox fx:id="comboStatut" layoutX="200.0" layoutY="305.0" prefWidth="200.0" promptText="Sélectionnez un statut"/>
+
+        <!-- Bouton Ajouter -->
+        <Button fx:id="btnAjouter" layoutX="200.0" layoutY="350.0" text="Ajouter Course"
+                onAction="#ajouterCourse"
+                style="-fx-font-weight: bold; -fx-background-color: #2196F3; -fx-text-fill: white;"
+                prefWidth="200.0" prefHeight="30.0"/>
+    </children>
+</AnchorPane>

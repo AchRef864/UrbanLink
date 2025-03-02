@@ -1,9 +1,15 @@
 package tn.esprit.jdbc.entities;
 
 public enum VehicleType {
-    BUS, COVOITURAGE ,
+    Bus ,
     Car,
+<<<<<<< HEAD
     Truck,
     Motorcycle,
-    Covoiturage  ;
+    Covoiturage , Bus ;
+
+=======
+    Truck ,
+    Motorcycle;
+>>>>>>> e244cabab4672bf5258bf2c96b9c84d2fec77a85
 }

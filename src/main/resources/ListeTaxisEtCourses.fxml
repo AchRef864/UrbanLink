@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane prefHeight="1021.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.ListeTaxisEtCoursesController" style="-fx-background-color: #F0F0F0;" stylesheets="styles.css" >
+    <!-- En-tête -->
+    <top>
+        <Label style="-fx-font-size: 20px; -fx-padding: 10; -fx-text-fill: #1E3A8A; -fx-font-weight: bold;" text="Taxis &amp; Courses" />
+    </top>
+
+    <!-- Contenu principal -->
+    <center>
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: #FFFFFF; -fx-border-color: #1E3A8A; -fx-border-width: 2; -fx-border-radius: 5;">
+            <!-- Section Taxis -->
+            <Label style="-fx-text-fill: #FFC107; -fx-font-weight: bold;" text="Taxis Disponibles" />
+            <TableView fx:id="tableTaxis" style="-fx-background-color: #E3E3E3; -fx-border-color: #1E3A8A;">
+                <columns>
+                    <TableColumn fx:id="colTaxiMarque" prefWidth="150" text="Marque" />
+                    <TableColumn fx:id="colTaxiModele" prefWidth="150" text="Modèle" />
+                    <TableColumn fx:id="colTaxiCapacite" prefWidth="100" text="Capacité" />
+                    <TableColumn fx:id="colTaxiStatut" prefWidth="100" text="Statut" />
+                </columns>
+            </TableView>
+            <Button onAction="#handleAjouterCourse" text="Ajouter une Course" style="-fx-background-color: #1E3A8A; -fx-text-fill: white; -fx-font-weight: bold;" />
+
+            <!-- Section Courses -->
+            <Label style="-fx-padding: 10 0 0 0; -fx-text-fill: #FFC107; -fx-font-weight: bold;" text="Mes Courses" />
+            <TableView fx:id="tableCourses" style="-fx-background-color: #E3E3E3; -fx-border-color: #1E3A8A;">
+                <columns>
+                    <TableColumn fx:id="colVilleDepart" prefWidth="150" text="Ville Départ" />
+                    <TableColumn fx:id="colVilleArrivee" prefWidth="150" text="Ville Arrivée" />
+                    <TableColumn fx:id="colDistance" prefWidth="100" text="Distance" />
+                    <TableColumn fx:id="colMontant" prefWidth="100" text="Montant" />
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <Button onAction="#handleModifierCourse" text="Modifier Course" style="-fx-background-color: #1E3A8A; -fx-text-fill: white; -fx-font-weight: bold;" />
+                <Button onAction="#handleSupprimerCourse" text="Supprimer Course" style="-fx-background-color: #B71C1C; -fx-text-fill: white; -fx-font-weight: bold;" />
+                <!-- Bouton pour générer le PDF -->
+                <Button onAction="#handleGenererPDF" text="Générer PDF" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #003D29;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.HelloAdminController">
+    <VBox alignment="CENTER" layoutX="100" layoutY="50" prefWidth="400.0" spacing="25">
+
+        <!-- Buttons with modern rounded look -->
+        <HBox alignment="CENTER" spacing="20" />
+
+    </VBox>
+    <Button layoutX="163.0" layoutY="150.0" onAction="#OpenInsertPageAction" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Insert" />
+    <Button layoutX="332.0" layoutY="250.0" onAction="#OpenAvistableAction" prefHeight="74.0" prefWidth="170.0" style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Liste reviews" />
+    <Button layoutX="332.0" layoutY="150.0" onAction="#OpenEditPageAction" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #F1C40F; -fx-text-fill: black; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Edit" />
+    <Button layoutX="163.0" layoutY="250.0" onAction="#OpenReclamationResponsePageAction" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 15; -fx-padding: 10 25; -fx-font-weight: bold; -fx-cursor: hand;" text="Respond to Reclamation" />
+
+     <!-- Title -->
+     <Label layoutX="164.0" layoutY="-18.0" prefHeight="179.0" prefWidth="272.0" style="-fx-font-size: 30px; -fx-font-weight: bold;" text="    HELLO ADMIN" textFill="#3498DB" />
+</AnchorPane>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.jdbc.controllers.ListeCoursesController"
+            style="-fx-background-color: #F0F0F0;" stylesheets="styles.css" >
+
+    <!-- TableView pour afficher la liste des courses -->
+    <TableView fx:id="tableView" layoutX="10.0" layoutY="10.0" prefHeight="550.0" prefWidth="780.0"
+               style="-fx-background-color: #E3E3E3; -fx-border-color: #1E3A8A;">
+        <columns>
+            <!-- Colonne Date de course -->
+            <TableColumn fx:id="colDateCourse" prefWidth="150.0" text="Date Course">
+                <cellValueFactory>
+                    <PropertyValueFactory property="date_course"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <!-- Colonne Ville de départ -->
+            <TableColumn fx:id="colVilleDepart" prefWidth="120.0" text="Ville Départ">
+                <cellValueFactory>
+                    <PropertyValueFactory property="ville_depart"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <!-- Colonne Ville d'arrivée -->
+            <TableColumn fx:id="colVilleArrivee" prefWidth="120.0" text="Ville Arrivée">
+                <cellValueFactory>
+                    <PropertyValueFactory property="ville_arrivee"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <!-- Colonne Distance -->
+            <TableColumn fx:id="colDistance" prefWidth="80.0" text="Distance (km)">
+                <cellValueFactory>
+                    <PropertyValueFactory property="distance_km"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <!-- Colonne Montant -->
+            <TableColumn fx:id="colMontant" prefWidth="80.0" text="Montant">
+                <cellValueFactory>
+                    <PropertyValueFactory property="montant"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <!-- Colonne Statut (modification via contrôleur Java) -->
+            <TableColumn fx:id="colStatut" prefWidth="120.0" text="Statut">
+                <cellValueFactory>
+                    <PropertyValueFactory property="statut"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <!-- Boutons -->
+    <Button layoutX="120.0" layoutY="570.0" text="Modifier"
+            onAction="#modifierCourse"
+            style="-fx-font-size: 14; -fx-pref-width: 100; -fx-background-color: #1E3A8A; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+    <Button layoutX="230.0" layoutY="570.0" text="Supprimer"
+            onAction="#supprimerCourse"
+            style="-fx-font-size: 14; -fx-pref-width: 100; -fx-background-color: #B71C1C; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+    <Button layoutX="350.0" layoutY="570.0" text="Retour"
+            onAction="#retourAccueil"
+            style="-fx-font-size: 14; -fx-pref-width: 100; -fx-background-color: #1E3A8A; -fx-text-fill: white; -fx-font-weight: bold;"/>
+</AnchorPane>

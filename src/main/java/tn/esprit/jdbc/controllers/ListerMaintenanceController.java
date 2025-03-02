@@ -15,7 +15,9 @@ import tn.esprit.jdbc.services.maintenanceService;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListerMaintenanceController {
 
@@ -40,15 +42,25 @@ public class ListerMaintenanceController {
     @FXML
     private Button btnAdd;
 
+    @FXML
+    private Button btnSearch;
+
+    @FXML
+    private TextField searchField;
+
     private final maintenanceService maintenanceService = new maintenanceService();
+    private ObservableList<Maintenance> allData;
 
     @FXML
     public void initialize() {
         setupTable();
         loadMaintenanceData();
 
-        // Add event for Add button
+        // Event for Add button
         btnAdd.setOnAction(event -> addMaintenance());
+
+        // Event for Search button
+        btnSearch.setOnAction(event -> searchMaintenance());
     }
 
     private void setupTable() {
@@ -58,10 +70,15 @@ public class ListerMaintenanceController {
         });
 
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("maintenanceDate"));
+
+        // Format Date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        colDate.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(
+                dateFormat.format(cellData.getValue().getMaintenanceDate())));
+
         colCost.setCellValueFactory(new PropertyValueFactory<>("cost"));
 
-        // Add Edit & Delete buttons in Actions column
+        // Actions Column (Edit & Delete)
         colActions.setCellFactory(param -> new TableCell<>() {
             private final Button btnEdit = new Button("Edit");
             private final Button btnDelete = new Button("Delete");
@@ -82,11 +99,7 @@ public class ListerMaintenanceController {
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    setGraphic(buttonBox);
-                }
+                setGraphic(empty ? null : buttonBox);
             }
         });
     }
@@ -94,11 +107,51 @@ public class ListerMaintenanceController {
     private void loadMaintenanceData() {
         try {
             List<Maintenance> maintenanceList = maintenanceService.showAll();
-            ObservableList<Maintenance> observableList = FXCollections.observableArrayList(maintenanceList);
-            maintenanceTable.setItems(observableList);
+            allData = FXCollections.observableArrayList(maintenanceList);
+            maintenanceTable.setItems(allData);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void searchMaintenance() {
+        String keyword = searchField.getText().trim().toLowerCase();
+        if (keyword.isEmpty()) {
+            maintenanceTable.setItems(allData); // Restore full list
+        } else {
+            List<Maintenance> filteredList = allData.stream()
+                    .filter(m -> m.getDescription().toLowerCase().contains(keyword) ||
+                            String.valueOf(m.getMaintenanceDate()).contains(keyword) ||
+                            String.valueOf(m.getCost()).contains(keyword))
+                    .collect(Collectors.toList());
+
+            maintenanceTable.setItems(FXCollections.observableArrayList(filteredList));
+        }
+
+        // Reapply cell factory to ensure buttons are shown
+        colActions.setCellFactory(param -> new TableCell<>() {
+            private final Button btnEdit = new Button("Edit");
+            private final Button btnDelete = new Button("Delete");
+            private final HBox buttonBox = new HBox(10, btnEdit, btnDelete);
+
+            {
+                btnEdit.setOnAction(event -> {
+                    Maintenance maintenance = getTableView().getItems().get(getIndex());
+                    editMaintenance(maintenance);
+                });
+
+                btnDelete.setOnAction(event -> {
+                    Maintenance maintenance = getTableView().getItems().get(getIndex());
+                    deleteMaintenance(maintenance);
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : buttonBox);
+            }
+        });
     }
 
     private void editMaintenance(Maintenance maintenance) {
@@ -108,7 +161,6 @@ public class ListerMaintenanceController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/EditMaintenance.fxml"));
             Parent root = loader.load();
 
-            // Pass maintenance data to the edit controller
             EditMaintenanceController controller = loader.getController();
             controller.setMaintenanceData(maintenance);
 

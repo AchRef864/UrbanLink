@@ -2,33 +2,101 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="tn.esprit.jdbc.controllers.DashboardController">
+<BorderPane prefHeight="765.0" prefWidth="1161.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.DashboardController">
 
+    <!-- Top Section: Header -->
     <top>
-        <HBox spacing="20" style="-fx-background-color: #2C3E50; -fx-padding: 10;">
-            <Label style="-fx-text-fill: white; -fx-font-size: 20px;" text="Dashboard" />
+        <HBox prefHeight="2.0" prefWidth="1197.0" spacing="20" style="-fx-background-color: #1A1A2E; -fx-padding: 15; -fx-alignment: center-left;">
+            <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Dashboard" />
         </HBox>
     </top>
 
+    <!-- Left Section: Navigation Menu -->
     <left>
+<<<<<<< HEAD
+        <VBox spacing="10" style="-fx-background-color: #1A1A2E; -fx-padding: 20; -fx-border-color: #00BFA5; -fx-border-width: 0 1 0 0;">
+            <!-- Section: General -->
+            <VBox spacing="10">
+                <Button fx:id="btnHome" styleClass="nav-button" text="Home" />
+                <Button fx:id="btnVehicle" styleClass="nav-button" text="Vehicle" />
+                <Button fx:id="btnMaintenance" styleClass="nav-button" text="Maintenance" />
+            </VBox>
+
+            <!-- Separator -->
+            <Separator styleClass="separator" />
+
+            <!-- Section: Utilisateurs -->
+            <VBox spacing="10">
+                <Label text="Users" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
+                <Button fx:id="btnInsertUser" styleClass="nav-button" text="Insert User" />
+                <Button fx:id="btnEditUser" styleClass="nav-button" text="Edit User" />
+                <Button fx:id="btnViewRatings" styleClass="nav-button" text="View Ratings" />
+            </VBox>
+
+            <!-- Separator -->
+            <Separator styleClass="separator" />
+
+            <!-- Section: Communication -->
+            <VBox spacing="10">
+                <Label text="Communication" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
+                <Button fx:id="btnChat" styleClass="nav-button" text="Chat" />
+            </VBox>
+
+            <!-- Separator -->
+            <Separator styleClass="separator" />
+
+            <!-- Section: Taxis & Courses -->
+            <VBox spacing="10">
+                <Label text="Taxis Courses" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
+                <Button fx:id="btnOpenTaxiListPage" styleClass="nav-button" text="Liste Taxis" />
+                <Button fx:id="btnOpenCourseListPage" styleClass="nav-button" text="Liste Courses" />
+            </VBox>
+
+            <!-- Separator -->
+            <Separator styleClass="separator" />
+
+            <!-- Section: Feedback -->
+            <VBox spacing="10">
+                <Label text="Feedback" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
+                <Button fx:id="btnReviews" styleClass="nav-button" text="Reviews" />
+                <Button fx:id="btnComplainings" styleClass="nav-button" text="Complainings" />
+            </VBox>
+
+            <!-- Separator -->
+            <Separator styleClass="separator" />
+
+            <!-- Section: Logout -->
+            <VBox spacing="10">
+                <Button fx:id="btnLogout" styleClass="nav-button" text="Logout" />
+            </VBox>
+=======
         <VBox spacing="10" style="-fx-background-color: #34495E; -fx-padding: 10;">
             <Button fx:id="btnHome" text="Home" />
             <Button fx:id="btnVehicle" text="Vehicle" />
             <Button fx:id="btnMaintenance" text="Maintenance" />
+<<<<<<< Updated upstream
             <Button fx:id="btnReclamation" text="Reclamation" />
+=======
+>>>>>>> Stashed changes
             <Button fx:id="btnInsertUser" text="Insert User" />
             <Button fx:id="btnEditUser" text="Edit User" />
+            <Button fx:id="btnViewRatings" text="View Ratings" /> <!-- New button for viewing ratings -->
             <Button fx:id="btnLogout" text="Logout" />
+            <Button fx:id="btnChat" text="Chat" onAction="#handleChat" />
+
+>>>>>>> e244cabab4672bf5258bf2c96b9c84d2fec77a85
         </VBox>
     </left>
 
+    <!-- Center Section: Content Area -->
     <center>
-        <StackPane fx:id="contentArea" prefHeight="700.0" prefWidth="837.0" />
+        <StackPane fx:id="contentArea" prefHeight="733.0" prefWidth="964.0" style="-fx-background-color: #ffffff; -fx-padding: 20;" />
     </center>
 
 </BorderPane>

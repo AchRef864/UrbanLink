@@ -24,21 +24,45 @@ public class ReclamationController {
 
     private int userId; // Store the logged-in user's ID
 
+<<<<<<< Updated upstream
     public void setUserId(int userId) {
         this.userId = userId;
+=======
+    // Setter method to set the userId
+    public void setUserId(int userId) {
+        this.userId = userId;
+        System.out.println("User ID set to: " + userId); // Debugging log to verify the userId is being set
+>>>>>>> Stashed changes
     }
 
     @FXML
     public void handleSubmitButton() {
+<<<<<<< Updated upstream
         String sujet = sujetTextField.getText();
         String description = descriptionTextArea.getText();
 
         // Input validation
+=======
+        System.out.println("Submitting reclamation for user ID: " + userId); // Debugging log
+
+        // Check if the userId is properly set
+        if (userId == 0) {
+            showAlert("Error", "User ID is not set. Please log in again.");
+            return;
+        }
+
+        // Get the input values from the text fields
+        String sujet = sujetTextField.getText();
+        String description = descriptionTextArea.getText();
+
+        // Check if the input fields are empty
+>>>>>>> Stashed changes
         if (sujet.isEmpty() || description.isEmpty()) {
             showAlert("Error", "Sujet and Description cannot be empty.");
             return;
         }
 
+<<<<<<< Updated upstream
         // Create a new reclamation
         Reclamation reclamation = new Reclamation(userId, sujet, description);
 
@@ -51,6 +75,22 @@ public class ReclamationController {
             sujetTextField.clear();
             descriptionTextArea.clear();
         } catch (SQLException e) {
+=======
+        // Create a Reclamation object and try to insert it into the database
+        Reclamation reclamation = new Reclamation(userId, sujet, description);
+        ReclamationService reclamationService = new ReclamationService();
+
+        try {
+            // Insert the reclamation into the database
+            reclamationService.insert(reclamation);
+            showAlert("Success", "Reclamation submitted successfully!");
+
+            // Clear the text fields after successful submission
+            sujetTextField.clear();
+            descriptionTextArea.clear();
+        } catch (SQLException e) {
+            e.printStackTrace(); // Debugging log
+>>>>>>> Stashed changes
             showAlert("Error", "An error occurred while submitting the reclamation: " + e.getMessage());
         }
     }
@@ -80,4 +120,8 @@ public class ReclamationController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

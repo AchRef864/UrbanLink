@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.abonnement.ReservationController" spacing="10" stylesheets="@styles.css" >
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <Label text="Modifier Réservation" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <HBox spacing="10">
+        <Label text="ID Réservation:" />
+        <TextField fx:id="reservationIdField" promptText="ID" disable="true"/>
+    </HBox>
+    <HBox spacing="10">
+        <Label text="ID Utilisateur:" />
+        <TextField fx:id="userIdField" promptText="ID Utilisateur" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Date Début:" />
+        <DatePicker fx:id="dateDebutPicker" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Date Fin:" />
+        <DatePicker fx:id="dateFinPicker" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Statut:" />
+        <ComboBox fx:id="statutComboBox" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="ID Abonnement:" />
+        <TextField fx:id="abonnementIdField" promptText="ID Abonnement" />
+    </HBox>
+
+    <Button text="Modifier" onAction="#modifierReservation" />
+</VBox>

@@ -20,7 +20,7 @@
     <!-- Content -->
     <VBox alignment="CENTER" layoutX="211.0" layoutY="128.0" prefHeight="285.0" prefWidth="379.0" spacing="20">
         <!-- Greeting -->
-        <Label style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Hello, Admin!">
+        <Label style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;" text="Hello">
             <font>
                 <Font name="Arial" size="36.0" />
             </font>

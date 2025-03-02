@@ -1,5 +1,11 @@
 package tn.esprit.jdbc.controllers;
 
+<<<<<<< Updated upstream
+=======
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+>>>>>>> Stashed changes
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +45,14 @@ public class AdminReclamationResponseController {
 
     private ReclamationService reclamationService = new ReclamationService();
 
+<<<<<<< Updated upstream
+=======
+    // Twilio Credentials (Replace with your own credentials)
+    private static final String ACCOUNT_SID = "xxxxxxxxx";
+    private static final String AUTH_TOKEN = "xxxxxxxxx";
+    private static final String TWILIO_NUMBER = "+xxxxxxxxxx"; // Your Twilio phone number
+
+>>>>>>> Stashed changes
     @FXML
     public void initialize() {
         // Set up the columns in the TableView
@@ -49,6 +63,12 @@ public class AdminReclamationResponseController {
 
         // Load data into the TableView
         loadReclamationData();
+<<<<<<< Updated upstream
+=======
+
+        // Initialize Twilio
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+>>>>>>> Stashed changes
     }
 
     private void loadReclamationData() {
@@ -79,6 +99,12 @@ public class AdminReclamationResponseController {
                 reclamationService.update(selectedReclamation);
                 showAlert("Success", "Response submitted successfully!");
 
+<<<<<<< Updated upstream
+=======
+                // Send SMS notification to the user
+                sendSMSNotification(selectedReclamation);
+
+>>>>>>> Stashed changes
                 // Reload the data in the TableView
                 loadReclamationData();
 
@@ -92,6 +118,39 @@ public class AdminReclamationResponseController {
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    private void sendSMSNotification(Reclamation reclamation) {
+        // Fetch user's phone number from the database
+        String userPhoneNumber = reclamationService.getUserPhoneNumber(reclamation.getUserId());
+
+        if (userPhoneNumber == null || userPhoneNumber.isEmpty()) {
+            showAlert("Error", "User phone number not found.");
+            return;
+        }
+
+        // Construct the SMS message
+        String messageText = String.format(
+                "Hello, your complaint regarding '%s' has been reviewed. Our response: %s",
+                reclamation.getSujet(),
+                reclamation.getReponseReclamation()
+        );
+
+        // Send SMS via Twilio
+        try {
+            Message.creator(
+                    new PhoneNumber(userPhoneNumber),   // Recipient
+                    new PhoneNumber(TWILIO_NUMBER),    // Twilio Sender Number (FIXED)
+                    messageText
+            ).create();
+
+            showAlert("Success", "SMS notification sent to the user!");
+        } catch (Exception e) {
+            showAlert("Error", "Failed to send SMS: " + e.getMessage());
+        }
+    }
+
+>>>>>>> Stashed changes
     @FXML
     public void handleBackButton() {
         try {
@@ -112,4 +171,8 @@ public class AdminReclamationResponseController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

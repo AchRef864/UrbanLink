@@ -226,6 +226,7 @@ public class EditUserController {
     }
 
 
+<<<<<<< Updated upstream
         try {
             // Get the user ID from the TextField
             int userId = Integer.parseInt(userIdTextField.getText());
@@ -246,4 +247,18 @@ public class EditUserController {
             System.err.println("Error deleting user: " + e.getMessage());
         }
     }
+=======
+
+    //handleSearchButton
+    @FXML
+    public void handleSearchButton() {
+        String searchText = searchTextField.getText();
+        filterTable(searchText);
+    }
+
+
+
+
+
+>>>>>>> Stashed changes
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Alert?>
+<?import javafx.scene.control.Alert.AlertType?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.abonnement.ReservationController" spacing="10" alignment="CENTER" stylesheets="@styles.css" >
+    <!-- Table to display reservations -->
+    <TableView fx:id="tableReservations" prefHeight="400" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" />
+            <TableColumn fx:id="colUserId" text="User ID" />
+            <TableColumn fx:id="colStatut" text="Statut" />
+            <TableColumn fx:id="colDateDebut" text="Date Début" />
+            <TableColumn fx:id="colDateFin" text="Date Fin" />
+            <TableColumn fx:id="colAbonnement" text="Abonnement" />
+            <TableColumn fx:id="colAction" text="Actions">            </TableColumn>
+
+        </columns>
+    </TableView>
+
+</VBox>

@@ -14,7 +14,10 @@ public class Home extends Application {
     @Override
     public void start(Stage stage)  {
         try {
+<<<<<<< Updated upstream
             Parent root = FXMLLoader.load(getClass().getResource("/Login.fxml"));
+=======
+>>>>>>> Stashed changes
             Parent root = FXMLLoader.load(getClass().getResource("/Dashboard.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -22,7 +25,6 @@ public class Home extends Application {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-
     }
 
     public static void main(String[] args) {

@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="demo1" />
         <module name="javacrud" />
+        <module name="untitled" />
       </profile>
     </annotationProcessing>
   </component>

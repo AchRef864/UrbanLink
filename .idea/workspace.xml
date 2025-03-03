@@ -5,131 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d3893fa-716f-4cc1-94d3-ab4f5519c3fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AboutUsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AfficherPDFController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AjoutCourseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AjoutTaxiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/CentralMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ChatController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/EmailUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ForgotPasswordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ListeCoursesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ListeTaxisController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ListeTaxisEtCoursesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ModifierCourseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ModifierTaxiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/RatingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ResetPasswordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/UpdateCourseStatusController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ViewRatingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/abonnement/AbonnementListeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/abonnement/ControllerAjoutAbonnement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/abonnement/ControllerReservationAjout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/abonnement/ModifierAbonnementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/abonnement/ReservationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/abonnement/ReservationListController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Avis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/GeminiAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/QRCodeGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Rating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Reclamation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Reponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Taxi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Taxii.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/abonnement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/reservation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/AvisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/DatabaseMetadataService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/PdfGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/PdfViewerApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/RatingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReclamationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ReponseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ServiceCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/ServiceTaxi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/TaxiService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/abonnementservices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/reservationservice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AfficherPDF.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutCourse.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AjoutTaxi.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/CentralMenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Chat.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ForgotPassword.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ListeCourses.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ListeTaxi.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ListeTaxisEtCourses.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ModifierCourse.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ModifierTaxi.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RatingForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ResetPassword.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/UpdateCourseStatus.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ViewRatings.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/abonnement_list.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/about_us.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ajoutAbonnement.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ajoutReservation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/abonnement_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/avis_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/background_image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/chat_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/complaints_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/course_list_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/edit_user_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/gold_star.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/home_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/image8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/insert_user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/logout_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/maintenance_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/rate_ride.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/reservation_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/reviews_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/taxi_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/taxi_list_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/user_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/vehicule_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/modifierAbonnement.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/modifierReservation.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/reservation_list.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AjouterMaintenanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AjouterMaintenanceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AjouterVehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/AjouterVehicleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/CreateNewAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/CreateNewAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/AddAvisController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/AddReponseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/AdminReclamationResponseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/AjouterUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/AvisTableController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/ClientPageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/ClientReclamationResponseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/DetailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/EditUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/GeminiChatbotApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/HelloAdminController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/Home.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/ReclamationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/ReponseTableController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/UpdateAvisController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/UpdateReponseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/UserAvisController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controller/UserReponseTableController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/EditUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/EditUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ListerVehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/ListerVehicleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/VehicleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/entities/VehicleType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/maintenanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/maintenanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/vehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/jdbc/services/vehicleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AjouterVehicle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AjouterVehicle.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CreateNewAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CreateNewAccount.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DashboardClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DashboardClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/EditUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/EditUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/HelloAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/HelloAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ListerVehicle.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ListerVehicle.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/login-background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/login-background.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/login-background2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/login-background2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,35 +68,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Login.executor": "Run",
-    "Application.PdfViewerApp.executor": "Debug",
-    "Maven.untitled [clean,compile].executor": "Run",
-    "Maven.untitled [clean,install].executor": "Run",
-    "Maven.untitled [clean].executor": "Run",
-    "Maven.untitled [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.untitled [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor": "Run",
-    "Maven.untitled [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "Maven.untitled [package].executor": "Run",
-    "Maven.untitled [versions:display-dependency-updates].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#19 on dev",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/PC/Downloads/UrbanLink - Copy22 -Taxi/UrbanLink - Copy22 -Taxi/src/main/resources/images",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PdfViewerApp.executor&quot;: &quot;Debug&quot;,
+    &quot;Maven.untitled [clean,compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.untitled [versions:display-dependency-updates].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Downloads/UrbanLink - Copy22 -Taxi/UrbanLink - Copy22 -Taxi/src/main/resources/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -299,6 +199,8 @@
       <workItem from="1740949299850" duration="3715000" />
       <workItem from="1740953080743" duration="8270000" />
       <workItem from="1740992126206" duration="1847000" />
+      <workItem from="1741035334309" duration="351000" />
+      <workItem from="1741036049991" duration="397000" />
     </task>
     <servers />
   </component>

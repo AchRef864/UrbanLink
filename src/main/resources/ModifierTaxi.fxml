@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="650.0"
+            maxWidth="Infinity" maxHeight="Infinity"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.jdbc.controllers.ModifierTaxiController"
+            stylesheets="styles.css" >
+
+    <!-- Your existing UI elements -->
+    <Label layoutX="50.0" layoutY="30.0" text="Immatriculation:"/>
+    <TextField fx:id="txtImmatriculation" layoutX="200.0" layoutY="25.0" prefWidth="200.0"/>
+
+    <!-- Marque et Modèle -->
+    <Label layoutX="50.0" layoutY="70.0" text="Marque:" />
+    <ComboBox fx:id="comboMarque" layoutX="200.0" layoutY="65.0" prefWidth="200.0" promptText="Choisir une marque" />
+
+    <Label layoutX="50.0" layoutY="110.0" text="Modèle:" />
+    <ComboBox fx:id="comboModele" layoutX="200.0" layoutY="105.0" prefWidth="200.0" promptText="Choisir un modèle" />
+
+    <!-- Année et Capacité -->
+    <Label layoutX="50.0" layoutY="150.0" text="Année de fabrication:" />
+    <TextField fx:id="txtAnnee" layoutX="200.0" layoutY="145.0" prefWidth="200.0" />
+
+    <Label layoutX="50.0" layoutY="190.0" text="Capacité:" />
+    <TextField fx:id="txtCapacite" layoutX="200.0" layoutY="185.0" prefWidth="200.0" />
+
+    <!-- Zone desserte -->
+    <Label layoutX="50.0" layoutY="230.0" text="Zone desserte:" />
+    <ComboBox fx:id="comboZone" layoutX="200.0" layoutY="225.0" prefWidth="200.0" promptText="Sélectionnez une zone" />
+
+    <!-- Statut -->
+    <Label layoutX="50.0" layoutY="270.0" text="Statut:" />
+    <ComboBox fx:id="comboStatut" layoutX="200.0" layoutY="265.0" prefWidth="200.0" />
+
+    <!-- Date d'obtention de la licence -->
+    <Label layoutX="21.0" layoutY="349.0" text="Date d'obtention de la licence:" />
+    <DatePicker fx:id="datePickerLicence" layoutX="200.0" layoutY="345.0" prefWidth="200.0" />
+
+    <!-- Tarif -->
+    <Label layoutX="50.0" layoutY="390.0" text="Tarif de base (TND):" />
+    <TextField fx:id="txtTarifBase" layoutX="200.0" layoutY="385.0" prefWidth="200.0" />
+
+    <!-- Licence Numéro -->
+    <Label layoutX="50.0" layoutY="310.0" text="Numéro de licence:" />
+    <TextField fx:id="txtLicenceNumero" layoutX="200.0" layoutY="305.0" prefWidth="200.0" />
+
+    <!-- Bouton Modifier -->
+    <Button fx:id="btnModifier" layoutX="200.0" layoutY="430.0" onAction="#modifierTaxi" prefHeight="30.0" prefWidth="200.0" style="-fx-font-weight: bold; -fx-background-color: #4CAF50; -fx-text-fill: white;" text="Modifier Taxi" />
+</AnchorPane>

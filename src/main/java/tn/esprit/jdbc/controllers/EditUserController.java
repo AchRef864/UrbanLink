@@ -223,4 +223,16 @@ public class EditUserController {
     }
 
 
+
+    //handleSearchButton
+    @FXML
+    public void handleSearchButton() {
+        String searchText = searchTextField.getText();
+        filterTable(searchText);
+    }
+
+
+
+
+
 }

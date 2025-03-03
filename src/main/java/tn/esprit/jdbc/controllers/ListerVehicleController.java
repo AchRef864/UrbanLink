@@ -1,5 +1,6 @@
 package tn.esprit.jdbc.controllers;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.entities.Vehicle;
 import tn.esprit.jdbc.services.vehicleService;
 import java.sql.SQLException;
@@ -29,6 +31,8 @@ public class ListerVehicleController {
     private TableColumn<Vehicle, String> colType;
     @FXML
     private TableColumn<Vehicle, Integer> colCapacity;
+    @FXML
+    private TableColumn<Vehicle, String> colDriver;
     @FXML
     private TableColumn<Vehicle, Void> colEdit;
     @FXML
@@ -71,6 +75,10 @@ public class ListerVehicleController {
         colLicensePlate.setCellValueFactory(new PropertyValueFactory<>("licensePlate"));
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
         colCapacity.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+        colDriver.setCellValueFactory(cellData -> {
+            User driver = cellData.getValue().getDriver();
+            return driver != null ? new SimpleStringProperty(driver.getName()) : new SimpleStringProperty("No Driver");
+        });
 
         // Add Edit Button to Each Row
         colEdit.setCellFactory(createButtonCellFactory("Edit"));

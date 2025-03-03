@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="200.0" prefWidth="400.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.jdbc.controllers.UpdateCourseStatusController" stylesheets="styles.css">
+    <children>
+        <!-- Label pour le titre du ComboBox -->
+        <Label layoutX="20.0" layoutY="20.0" text="Nouveau statut:"/>
+
+        <!-- ComboBox pour sélectionner le nouveau statut -->
+        <ComboBox fx:id="comboStatus" layoutX="140.0" layoutY="15.0" prefWidth="200.0" promptText="Sélectionnez un statut"/>
+
+        <!-- Bouton Valider -->
+        <Button fx:id="btnValider" layoutX="140.0" layoutY="70.0" text="Valider"
+                onAction="#handleValider"
+                style="-fx-font-weight: bold; -fx-background-color: #4CAF50; -fx-text-fill: white;"
+                prefWidth="90.0" prefHeight="30.0"/>
+
+        <!-- Bouton Annuler -->
+        <Button fx:id="btnAnnuler" layoutX="250.0" layoutY="70.0" text="Annuler"
+                onAction="#handleAnnuler"
+                style="-fx-font-weight: bold; -fx-background-color: #F44336; -fx-text-fill: white;"
+                prefWidth="90.0" prefHeight="30.0"/>
+    </children>
+</AnchorPane>

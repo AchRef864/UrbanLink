@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="tn.esprit.jdbc.controllers.ListeTaxisController"
+            style="-fx-background-color: #F0F0F0;" stylesheets="styles.css" >
+
+    <!-- Champ de recherche -->
+    <TextField fx:id="txtRecherche" layoutX="10.0" layoutY="10.0" prefWidth="300.0"
+               promptText="Rechercher un taxi..." />
+
+    <!-- TableView pour afficher la liste des taxis -->
+    <TableView fx:id="tableView" layoutX="10.0" layoutY="50.0" prefHeight="500.0" prefWidth="780.0"
+               style="-fx-background-color: #E3E3E3; -fx-border-color: #1E3A8A;">
+        <columns>
+            <!-- Ajout de la colonne ID -->
+            <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+            <TableColumn fx:id="colImmatriculation" prefWidth="150.0" text="Immatriculation" />
+            <TableColumn fx:id="colMarque" prefWidth="100.0" text="Marque" />
+            <TableColumn fx:id="colModele" prefWidth="100.0" text="Modèle" />
+            <TableColumn fx:id="colAnnee" prefWidth="80.0" text="Année" />
+            <TableColumn fx:id="colCapacite" prefWidth="80.0" text="Capacité" />
+            <TableColumn fx:id="colStatut" prefWidth="120.0" text="Statut" />
+        </columns>
+    </TableView>
+
+    <!-- Boutons -->
+    <Button layoutX="10.0" layoutY="570.0" onAction="#ModifierTaxi"
+            style="-fx-font-size: 14; -fx-pref-width: 100; -fx-background-color: #1E3A8A; -fx-text-fill: white; -fx-font-weight: bold;"
+            text="Modifier" />
+    <Button layoutX="120.0" layoutY="570.0" onAction="#supprimerTaxi"
+            style="-fx-font-size: 14; -fx-pref-width: 100; -fx-background-color: #B71C1C; -fx-text-fill: white; -fx-font-weight: bold;"
+            text="Supprimer" />
+    <Button layoutX="340.0" layoutY="570.0" onAction="#ajouterTaxi"
+            style="-fx-font-size: 14; -fx-pref-width: 100; -fx-background-color: #FFC107; -fx-text-fill: black; -fx-font-weight: bold;"
+            text="Ajouter" />
+    <Button layoutX="450.0" layoutY="570.0" onAction="#retourAccueil"
+            style="-fx-font-size: 14; -fx-pref-width: 100; -fx-background-color: #1E3A8A; -fx-text-fill: white; -fx-font-weight: bold;"
+            text="Retour" />
+</AnchorPane>

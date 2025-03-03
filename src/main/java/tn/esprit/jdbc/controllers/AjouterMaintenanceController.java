@@ -48,7 +48,7 @@ public class AjouterMaintenanceController {
      */
     private void loadVehicles() {
         try {
-            List<Vehicle> vehicles = vehicleService.showAll();
+                List<Vehicle> vehicles = vehicleService.showAll();
             vehicleComboBox.getItems().addAll(vehicles);
         } catch (SQLException e) {
             showAlert(AlertType.ERROR, "Erreur de chargement des véhicules: " + e.getMessage());

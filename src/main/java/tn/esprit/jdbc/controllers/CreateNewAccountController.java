@@ -5,13 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.UserService;
+
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Random;
 
 public class CreateNewAccountController {
 
@@ -22,13 +27,25 @@ public class CreateNewAccountController {
     private TextField emailTextField;
 
     @FXML
-    private TextField phoneTextField; // New field for phone number
+    private TextField phoneTextField;
 
     @FXML
-    private PasswordField passwordTextField;
+    private PasswordField passwordField;
 
     @FXML
-    private PasswordField confirmPasswordTextField;
+    private PasswordField confirmPasswordField;
+
+    @FXML
+    private Button showHidePasswordButton;
+
+    @FXML
+    private Tooltip passwordTooltip;
+
+    @FXML
+    private Label suggestedPasswordLabel;
+
+    private boolean isPasswordVisible = false;
+    private String suggestedPassword;
 
     private UserService userService = new UserService();
 
@@ -36,9 +53,9 @@ public class CreateNewAccountController {
     public void handleCreateAccountButton() {
         String name = nameTextField.getText();
         String email = emailTextField.getText();
-        String phone = phoneTextField.getText(); // Get phone number
-        String password = passwordTextField.getText();
-        String confirmPassword = confirmPasswordTextField.getText();
+        String phone = phoneTextField.getText();
+        String password = passwordField.getText();
+        String confirmPassword = confirmPasswordField.getText();
 
         // Input validation
         if (name == null || name.trim().isEmpty()) {
@@ -77,9 +94,9 @@ public class CreateNewAccountController {
             User newUser = new User();
             newUser.setName(name);
             newUser.setEmail(email);
-            newUser.setPhone(phone); // Set the phone number
+            newUser.setPhone(phone);
             newUser.setPassword(password);
-            newUser.setRole("client"); // Set the role to "client"
+            newUser.setRole("client");
 
             // Add the new user to the database
             userService.addUser(newUser);
@@ -93,12 +110,45 @@ public class CreateNewAccountController {
         }
     }
 
-    /**
-     * Redirects the user to the login page.
-     */
+    @FXML
+    public void handlePasswordFieldClick() {
+        suggestedPassword = generateRandomPassword(10);
+        passwordField.setText(suggestedPassword);
+        confirmPasswordField.setText(suggestedPassword);
+        suggestedPasswordLabel.setText(suggestedPassword);
+    }
+
+    @FXML
+    public void handleShowHidePassword() {
+        if (isPasswordVisible) {
+            // Hide password (show as dots)
+            passwordField.setVisible(true);
+            confirmPasswordField.setVisible(true);
+            showHidePasswordButton.setText("Show");
+            isPasswordVisible = false;
+        } else {
+            // Show password (plain text)
+            passwordField.setVisible(false);
+            confirmPasswordField.setVisible(false);
+            showHidePasswordButton.setText("Hide");
+            isPasswordVisible = true;
+        }
+    }
+
+    private String generateRandomPassword(int length) {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+        Random random = new Random();
+        StringBuilder password = new StringBuilder();
+
+        for (int i = 0; i < length; i++) {
+            password.append(chars.charAt(random.nextInt(chars.length())));
+        }
+
+        return password.toString();
+    }
+
     private void redirectToLoginPage() {
         try {
-            // Load the login page
             Parent loginPage = FXMLLoader.load(getClass().getResource("/Login.fxml"));
             Stage stage = (Stage) emailTextField.getScene().getWindow();
             stage.setScene(new Scene(loginPage));
@@ -110,7 +160,6 @@ public class CreateNewAccountController {
     @FXML
     public void handleBackToLoginButton() {
         try {
-            // Load the login page
             Parent loginPage = FXMLLoader.load(getClass().getResource("/Login.fxml"));
             Stage stage = (Stage) emailTextField.getScene().getWindow();
             stage.setScene(new Scene(loginPage));
@@ -119,13 +168,12 @@ public class CreateNewAccountController {
         }
     }
 
-    // Input validation methods
     private boolean isValidEmail(String email) {
         return email != null && email.contains("@");
     }
 
     private boolean isValidPhone(String phone) {
-        return phone != null && phone.matches("\\d{1,7}"); // Phone number must be less than 8 digits
+        return phone != null && phone.matches("\\d{1,7}");
     }
 
     private boolean isValidPassword(String password) {

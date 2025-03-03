@@ -6,6 +6,8 @@ import tn.esprit.jdbc.entities.Vehicle;
 import tn.esprit.jdbc.entities.VehicleType;
 import tn.esprit.jdbc.utils.MyDatabase;
 
+import tn.esprit.jdbc.services.CRUD;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,5 +124,23 @@ public class maintenanceService implements CRUD<Maintenance> {
             maintenanceRecords.add(maintenance);
         }
         return maintenanceRecords;
+    }
+
+    // MaintenanceService.java
+    public List<Maintenance> getAllMaintenanceRecords() throws SQLException {
+        List<Maintenance> maintenanceRecords = new ArrayList<>();
+        String query = "SELECT * FROM maintenance";
+        // Execute query and populate the list
+        return maintenanceRecords;
+    }
+    public int countMaintenanceRecords() throws SQLException {
+        String query = "SELECT COUNT(*) AS total FROM maintenance";
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+
+        if (resultSet.next()) {
+            return resultSet.getInt("total");
+        }
+        return 0; // Return 0 if no records are found
     }
 }

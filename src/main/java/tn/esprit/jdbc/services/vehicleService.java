@@ -1,5 +1,6 @@
 package tn.esprit.jdbc.services;
 
+import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.entities.Vehicle;
 import tn.esprit.jdbc.entities.VehicleType;
 import tn.esprit.jdbc.utils.MyDatabase;
@@ -7,139 +8,208 @@ import tn.esprit.jdbc.utils.MyDatabase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
-public class vehicleService implements CRUD<Vehicle> {
-    private final Connection connection;
+public class vehicleService {
 
-    public vehicleService() {
-        this.connection = MyDatabase.getInstance().getCnx();
-    }
+    private Connection cnx = MyDatabase.getInstance().getCnx();
 
-    @Override
+    private static final String CAR_REGEX = "\\d{3}-\\d{4}"; // Example: 123-4567
+    private static final String BUS_REGEX = "\\d{2}-\\d{3}-\\d{2}"; // Example: 12-345-67
+    private static final String TRUCK_REGEX = "\\d{4}-[A-Z]{2}"; // Example: 1234-AB
+    private static final String MOTORCYCLE_REGEX = "[A-Z]{2}-\\d{3}-[A-Z]"; // Example: AB-123-C
+
     public int insert(Vehicle vehicle) throws SQLException {
-        String query = "INSERT INTO `vehicule` (`model`, `license_plate`, `type`, `capacity`) VALUES (?, ?, ?, ?)";
-        PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-
-        statement.setString(1, vehicle.getModel());
-        statement.setString(2, vehicle.getLicensePlate());
-        statement.setString(3, vehicle.getType().name());  // Convert ENUM to String
-        statement.setInt(4, vehicle.getCapacity());
-
-        int affectedRows = statement.executeUpdate();
-
-        // Retrieve generated vehicle ID
-        ResultSet generatedKeys = statement.getGeneratedKeys();
-        if (generatedKeys.next()) {
-            vehicle.setVehicleId(generatedKeys.getInt(1));
+        if (!isValidLicensePlate(vehicle.getLicensePlate(), vehicle.getType())) {
+            throw new IllegalArgumentException("Invalid license plate format for " + vehicle.getType());
+        }
+        if (!isValidCapacity(vehicle.getCapacity(), vehicle.getType())) {
+            throw new IllegalArgumentException("Invalid capacity for " + vehicle.getType());
         }
 
-        return affectedRows;
+        String query = "INSERT INTO vehicule (model, license_plate, type, capacity) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement ps = cnx.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, vehicle.getModel());
+            ps.setString(2, vehicle.getLicensePlate());
+            ps.setString(3, vehicle.getType().name()); // Convert ENUM to String
+            ps.setInt(4, vehicle.getCapacity());
+            ps.executeUpdate();
+
+            ResultSet generatedKeys = ps.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                return generatedKeys.getInt(1);
+            }
+        }
+        return -1;
     }
 
-    @Override
     public int update(Vehicle vehicle) throws SQLException {
-        String query = "UPDATE `vehicule` SET `model` = ?, `license_plate` = ?, `type` = ?, `capacity` = ? WHERE `vehicle_id` = ?";
-        PreparedStatement statement = connection.prepareStatement(query);
-        statement.setString(1, vehicle.getModel());
-        statement.setString(2, vehicle.getLicensePlate());
-        statement.setString(3, vehicle.getType().name()); // Store enum as String
-        statement.setInt(4, vehicle.getCapacity());
-        statement.setInt(5, vehicle.getVehicleId());
+        if (!isValidLicensePlate(vehicle.getLicensePlate(), vehicle.getType())) {
+            throw new IllegalArgumentException("Invalid license plate format for " + vehicle.getType());
+        }
+        if (!isValidCapacity(vehicle.getCapacity(), vehicle.getType())) {
+            throw new IllegalArgumentException("Invalid capacity for " + vehicle.getType());
+        }
 
-        return statement.executeUpdate();
+        String query = "UPDATE vehicule SET model = ?, license_plate = ?, type = ?, capacity = ? WHERE vehicle_id = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, vehicle.getModel());
+            ps.setString(2, vehicle.getLicensePlate());
+            ps.setString(3, vehicle.getType().name()); // Convert ENUM to String
+            ps.setInt(4, vehicle.getCapacity());
+            ps.setInt(5, vehicle.getVehicleId());
+            return ps.executeUpdate();
+        }
     }
 
-    @Override
     public int delete(int vehicleId) throws SQLException {
         String query = "DELETE FROM vehicule WHERE vehicle_id = ?";
-        PreparedStatement statement = connection.prepareStatement(query);
-        statement.setInt(1, vehicleId);
-
-        return statement.executeUpdate();
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setInt(1, vehicleId);
+            return ps.executeUpdate();
+        }
     }
 
-    @Override
-    public List<Vehicle> showAll() throws SQLException {
+    public List<Vehicle> getAllVehicles() throws SQLException {
         List<Vehicle> vehicles = new ArrayList<>();
-        String query = "SELECT * FROM vehicule";
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
+        String query = "SELECT v.*, u.user_id, u.name, u.email, u.phone, u.password, u.role " +
+                "FROM vehicule v " +
+                "JOIN user u ON v.user_id = u.user_id";
 
-        while (resultSet.next()) {
-            Vehicle vehicle = new Vehicle(
-                    resultSet.getString("model"),
-                    resultSet.getString("license_plate"),
-                    VehicleType.valueOf(resultSet.getString("type")),  // Convert String to Enum
-                    resultSet.getInt("capacity")
-            );
-            vehicle.setVehicleId(resultSet.getInt("vehicle_id"));
-            vehicles.add(vehicle);
+        try (Statement st = cnx.createStatement();
+             ResultSet rs = st.executeQuery(query)) {
+            while (rs.next()) {
+                // Creating the driver (User) object
+                User driver = new User();
+                driver.setUserId(rs.getInt("user_id"));
+                driver.setName(rs.getString("name"));
+                driver.setEmail(rs.getString("email"));
+                driver.setPhone(rs.getString("phone"));
+                driver.setPassword(rs.getString("password")); // Be careful with security
+                driver.setRole(rs.getString("role"));
+
+                // Creating the vehicle object
+                Vehicle vehicle = new Vehicle(
+                        rs.getString("model"),
+                        rs.getString("license_plate"),
+                        VehicleType.valueOf(rs.getString("type")), // Convert String to ENUM
+                        rs.getInt("capacity")
+                );
+                vehicle.setVehicleId(rs.getInt("vehicle_id"));
+                vehicle.setDriver(driver); // Set the driver
+
+                vehicles.add(vehicle);
+            }
         }
         return vehicles;
+    }
+
+    public int countVehicles() throws SQLException {
+        String query = "SELECT COUNT(*) AS vehicle_count FROM vehicule";
+        try (PreparedStatement ps = cnx.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("vehicle_count");
+            }
+        }
+        return 0;
     }
 
     public Vehicle getById(int vehicleId) throws SQLException {
         String query = "SELECT * FROM vehicule WHERE vehicle_id = ?";
-        PreparedStatement statement = connection.prepareStatement(query);
-        statement.setInt(1, vehicleId);
-        ResultSet resultSet = statement.executeQuery();
-
-        if (resultSet.next()) {
-            Vehicle vehicle = new Vehicle(
-                    resultSet.getString("model"),
-                    resultSet.getString("license_plate"),
-                    VehicleType.valueOf(resultSet.getString("type")),  // Convert String to ENUM
-                    resultSet.getInt("capacity")
-            );
-            vehicle.setVehicleId(vehicleId);
-            return vehicle;
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setInt(1, vehicleId);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                Vehicle vehicle = new Vehicle(
+                        rs.getString("model"),
+                        rs.getString("license_plate"),
+                        VehicleType.valueOf(rs.getString("type")), // Convert String to ENUM
+                        rs.getInt("capacity")
+                );
+                vehicle.setVehicleId(vehicleId);
+                return vehicle;
+            }
         }
         return null;
     }
 
-    public Vehicle getByLicensePlate(String licensePlate) throws SQLException {
-        String query = "SELECT * FROM vehicule WHERE license_plate = ?";
-        PreparedStatement statement = connection.prepareStatement(query);
-        statement.setString(1, licensePlate);
-        ResultSet resultSet = statement.executeQuery();
-
-        if (resultSet.next()) {
-            Vehicle vehicle = new Vehicle(
-                    resultSet.getString("model"),
-                    resultSet.getString("license_plate"),
-                    VehicleType.valueOf(resultSet.getString("type")),  // Convert String to ENUM
-                    resultSet.getInt("capacity")
-            );
-            vehicle.setVehicleId(resultSet.getInt("vehicle_id")); // Retrieve the auto-incremented ID
-            return vehicle;
+    public List<String> getAllVehicleLicensePlates() throws SQLException {
+        List<String> licensePlates = new ArrayList<>();
+        String query = "SELECT license_plate FROM vehicule";
+        try (Statement st = cnx.createStatement();
+             ResultSet rs = st.executeQuery(query)) {
+            while (rs.next()) {
+                licensePlates.add(rs.getString("license_plate"));
+            }
         }
-        return null; // No vehicle found with this license plate
+        return licensePlates;
     }
 
-    public List<Vehicle> searchVehicles(String keyword) throws SQLException {
-        List<Vehicle> vehicles = new ArrayList<>();
-        String query = "SELECT * FROM vehicule WHERE model LIKE ? OR license_plate LIKE ? OR type LIKE ?";
-
-        PreparedStatement statement = connection.prepareStatement(query);
-        String searchPattern = "%" + keyword + "%";
-        statement.setString(1, searchPattern);
-        statement.setString(2, searchPattern);
-        statement.setString(3, searchPattern);
-
-        ResultSet resultSet = statement.executeQuery();
-
-        while (resultSet.next()) {
-            Vehicle vehicle = new Vehicle(
-                    resultSet.getString("model"),
-                    resultSet.getString("license_plate"),
-                    VehicleType.valueOf(resultSet.getString("type")),  // Convert String to ENUM
-                    resultSet.getInt("capacity")
-            );
-            vehicle.setVehicleId(resultSet.getInt("vehicle_id"));
-            vehicles.add(vehicle);
+    public int getVehicleIdByLicensePlate(String licensePlate) throws SQLException {
+        String query = "SELECT vehicle_id FROM vehicule WHERE license_plate = ?";
+        try (PreparedStatement ps = cnx.prepareStatement(query)) {
+            ps.setString(1, licensePlate);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("vehicle_id");
+            }
         }
-
-        return vehicles;
+        return -1;
     }
 
+    public List<Vehicle> showAll() throws SQLException {
+        List<Vehicle> temp = new ArrayList<>();
+        String req = "SELECT * FROM vehicule";
+        try (Statement st = cnx.createStatement();
+             ResultSet rs = st.executeQuery(req)) {
+            while (rs.next()) {
+                Vehicle vehicle = new Vehicle();
+                vehicle.setVehicleId(rs.getInt("vehicle_id"));
+                vehicle.setModel(rs.getString("model"));
+                vehicle.setLicensePlate(rs.getString("license_plate"));
+                vehicle.setType(VehicleType.valueOf(rs.getString("type")));
+                vehicle.setCapacity(rs.getInt("capacity"));
+
+                temp.add(vehicle);
+            }
+        }
+        return temp;
+    }
+
+    private boolean isValidLicensePlate(String licensePlate, VehicleType type) {
+        String pattern;
+        switch (type) {
+            case Car:
+                pattern = CAR_REGEX;
+                break;
+            case Bus:
+                pattern = BUS_REGEX;
+                break;
+            case Truck:
+                pattern = TRUCK_REGEX;
+                break;
+            case Motorcycle:
+                pattern = MOTORCYCLE_REGEX;
+                break;
+            default:
+                return false;
+        }
+        return Pattern.matches(pattern, licensePlate);
+    }
+
+    private boolean isValidCapacity(int capacity, VehicleType type) {
+        switch (type) {
+            case Car:
+                return capacity >= 1 && capacity <= 7;
+            case Bus:
+                return capacity >= 10 && capacity <= 50;
+            case Truck:
+                return capacity >= 2 && capacity <= 10;
+            case Motorcycle:
+                return capacity == 1 || capacity == 2;
+            default:
+                return false;
+        }
+    }
 }

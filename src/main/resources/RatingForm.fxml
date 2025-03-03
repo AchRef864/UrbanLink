@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.RatingController" stylesheets="@styles.css">
+    <VBox spacing="20" alignment="CENTER" style="-fx-background-color: rgba(26, 26, 46, 0.8); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #00BFA5; -fx-border-width: 2; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);">
+        <Label text="Rate your ride:" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" />
+        <ComboBox fx:id="transportTypeComboBox" promptText="Select transport type" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+        <ComboBox fx:id="transportComboBox" promptText="Select transport" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+
+        <!-- Star Rating System -->
+        <HBox fx:id="starContainer" spacing="5" alignment="CENTER">
+            <ImageView fx:id="star1" onMouseClicked="#handleStarClick" userData="1" style="-fx-opacity: 0.5;" fitWidth="30" fitHeight="30" />
+            <ImageView fx:id="star2" onMouseClicked="#handleStarClick" userData="2" style="-fx-opacity: 0.5;" fitWidth="30" fitHeight="30" />
+            <ImageView fx:id="star3" onMouseClicked="#handleStarClick" userData="3" style="-fx-opacity: 0.5;" fitWidth="30" fitHeight="30" />
+            <ImageView fx:id="star4" onMouseClicked="#handleStarClick" userData="4" style="-fx-opacity: 0.5;" fitWidth="30" fitHeight="30" />
+            <ImageView fx:id="star5" onMouseClicked="#handleStarClick" userData="5" style="-fx-opacity: 0.5;" fitWidth="30" fitHeight="30" />
+        </HBox>
+
+        <TextArea fx:id="commentField" promptText="Optional comment" wrapText="true" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+        <Button text="Submit Rating" onAction="#handleSubmitRating" style="-fx-background-color: #00BFA5; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 30; -fx-cursor: hand;" />
+    </VBox>
+</AnchorPane>

@@ -1,28 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.DashboardClientController">
+<BorderPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.DashboardClientController">
+
+    <!-- Top Section: Header -->
     <top>
-        <HBox spacing="20" style="-fx-background-color: #2C3E50; -fx-padding: 10;">
-            <Label style="-fx-text-fill: white; -fx-font-size: 20px;" text="Dashboard Client" />
+        <HBox spacing="20" style="-fx-background-color: #1A1A2E; -fx-padding: 15; -fx-alignment: center-left;">
+            <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Dashboard Client" />
         </HBox>
     </top>
+
+    <!-- Left Section: Navigation Menu -->
     <left>
-        <VBox spacing="10" style="-fx-background-color: #34495E; -fx-padding: 10;">
-            <Button fx:id="btnHome" text="Home" />
-            <Button fx:id="btnVehicle" text="Vehicle" />
-            <Button fx:id="btnMaintenance" text="Maintenance" />
-            <Button fx:id="btnInsertUser" text="Insert User" />
-            <Button fx:id="btnEditUser" text="Edit User" />
-            <Button fx:id="btnLogout" text="Logout" />
+        <VBox spacing="10" style="-fx-background-color: #1A1A2E; -fx-padding: 20; -fx-border-color: #00BFA5; -fx-border-width: 0 1 0 0;">
+
+            <Button fx:id="btnHome" styleClass="nav-button" text="Home">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/home_icon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Separator styleClass="separator" />
+
+            <Button fx:id="btnListeTaxisEtCourses" styleClass="nav-button" text="Liste Taxis et Courses">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/taxi_list_icon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Separator styleClass="separator" />
+
+            <Button fx:id="btnVehicle" styleClass="nav-button" text="Vehicle">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/vehicule_icon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button fx:id="btnMaintenance" styleClass="nav-button" text="Maintenance">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/maintenance_icon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Separator styleClass="separator" />
+
+            <Button fx:id="btnRateRide" styleClass="nav-button" text="Rate Ride">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/rate_ride.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Separator styleClass="separator" />
+
+            <!-- New Buttons for Reviews & Complaints -->
+            <Button fx:id="btnReviews" styleClass="nav-button" text="Reviews">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/reviews_icon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button fx:id="btnComplainings" styleClass="nav-button" text="Complaints">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/complaints_icon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Separator styleClass="separator" />
+
+            <!-- Insert User Button -->
+            <Button fx:id="btnInsertUser" styleClass="nav-button" text="Insert User" visible="false">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/user_icon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <!-- Edit User Button -->
+            <Button fx:id="btnEditUser" styleClass="nav-button" text="Edit User" visible="false">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/edit_user_icon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Separator styleClass="separator" />
+
+            <Button fx:id="btnLogout" style="-fx-background-color: #FF1744;" styleClass="nav-button" text="Logout">
+                <graphic>
+                    <ImageView fitHeight="20" fitWidth="20">
+                        <Image url="@/images/logout_icon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
         </VBox>
     </left>
+
+    <!-- Center Section: Content Area -->
     <center>
-        <StackPane fx:id="contentArea" prefHeight="700.0" prefWidth="837.0" />
+        <StackPane fx:id="contentArea" prefHeight="823.0" prefWidth="929.0" style="-fx-background-color: #ffffff; -fx-padding: 20;" />
     </center>
 </BorderPane>

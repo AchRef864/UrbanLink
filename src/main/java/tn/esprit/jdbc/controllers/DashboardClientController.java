@@ -53,7 +53,15 @@ public class DashboardClientController {
      */
     private void loadPage(String fxml) {
         try {
-            Parent page = FXMLLoader.load(getClass().getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent page = loader.load();
+
+            // Pass the user ID to the RatingController if the loaded page is the rating form
+            if (fxml.equals("/RatingForm.fxml")) {
+                RatingController ratingController = loader.getController();
+                ratingController.setUserId(currentUser.getUserId()); // Pass the user ID
+            }
+
             contentArea.getChildren().setAll(page);
         } catch (IOException e) {
             e.printStackTrace();

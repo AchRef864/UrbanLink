@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.AvisTableController">
+    <children>
+        <VBox spacing="10" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+            <HBox spacing="10">
+                <TextField fx:id="searchTextField" promptText="Search..." />
+                <Button text="Search" onAction="#searchAvisAction" style="-fx-background-color: #ADD8E6; -fx-text-fill: white;"/>
+            </HBox>
+            <Button text="Create a new review" onAction="#createAvisAction" style="-fx-background-color: #98FB98; -fx-text-fill: white;"/>
+            <TableView fx:id="avisTableView" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="noteColumn" text="Note"/>
+                    <TableColumn fx:id="commentaireColumn" text="Commentaire"/>
+                    <TableColumn fx:id="dateAvisColumn" text="Date review"/>
+                    <TableColumn fx:id="editColumn" text="Edit" style="-fx-background-color: #FFD700; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"/>
+                    <TableColumn fx:id="deleteColumn" text="Delete" style="-fx-background-color: #98FB98; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"/>
+                    <TableColumn fx:id="viewReponsesColumn" text="View Responses" style="-fx-background-color: #87CEEB; -fx-text-fill: white; -fx-font-size: 16px;-fx-font-weight: bold; -fx-cursor: hand;"/>
+                </columns>
+            </TableView>
+            <Pagination fx:id="pagination" />
+            <Button fx:id="exportPdfButton" text="Export to PDF" onAction="#exportToPdf" style="-fx-background-color: #696969; -fx-text-fill: white;"/>
+        </VBox>
+    </children>
+</AnchorPane>

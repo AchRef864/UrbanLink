@@ -27,10 +27,6 @@ public class RatingController {
     private HBox starContainer;
 
     @FXML
-    private ImageView star1, star2, star3, star4, star5;
-
-    @FXML
-    private TextArea commentField;
 
     private int userId; // ID of the user submitting the rating
     private int selectedRating = 0; // Stores the selected rating (1-5)

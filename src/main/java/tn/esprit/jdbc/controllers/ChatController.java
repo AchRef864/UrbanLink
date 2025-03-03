@@ -1,26 +1,26 @@
 package tn.esprit.jdbc.controllers;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import tn.esprit.jdbc.services.UserService;
-import tn.esprit.jdbc.entities.User;
-import tn.esprit.jdbc.services.RatingService;
-import tn.esprit.jdbc.services.vehicleService;
-import tn.esprit.jdbc.services.maintenanceService;
-import tn.esprit.jdbc.entities.Rating;
-import tn.esprit.jdbc.entities.Vehicle;
-import tn.esprit.jdbc.entities.Maintenance;
-import java.util.List;
-
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.sql.SQLException;
+import java.util.List;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import tn.esprit.jdbc.entities.Maintenance;
+import tn.esprit.jdbc.entities.Rating;
+import tn.esprit.jdbc.entities.User;
+import tn.esprit.jdbc.entities.Vehicle;
+import tn.esprit.jdbc.services.RatingService;
+import tn.esprit.jdbc.services.UserService;
+import tn.esprit.jdbc.services.maintenanceService;
+import tn.esprit.jdbc.services.vehicleService;
 
 public class ChatController {
 

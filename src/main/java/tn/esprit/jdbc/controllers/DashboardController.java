@@ -1,13 +1,14 @@
 package tn.esprit.jdbc.controllers;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Alert;
-import javafx.scene.layout.StackPane;
-import java.io.IOException;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.User;
 

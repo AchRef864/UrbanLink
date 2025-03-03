@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controller.ReponseTableController">
+    <children>
+        <TableView fx:id="reponseTableView" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="reponseIdColumn" text="Reponse ID" />
+                <TableColumn fx:id="commentaireColumn" text="Commentaire" />
+                <TableColumn fx:id="dateReponseColumn" text="Date Reponse" />
+                <TableColumn fx:id="avisIdColumn" text="Avis ID" />
+                <TableColumn fx:id="userIdColumn" text="User ID" />
+                <TableColumn fx:id="editColumn" text="Edit" />
+                <TableColumn fx:id="deleteColumn" text="Delete" />
+            </columns>
+        </TableView>
+        <Button layoutX="14.0" layoutY="230.0" mnemonicParsing="false" onAction="#createReponseAction" text="Add Response" />
+    </children>
+</AnchorPane>

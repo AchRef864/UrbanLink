@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.ComboBox?>
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.abonnement.ModifierAbonnementController" spacing="10" stylesheets="@styles.css" >
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+
+    <Label text="Modifier l'Abonnement" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <!-- Formulaire pour modifier un abonnement -->
+    <HBox spacing="10">
+        <Label text="Type:" />
+        <TextField fx:id="txtType" promptText="Type" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Prix:" />
+        <TextField fx:id="txtPrix" promptText="Prix" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Date Début:" />
+        <DatePicker fx:id="dateDebutPicker" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Date Fin:" />
+        <DatePicker fx:id="dateFinPicker" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Etat:" />
+        <ComboBox fx:id="comboEtat" promptText="Etat" />
+    </HBox>
+
+    <!-- Bouton pour modifier l'abonnement -->
+    <Button text="Modifier" onAction="#modifierAbonnement" />
+</VBox>

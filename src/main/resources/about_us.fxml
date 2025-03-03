@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<StackPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.AboutUsController">
+    <!-- Background Image with Low Transparency -->
+    <ImageView fitHeight="825.0" fitWidth="1078.0" opacity="0.3">
+        <Image url="@/images/login-background2.jpg" />
+    </ImageView>
+
+    <!-- About Us Content -->
+    <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #1E1E2E; -fx-padding: 50;">
+        <!-- Title -->
+        <Text style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-fill: #00FFC6;" text="About Us" />
+
+        <!-- Description -->
+        <Text style="-fx-font-size: 16px; -fx-fill: #E0E0E0;" text="UrbanLink is your gateway to smart transportation. We provide seamless and efficient solutions for all your travel needs." wrappingWidth="500" textAlignment="CENTER" />
+
+        <!-- Back Button -->
+        <Button fx:id="backButton" onAction="#handleBackButton" styleClass="button" text="Back to Main Menu" />
+    </VBox>
+</StackPane>

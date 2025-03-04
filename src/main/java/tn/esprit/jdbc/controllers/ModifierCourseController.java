@@ -5,21 +5,26 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.Course;
+import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.ServiceCourse;
+import tn.esprit.jdbc.services.UserService;
+import tn.esprit.jdbc.services.EmailService;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Arrays;
-import java.util.List;
 
 public class ModifierCourseController {
 
-    @FXML private TextField txtVilleDepart, txtVilleArrivee, txtDistance, txtMontant, txtTime;
-    @FXML private DatePicker datePickerCourse;
-    @FXML private ComboBox<String> comboStatut;
-    @FXML private Button btnModifier;
+    @FXML
+    private TextField txtVilleDepart, txtVilleArrivee, txtDistance, txtMontant, txtTime;
+    @FXML
+    private DatePicker datePickerCourse;
+    @FXML
+    private ComboBox<String> comboStatut;
+    @FXML
+    private Button btnModifier;
 
     private int userId;
     private int taxiId;
@@ -38,13 +43,16 @@ public class ModifierCourseController {
     }
 
     private void initialiserComposants() {
-        // Initialisation du combo pour le statut avec quelques exemples
+        // Initialisation du combo pour le statut
         comboStatut.getItems().addAll("En attente", "Confirmée", "Annulée");
     }
 
     private void configurerEcouteurs() {
-        List<TextField> champs = Arrays.asList(txtVilleDepart, txtVilleArrivee, txtDistance, txtMontant, txtTime);
-        champs.forEach(champ -> champ.textProperty().addListener((observable, oldValue, newValue) -> mettreAJourBouton()));
+        txtVilleDepart.textProperty().addListener((observable, oldValue, newValue) -> mettreAJourBouton());
+        txtVilleArrivee.textProperty().addListener((observable, oldValue, newValue) -> mettreAJourBouton());
+        txtDistance.textProperty().addListener((observable, oldValue, newValue) -> mettreAJourBouton());
+        txtMontant.textProperty().addListener((observable, oldValue, newValue) -> mettreAJourBouton());
+        txtTime.textProperty().addListener((observable, oldValue, newValue) -> mettreAJourBouton());
         comboStatut.valueProperty().addListener((obs, oldVal, newVal) -> mettreAJourBouton());
         datePickerCourse.valueProperty().addListener((obs, oldVal, newVal) -> mettreAJourBouton());
     }
@@ -67,7 +75,7 @@ public class ModifierCourseController {
         this.courseActuel = course;
         if (course != null) {
             this.userId = course.getUser_id();  // Stocke l'ID utilisateur
-            this.taxiId = course.getId_taxi();  // Stocke l'ID taxi
+            this.taxiId = course.getId_taxi();    // Stocke l'ID taxi
 
             datePickerCourse.setValue(course.getDate_course().toLocalDate());
             LocalTime time = course.getDate_course().toLocalTime();
@@ -112,6 +120,18 @@ public class ModifierCourseController {
 
             serviceCourse.update(modifie);
             afficherAlerte("Succès", "Course modifiée avec succès !", Alert.AlertType.INFORMATION);
+
+            // Envoi d'email si le statut est "Confirmée" ou "Annulée"
+            if ("Confirmée".equals(statut) || "Annulée".equals(statut)) {
+                UserService userService = new UserService();
+                User user = userService.getUserById(userId);
+                if (user != null) {
+                    String subject = "Mise à jour de votre course";
+                    // Utilisation du chemin local de l'image dans resources (ex: "/images/myProjectImage.png")
+                    String htmlBody = EmailService.generateCourseEmailBody(user.getName(), "/images/logo.png", modifie);
+                    EmailService.sendEmail(user.getEmail(), user.getName(), subject, htmlBody);
+                }
+            }
             courseModifie = modifie;
             fermerFenetre();
         } catch (SQLException e) {

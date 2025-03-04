@@ -7,34 +7,60 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
 
-<VBox prefHeight="563.0" prefWidth="709.0" spacing="10" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.abonnement.ControllerReservationAjout">
+<VBox prefHeight="563.0" prefWidth="709.0" spacing="20" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.abonnement.ControllerReservationAjout">
     <padding>
-        <Insets bottom="10" left="10" right="10" top="10" />
+        <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
 
-    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Créer une Réservation" />
 
-    <HBox spacing="10">
-        <Label text="ID Utilisateur:" />
-        <TextField fx:id="userIdField" promptText="ID Utilisateur" editable="false" style="-fx-background-color: #e0e0e0;" />
-    </HBox>
-    <HBox spacing="10">
-        <Label text="Date Début:" />
-        <DatePicker fx:id="dateDebutPicker" />
-    </HBox>
-    <HBox spacing="10">
-        <Label text="Date Fin:" />
-        <DatePicker fx:id="dateFinPicker" />
-    </HBox>
-    <HBox spacing="10">
-        <Label text="Statut:" />
-        <TextField fx:id="statutField" text="En attente" editable="false" style="-fx-background-color: #e0e0e0;" />
-    </HBox>
-    <HBox spacing="10">
-        <Label text="Abonnement:" />
-        <ComboBox fx:id="abonnementCombo" promptText="Choisir un abonnement" />
+    <!-- Title -->
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Créer une Réservation">
+        <font>
+            <Font name="Arial" size="24" />
+        </font>
+        <effect>
+            <DropShadow color="#95a5a6" radius="3" spread="0.5" />
+        </effect>
+    </Label>
+
+    <!-- User ID Field -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="ID Utilisateur:" />
+        <TextField fx:id="userIdField" promptText="ID Utilisateur" editable="false" style="-fx-background-color: #e0e0e0; -fx-padding: 5px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
     </HBox>
 
-    <Button onAction="#handleAddReservation" text="Réserver &amp; Payer avec PayPal" style="-fx-background-color: #00BFA5; -fx-text-fill: white;" />
+    <!-- Start Date Field -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="Date Début:" />
+        <DatePicker fx:id="dateDebutPicker" style="-fx-font-size: 14px; -fx-background-color: white; -fx-border-color: #bdc3c7; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+    </HBox>
+
+    <!-- End Date Field -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="Date Fin:" />
+        <DatePicker fx:id="dateFinPicker" style="-fx-font-size: 14px; -fx-background-color: white; -fx-border-color: #bdc3c7; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+    </HBox>
+
+    <!-- Status Field -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="Statut:" />
+        <TextField fx:id="statutField" text="En attente" editable="false" style="-fx-background-color: #e0e0e0; -fx-padding: 5px; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+    </HBox>
+
+    <!-- Subscription ComboBox -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #34495e;" text="Abonnement:" />
+        <ComboBox fx:id="abonnementCombo" promptText="Choisir un abonnement" style="-fx-font-size: 14px; -fx-background-color: white; -fx-border-color: #bdc3c7; -fx-border-radius: 5px; -fx-background-radius: 5px;" />
+    </HBox>
+
+    <!-- Submit Button -->
+    <Button onAction="#handleAddReservation" text="Réserver &amp; Payer avec PayPal" style="-fx-background-color: #00BFA5; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-background-radius: 5px;">
+        <effect>
+            <DropShadow color="#95a5a6" radius="3" spread="0.5" />
+        </effect>
+
+    </Button>
 </VBox>

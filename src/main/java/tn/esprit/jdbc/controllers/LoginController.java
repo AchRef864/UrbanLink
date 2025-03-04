@@ -9,11 +9,19 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.services.UserService;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 
 public class LoginController {
@@ -25,50 +33,41 @@ public class LoginController {
     private PasswordField passwordTextField;
 
     @FXML
-    private ImageView bearImageView; // Add this for the bear animation
+    private ImageView bearImageView;
+
+    @FXML
+    private WebView recaptchaWebView; // WebView for reCAPTCHA
 
     private UserService userService = new UserService();
 
-    // Array of bear images
-    private final String[] bearImages = {
-            "/images/image1.png",
-            "/images/image2.png",
-            "/images/image3.png",
-            "/images/image4.png",
-            "/images/image5.png",
-            "/images/image6.png",
-            "/images/image7.png",
-            "/images/image8.png"
-    };
+    // Replace with your reCAPTCHA site key and secret key
+    private final String RECAPTCHA_SITE_KEY = "6LfItOkqAAAAAJhIWsK-09iOBK0vrsJCdO5RbcC2";
+    private final String RECAPTCHA_SECRET_KEY = "6LfItOkqAAAAAEIoYcFSJs6L5IP81qcLoi_ORN0y";
+
     @FXML
     public void initialize() {
-        // Set the initial bear image
-        updateBearImage(0);
-
-        // Add listener to emailTextField to update bear image based on email length
-        emailTextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            int emailLength = newValue.length();
-            updateBearImage(emailLength);
-        });
-
-        // Add listener to passwordTextField to change bear image when focused
-        passwordTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                // Switch to image5.png when password field is focused
-                bearImageView.setImage(new Image(getClass().getResourceAsStream(bearImages[7])));
-            } else {
-                // Revert to the image based on email length
-                updateBearImage(emailTextField.getText().length());
-            }
-        });
+        // Load reCAPTCHA widget
+        loadRecaptcha();
     }
 
-    // Helper method to update the bear image based on email length
-    private void updateBearImage(int emailLength) {
-        int imageIndex = Math.min(emailLength, 6); // Use image1-4 based on email length
-        bearImageView.setImage(new Image(getClass().getResourceAsStream(bearImages[imageIndex])));
+    /**
+     * Loads the reCAPTCHA widget into the WebView.
+     */
+    private void loadRecaptcha() {
+        String recaptchaHtml = "<html>" +
+                "<head>" +
+                "<script src='https://www.google.com/recaptcha/api.js'></script>" +
+                "</head>" +
+                "<body>" +
+                "<div class='g-recaptcha' data-sitekey='" + RECAPTCHA_SITE_KEY + "'></div>" +
+                "</body>" +
+                "</html>";
+        recaptchaWebView.getEngine().loadContent(recaptchaHtml);
     }
 
+    /**
+     * Handles the login button click event.
+     */
     @FXML
     public void handleLoginButton() {
         String email = emailTextField.getText();
@@ -82,6 +81,18 @@ public class LoginController {
 
         if (!isValidPassword(password)) {
             showAlert("Invalid Password", "Password must be at least 8 characters long.");
+            return;
+        }
+
+        // Verify reCAPTCHA
+        String recaptchaResponse = recaptchaWebView.getEngine().executeScript("grecaptcha.getResponse()").toString();
+        if (recaptchaResponse.isEmpty()) {
+            showAlert("reCAPTCHA Error", "Please complete the reCAPTCHA.");
+            return;
+        }
+
+        if (!verifyRecaptcha(recaptchaResponse)) {
+            showAlert("reCAPTCHA Error", "reCAPTCHA verification failed.");
             return;
         }
 
@@ -123,6 +134,9 @@ public class LoginController {
         }
     }
 
+    /**
+     * Handles the "Create Account" link click event.
+     */
     @FXML
     public void handleCreateAccountLink() {
         try {
@@ -134,6 +148,31 @@ public class LoginController {
             showAlert("Error", "An error occurred while loading the create account page: " + e.getMessage());
         }
     }
+
+    /**
+     * Verifies the reCAPTCHA response with Google's API.
+     */
+    private boolean verifyRecaptcha(String recaptchaResponse) {
+        try {
+            String url = "https://www.google.com/recaptcha/api/siteverify";
+            String params = "secret=" + URLEncoder.encode(RECAPTCHA_SECRET_KEY, StandardCharsets.UTF_8) +
+                    "&response=" + URLEncoder.encode(recaptchaResponse, StandardCharsets.UTF_8);
+
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(url))
+                    .header("Content-Type", "application/x-www-form-urlencoded")
+                    .POST(HttpRequest.BodyPublishers.ofString(params))
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return response.body().contains("\"success\": true");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
     // Input validation methods
     private boolean isValidEmail(String email) {

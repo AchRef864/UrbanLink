@@ -9,36 +9,35 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="1254.0" prefWidth="1166.0" style="-fx-background-color: #1A1A2E;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.LoginController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1A1A2E;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.LoginController">
     <!-- Background Image -->
-    <ImageView fitHeight="1303.0" fitWidth="1075.0" preserveRatio="true">
+    <ImageView fitHeight="600.0" fitWidth="800.0" preserveRatio="true">
         <image>
             <Image url="@/images/login-background2.jpg" /> <!-- Replace with your image path -->
         </image>
     </ImageView>
 
     <!-- Dark Overlay -->
-    <AnchorPane layoutY="-11.0" prefHeight="1101.0" prefWidth="1263.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);">
+    <AnchorPane layoutY="0.0" prefHeight="878.0" prefWidth="1084.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);">
         <children>
             <!-- Login Form -->
-            <VBox alignment="CENTER" layoutX="268.0" layoutY="152.0" prefHeight="797.0" prefWidth="727.0" spacing="20.0" style="-fx-background-color: rgba(26, 26, 46, 0.8); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #00BFA5; -fx-border-width: 2; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);">
-                <!-- Bear ImageView -->
-                <ImageView fx:id="bearImageView" fitHeight="150.0" fitWidth="150.0" preserveRatio="true"> </ImageView>
+            <VBox alignment="CENTER" layoutX="206.0" layoutY="105.0" prefHeight="765.0" prefWidth="701.0" spacing="20.0" style="-fx-background-color: rgba(26, 26, 46, 0.8); -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #00BFA5; -fx-border-width: 2; -fx-padding: 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);">
 
                 <!-- Title -->
-                <Label prefHeight="74.0" prefWidth="89.0" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold; -fx-font-family: 'Poppins';" text="Login">
-                    <font>
-                        <Font name="Algerian" size="32.0" />
-                    </font>
-                </Label>
+                <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Login" />
+                <!-- Bear ImageView -->
+                <ImageView fx:id="bearImageView" fitHeight="142.0" fitWidth="153.0" preserveRatio="true" />
 
                 <!-- Email Field -->
-                <TextField fx:id="emailTextField" promptText="Email" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+                <TextField fx:id="emailTextField" promptText="Email" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 250;" />
 
                 <!-- Password Field -->
-                <PasswordField fx:id="passwordTextField" promptText="Password" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 300;" />
+                <PasswordField fx:id="passwordTextField" promptText="Password" style="-fx-background-color: white; -fx-text-fill: #1A1A2E; -fx-font-size: 14px; -fx-prompt-text-fill: #bbb; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-padding: 10; -fx-pref-width: 250;" />
+
+                <!-- reCAPTCHA Widget -->
+                <WebView fx:id="recaptchaWebView" prefHeight="172.0" prefWidth="567.0" />
 
                 <!-- Login Button -->
                 <Button onAction="#handleLoginButton" style="-fx-background-color: #00BFA5; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 30; -fx-cursor: hand;" text="Login" />

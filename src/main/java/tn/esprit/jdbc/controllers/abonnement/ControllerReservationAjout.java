@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 public class ControllerReservationAjout {
 
     @FXML
-    private TextField userIdField;
+    private TextField userIdField; // Declare userIdField once
     @FXML
     private DatePicker dateDebutPicker;
     @FXML
@@ -38,7 +38,7 @@ public class ControllerReservationAjout {
 
     private reservationservice reservationService;
     private abonnementservices abonnementService;
-    private User loggedInUser;
+    private User loggedInUser; // Declare loggedInUser once
     private List<abonnement> availableAbonnements;
 
     private static final String CLIENT_ID = "Aa0D42A3SVLwZU2YtV3J7IXEOkPCndJk7X7HXrmAFkyRV33Q8tMHSy3b75dj5HA6SzK3QPe0DU1dMPZz";
@@ -52,12 +52,14 @@ public class ControllerReservationAjout {
         apiContext = new APIContext(CLIENT_ID, CLIENT_SECRET, MODE);
     }
 
+    // Define setLoggedInUser method only once
     public void setLoggedInUser(User user) {
         this.loggedInUser = user;
         if (user != null) {
             userIdField.setText(String.valueOf(user.getUserId()));
             userIdField.setEditable(false);
             userIdField.setStyle("-fx-background-color: #e0e0e0;");
+            System.out.println("User ID set in ControllerReservationAjout: " + user.getUserId()); // Debug log
         }
     }
 

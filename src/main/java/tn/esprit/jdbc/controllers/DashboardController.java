@@ -1,18 +1,19 @@
 package tn.esprit.jdbc.controllers;
 
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import tn.esprit.jdbc.controllers.abonnement.AbonnementListeController;
 import tn.esprit.jdbc.entities.User;
-import tn.esprit.jdbc.controllers.abonnement.ReservationListController;
+import javafx.scene.Scene;
+
+
+import java.net.URL;
 
 public class DashboardController {
 
@@ -20,9 +21,10 @@ public class DashboardController {
     private StackPane contentArea;
 
     @FXML
-    private Button btnHome, btnVehicle, btnMaintenance, btnInsertUser, btnEditUser, btnLogout, btnViewRatings, btnOpenTaxiListPage, btnOpenCourseListPage, btnChat, btnReviews, btnComplainings,btnOpenAbonnementListPage, btnOpenReservationListPage;
+    private Button btnHome, btnVehicle, btnMaintenance, btnInsertUser, btnEditUser, btnLogout, btnViewRatings, btnOpenTaxiListPage, btnOpenCourseListPage, btnChat;
 
-    private User user; // Store the logged-in user
+    @FXML
+    private Button btnReviews, btnComplainings , btnAddReservation, btnAddAbonnement , btnOpenReservationListPage , btnOpenAbonnementListPage ;
 
     @FXML
     public void initialize() {
@@ -36,23 +38,24 @@ public class DashboardController {
         btnOpenTaxiListPage.setOnAction(e -> loadPage("/ListeTaxi.fxml"));
         btnOpenCourseListPage.setOnAction(e -> loadPage("/ListeCourses.fxml"));
         btnChat.setOnAction(e -> loadPage("/Chat.fxml"));
+        btnOpenReservationListPage.setOnAction(e -> loadPage("/reservation_list.fxml"));
+        btnOpenAbonnementListPage.setOnAction(e -> loadPage("/abonnement_list.fxml"));
+        btnLogout.setOnAction(e -> logout());
         btnReviews.setOnAction(e -> loadPage("/AvisTable.fxml"));
         btnComplainings.setOnAction(e -> loadPage("/AdminReclamationResponse.fxml"));
-        btnOpenReservationListPage.setOnAction(e -> openReservationList());
-        btnOpenAbonnementListPage.setOnAction(e -> openAbonnementList());
-        btnLogout.setOnAction(e -> logout());
-    }
-
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     private void loadPage(String fxml) {
         try {
-            System.out.println("Loading page: " + fxml);
-            Parent page = FXMLLoader.load(getClass().getResource(fxml));
-            contentArea.getChildren().setAll(page);
+            System.out.println("Attempting to load FXML file: " + fxml);
+            URL url = getClass().getResource(fxml);
+            if (url == null) {
+                System.err.println("FXML file not found: " + fxml);
+            } else {
+                System.out.println("FXML file found at: " + url);
+                Parent page = FXMLLoader.load(url);
+                contentArea.getChildren().setAll(page);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Error loading page: " + fxml);
@@ -61,34 +64,8 @@ public class DashboardController {
         }
     }
 
-    @FXML
-    private void openReservationList() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reservation_list.fxml"));
-            Parent page = loader.load();
-            ReservationListController controller = loader.getController();
-            controller.setLoggedInUser(user); // Passer l'utilisateur connecté
-            contentArea.getChildren().setAll(page);
-        } catch (IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Erreur lors du chargement de la gestion des réservations : " + e.getMessage());
-            alert.showAndWait();
-        }
-    }
-
-    @FXML
-    private void openAbonnementList() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/abonnement_list.fxml"));
-            Parent page = loader.load();
-            AbonnementListeController controller = loader.getController();
-            controller.setLoggedInUser(user); // Passer l'utilisateur connecté
-            contentArea.getChildren().setAll(page);
-        } catch (IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Erreur lors du chargement de la gestion des abonnement : " + e.getMessage());
-            alert.showAndWait();
-        }
+    public void setUser(User user) {
+        // Use the user data as needed
     }
 
     private void logout() {
@@ -99,8 +76,6 @@ public class DashboardController {
             stage.setScene(new Scene(loginPage));
         } catch (IOException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Erreur lors de la déconnexion : " + e.getMessage());
-            alert.showAndWait();
         }
     }
 }

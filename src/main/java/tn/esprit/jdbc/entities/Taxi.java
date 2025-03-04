@@ -30,7 +30,7 @@ public class Taxi {
         this.licenceNumero = licenceNumero;
         this.licenceDateObtention = licenceDateObtention;
         this.tarifBase = tarifBase;
-    }
+     }
 
     public Taxi(int idTaxi, String immatriculation, String marque, String modele, int anneeFabrication, int capacite, String zoneDesserte, String statut, String licenceNumero, LocalDate licenceDateObtention, Double tarifBase) {
         this.idTaxi = idTaxi;
@@ -44,7 +44,7 @@ public class Taxi {
         this.licenceNumero = licenceNumero;
         this.licenceDateObtention = licenceDateObtention;
         this.tarifBase = tarifBase;
-    }
+     }
 
     public int getIdTaxi() {
         return idTaxi;

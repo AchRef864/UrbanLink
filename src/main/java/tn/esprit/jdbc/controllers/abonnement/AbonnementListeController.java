@@ -6,6 +6,8 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.Barcode128;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import javafx.event.ActionEvent;
+import tn.esprit.jdbc.entities.User;
 import tn.esprit.jdbc.entities.abonnement;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -62,6 +64,10 @@ public class AbonnementListeController {
 
     public AbonnementListeController() {
         abonnementService = new abonnementservices();
+    }
+    private User loggedInUser;
+    public void setLoggedInUser(User user) {
+        this.loggedInUser = user;
     }
 
     @FXML
@@ -445,4 +451,8 @@ public class AbonnementListeController {
             e.printStackTrace();
         }
     }
+
+    public void handleAddAbonnement(ActionEvent actionEvent) {
+    }
+
 }

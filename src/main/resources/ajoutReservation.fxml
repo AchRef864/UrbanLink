@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="563.0" prefWidth="709.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.abonnement.ControllerReservationAjout" stylesheets="@styles.css" >
+<VBox prefHeight="563.0" prefWidth="709.0" spacing="10" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.abonnement.ControllerReservationAjout">
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
 
-    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Ajouter une Réservation" />
+    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Créer une Réservation" />
 
-    <!-- Formulaire pour ajouter une réservation -->
     <HBox spacing="10">
         <Label text="ID Utilisateur:" />
-        <TextField fx:id="userIdField" promptText="ID Utilisateur" />
+        <TextField fx:id="userIdField" promptText="ID Utilisateur" editable="false" style="-fx-background-color: #e0e0e0;" />
     </HBox>
     <HBox spacing="10">
         <Label text="Date Début:" />
@@ -33,11 +32,9 @@
         <TextField fx:id="statutField" text="En attente" editable="false" style="-fx-background-color: #e0e0e0;" />
     </HBox>
     <HBox spacing="10">
-        <Label text="ID Abonnement:" />
-        <TextField fx:id="abonnementIdField" promptText="ID Abonnement" />
+        <Label text="Abonnement:" />
+        <ComboBox fx:id="abonnementCombo" promptText="Choisir un abonnement" />
     </HBox>
 
-    <!-- Bouton pour ajouter une réservation et déclencher le paiement -->
-    <Button onAction="#handleAddReservation" text="Ajouter &amp; Payer avec PayPal" />
+    <Button onAction="#handleAddReservation" text="Réserver &amp; Payer avec PayPal" style="-fx-background-color: #00BFA5; -fx-text-fill: white;" />
 </VBox>
-

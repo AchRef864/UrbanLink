@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -9,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane prefHeight="765.0" prefWidth="1161.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.jdbc.controllers.DashboardController">
-
     <!-- Top Section: Header -->
     <top>
         <HBox prefHeight="2.0" prefWidth="1197.0" spacing="20" style="-fx-background-color: #1A1A2E; -fx-padding: 15; -fx-alignment: center-left;">
@@ -40,7 +38,22 @@
 
             <!-- Separator -->
             <Separator styleClass="separator" />
+            <!-- Separator -->
 
+
+            <!-- Section: Reservations & Abonnements -->
+            <VBox spacing="10">
+                <Label text="Reservations" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
+
+                <Button fx:id="btnOpenReservationListPage" styleClass="nav-button" text="Gestion des Réservations" />
+            </VBox>
+            <Separator styleClass="separator" />
+            <VBox spacing="10">
+                <Label text="Abonnements" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
+
+                <Button fx:id="btnOpenAbonnementListPage" styleClass="nav-button" text="Gestion des Abonnements" />
+            </VBox>
+            <Separator styleClass="separator" />
             <!-- Section: Communication -->
             <VBox spacing="10">
                 <Label text="Communication" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
@@ -56,6 +69,14 @@
                 <Button fx:id="btnOpenTaxiListPage" styleClass="nav-button" text="Liste Taxis" />
                 <Button fx:id="btnOpenCourseListPage" styleClass="nav-button" text="Liste Courses" />
             </VBox>
+
+            <!-- Separator -->
+
+
+
+
+            <!-- Separator -->
+
 
             <!-- Separator -->
             <Separator styleClass="separator" />
@@ -81,5 +102,4 @@
     <center>
         <StackPane fx:id="contentArea" prefHeight="733.0" prefWidth="964.0" style="-fx-background-color: #ffffff; -fx-padding: 20;" />
     </center>
-
 </BorderPane>

@@ -1,18 +1,18 @@
 package tn.esprit.jdbc.controllers;
 
 import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import tn.esprit.jdbc.controllers.abonnement.AbonnementListeController;
 import tn.esprit.jdbc.entities.User;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import tn.esprit.jdbc.controllers.abonnement.ReservationListController;
 
 public class DashboardController {
 
@@ -20,10 +20,9 @@ public class DashboardController {
     private StackPane contentArea;
 
     @FXML
-    private Button btnHome, btnVehicle, btnMaintenance, btnInsertUser, btnEditUser, btnLogout, btnViewRatings, btnOpenTaxiListPage, btnOpenCourseListPage, btnChat;
+    private Button btnHome, btnVehicle, btnMaintenance, btnInsertUser, btnEditUser, btnLogout, btnViewRatings, btnOpenTaxiListPage, btnOpenCourseListPage, btnChat, btnReviews, btnComplainings,btnOpenAbonnementListPage, btnOpenReservationListPage;
 
-    @FXML
-    private Button btnReviews, btnComplainings; // New buttons added
+    private User user; // Store the logged-in user
 
     @FXML
     public void initialize() {
@@ -37,11 +36,16 @@ public class DashboardController {
         btnOpenTaxiListPage.setOnAction(e -> loadPage("/ListeTaxi.fxml"));
         btnOpenCourseListPage.setOnAction(e -> loadPage("/ListeCourses.fxml"));
         btnChat.setOnAction(e -> loadPage("/Chat.fxml"));
-        btnLogout.setOnAction(e -> logout());
-
-        // New buttons' actions
         btnReviews.setOnAction(e -> loadPage("/AvisTable.fxml"));
         btnComplainings.setOnAction(e -> loadPage("/AdminReclamationResponse.fxml"));
+        btnOpenReservationListPage.setOnAction(e -> openReservationList());
+        btnOpenAbonnementListPage.setOnAction(e -> openAbonnementList());
+        btnLogout.setOnAction(e -> logout());
+    }
+
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     private void loadPage(String fxml) {
@@ -57,8 +61,34 @@ public class DashboardController {
         }
     }
 
-    public void setUser(User user) {
-        // Use the user data as needed
+    @FXML
+    private void openReservationList() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reservation_list.fxml"));
+            Parent page = loader.load();
+            ReservationListController controller = loader.getController();
+            controller.setLoggedInUser(user); // Passer l'utilisateur connecté
+            contentArea.getChildren().setAll(page);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Erreur lors du chargement de la gestion des réservations : " + e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void openAbonnementList() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/abonnement_list.fxml"));
+            Parent page = loader.load();
+            AbonnementListeController controller = loader.getController();
+            controller.setLoggedInUser(user); // Passer l'utilisateur connecté
+            contentArea.getChildren().setAll(page);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Erreur lors du chargement de la gestion des abonnement : " + e.getMessage());
+            alert.showAndWait();
+        }
     }
 
     private void logout() {
@@ -69,6 +99,8 @@ public class DashboardController {
             stage.setScene(new Scene(loginPage));
         } catch (IOException e) {
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Erreur lors de la déconnexion : " + e.getMessage());
+            alert.showAndWait();
         }
     }
 }

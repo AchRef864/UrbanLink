@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 import tn.esprit.jdbc.entities.User;
+import tn.esprit.jdbc.controllers.abonnement.ControllerReservationAjout;
+import tn.esprit.jdbc.controllers.abonnement.ControllerAjoutAbonnement;
 import java.io.IOException;
 
 public class DashboardClientController {
@@ -18,11 +20,10 @@ public class DashboardClientController {
     private StackPane contentArea;
     @FXML
     private Button btnHome, btnVehicle, btnMaintenance, btnInsertUser, btnEditUser, btnRateRide, btnLogout, btnListeTaxisEtCourses;
-
     @FXML
-    private Button btnReviews, btnComplainings; // New buttons for Reviews & Complaints
+    private Button btnReviews, btnComplainings, btnAddReservation, btnAddAbonnement;
 
-    private User currentUser; // Store logged-in user information
+    private User currentUser;
 
     @FXML
     public void initialize() {
@@ -31,55 +32,49 @@ public class DashboardClientController {
         btnMaintenance.setOnAction(e -> loadPage("/ListerMaintenance.fxml", currentUser != null ? currentUser.getUserId() : -1));
         btnRateRide.setOnAction(e -> loadPage("/RatingForm.fxml", currentUser != null ? currentUser.getUserId() : -1));
         btnListeTaxisEtCourses.setOnAction(this::handleListeTaxisEtCourses);
+        btnAddReservation.setOnAction(this::handleAddReservation);
+        btnAddAbonnement.setOnAction(this::handleAddAbonnement);
         btnLogout.setOnAction(e -> logout());
 
-        // New button actions
         btnReviews.setOnAction(e -> {
             if (currentUser != null) {
-                loadPage("/UserAvisTable.fxml", currentUser.getUserId()); // Pass the user ID
+                loadPage("/UserAvisTable.fxml", currentUser.getUserId());
             } else {
                 showAlert("Error", "No user is logged in.");
             }
         });
 
-        // Modified action for the Complainings button
-        btnComplainings.setOnAction(this::btnComplainingsAction); // Handles button click
+        btnComplainings.setOnAction(this::btnComplainingsAction);
     }
+
     private void updateUIForRole() {
         if (currentUser != null) {
             if ("admin".equals(currentUser.getRole())) {
-                // Admin-specific UI updates
-                btnInsertUser.setVisible(true); // Show "Add User" button for admins
-                btnEditUser.setVisible(true);   // Show "Edit User" button for admins
+                btnInsertUser.setVisible(true);
+                btnEditUser.setVisible(true);
             } else if ("client".equals(currentUser.getRole())) {
-                // Client-specific UI updates
-                btnInsertUser.setVisible(false); // Hide "Add User" button for clients
-                btnEditUser.setVisible(false);   // Hide "Edit User" button for clients
+                btnInsertUser.setVisible(false);
+                btnEditUser.setVisible(false);
             }
         }
+        // Always make btnAddAbonnement visible, regardless of role
+        btnAddAbonnement.setVisible(true);
     }
 
-    /**
-     * Sets the logged-in user and updates the UI accordingly.
-     */
     public void setUser(User user) {
         this.currentUser = user;
         updateUIForRole();
-        System.out.println("User set in Dashboard: " + user.getUserId()); // Debug log
+        System.out.println("User set in DashboardClient: " + user.getUserId());
     }
 
-    /**
-     * Loads the specified FXML page into the content area.
-     */
     private void loadPage(String fxml, int userId) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent page = loader.load();
 
-            // Pass the user ID to the controller
             if (fxml.equals("/UserAvisTable.fxml")) {
                 UserAvisController userAvisController = loader.getController();
-                userAvisController.setLoggedInUserId(userId); // Pass the logged-in user ID
+                userAvisController.setLoggedInUserId(userId);
             }
 
             contentArea.getChildren().setAll(page);
@@ -89,20 +84,13 @@ public class DashboardClientController {
         }
     }
 
-    /**
-     * Handles the "Liste Taxis et Courses" button click.
-     */
     @FXML
     private void handleListeTaxisEtCourses(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ListeTaxisEtCourses.fxml"));
             Parent page = loader.load();
-
-            // Pass the user ID to the ListeTaxisEtCoursesController
             ListeTaxisEtCoursesController controller = loader.getController();
-            controller.setUserId(currentUser.getUserId()); // Pass the user ID
-
-            // Set the loaded page into the content area
+            controller.setUserId(currentUser.getUserId());
             contentArea.getChildren().setAll(page);
         } catch (IOException e) {
             e.printStackTrace();
@@ -110,25 +98,45 @@ public class DashboardClientController {
         }
     }
 
-    /**
-     * Handles the "Complainings" button click and passes the user ID to the ReclamationController.
-     */
+    @FXML
+    private void handleAddReservation(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ajoutReservation.fxml"));
+            Parent page = loader.load();
+            ControllerReservationAjout controller = loader.getController();
+            controller.setLoggedInUser(currentUser);
+            contentArea.getChildren().setAll(page);
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to load the Créer Réservation page: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    private void handleAddAbonnement(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ajoutAbonnement.fxml"));
+            Parent page = loader.load();
+            ControllerAjoutAbonnement controller = loader.getController();
+            controller.setLoggedInUser(currentUser);
+            contentArea.getChildren().setAll(page);
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to load the Ajouter Abonnement page: " + e.getMessage());
+        }
+    }
+
     @FXML
     private void btnComplainingsAction(ActionEvent event) {
         try {
-            // Load the Reclamation FXML page
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Reclamation.fxml"));
             Parent page = loader.load();
-
-            // Get the ReclamationController and set the user ID
             ReclamationController reclamationController = loader.getController();
             if (currentUser != null) {
-                reclamationController.setUserId(currentUser.getUserId()); // Pass userId from currentUser
+                reclamationController.setUserId(currentUser.getUserId());
             } else {
                 System.out.println("No user logged in.");
             }
-
-            // Add the page to the content area
             contentArea.getChildren().setAll(page);
         } catch (IOException e) {
             e.printStackTrace();
@@ -136,9 +144,6 @@ public class DashboardClientController {
         }
     }
 
-    /**
-     * Logs out the user and redirects to the login page.
-     */
     private void logout() {
         try {
             Parent loginPage = FXMLLoader.load(getClass().getResource("/Login.fxml"));
@@ -149,9 +154,6 @@ public class DashboardClientController {
         }
     }
 
-    /**
-     * Displays an alert with the specified title and message.
-     */
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);

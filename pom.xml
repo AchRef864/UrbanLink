@@ -47,7 +47,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
-            <version>${javafx.version}</version>
+            <version>22.0.1</version>
         </dependency>
 
         <!-- Azure AI Inference -->
@@ -156,7 +156,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
-            <version>20.0.2</version>
+            <version>22.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>

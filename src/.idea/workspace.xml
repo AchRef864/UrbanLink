@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="98aebf41-7376-4cde-9a63-76ceffc12615" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/PIDEV.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/AvisTable.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/javacrud.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/AddReponseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/AdminReclamationResponseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/AjouterUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/AvisTableController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/ClientPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/ClientReclamationResponseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/DetailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/EditUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/HelloAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/Home.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/ReclamationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/ReponseTableController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/UpdateReponseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/UserAvisController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/UserReponseTableController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/addAvisController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/controller/updateAvisController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/entities/Avis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/entities/Reclamation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/entities/Reponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/entities/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/services/AvisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/services/CRUD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/services/ReclamationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/services/ReponseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/tests/MainTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/java/tn/esprit/jdbc/utils/MyDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/AdminReclamationResponse.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/AjouterUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/AvisTable.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/ClientPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/ClientReclamationResponse.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/Detail.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/EditUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/HelloAdmin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/Reclamation.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/UserAvisTable.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/UserReponseTable.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/addAvis.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/addReponse.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/images/login-background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/images/login-background2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/reponseTable.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/updateAvis.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/src/main/resources/updateReponse.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/AdminReclamationResponse.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/AjouterUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/AvisTable.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/ClientPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/ClientReclamationResponse.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/Detail.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/EditUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/HelloAdmin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/Reclamation.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/UserAvisTable.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/UserReponseTable.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/addAvis.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/addReponse.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/images/login-background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/images/login-background2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/reponseTable.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AddAvisController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AddAvisController$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AddReponseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AdminReclamationResponseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AjouterUserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AvisTableController$1$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AvisTableController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AvisTableController$2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AvisTableController$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AvisTableController$3$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AvisTableController$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/AvisTableController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/ClientPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/ClientReclamationResponseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/DetailController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/EditUserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/HelloAdminController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/Home.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/MainController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/ReclamationController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/ReponseTableController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/ReponseTableController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/UpdateReponseController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/UpdateReponseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/UserAvisController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/UserAvisController$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/UserAvisController$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/UserAvisController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/UserReponseTableController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/addAvisController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/controller/updateAvisController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/entities/Avis.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/entities/Reclamation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/entities/Reponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/entities/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/services/AvisService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/services/CRUD.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/services/ReclamationService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/services/ReponseService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/services/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/tests/MainTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/tn/esprit/jdbc/utils/MyDatabase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/updateAvis.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/classes/updateReponse.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/javacrud-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javacrud/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ratings.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../users(1).sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/DashboardClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/DashboardClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/controllers/RatingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/entities/Taxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/entities/Taxi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/entities/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/entities/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/entities/VehicleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/entities/VehicleType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/services/vehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/java/tn/esprit/jdbc/services/vehicleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/resources/Chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/Chat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/resources/Dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/Dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/resources/DashboardClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/DashboardClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/resources/RatingForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/main/resources/RatingForm.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2tmcVGh7KlUPaYXzWbrT9EYMFmK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging dev",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="98aebf41-7376-4cde-9a63-76ceffc12615" name="Changes" comment="" />
+      <created>1740960714184</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740960714184</updated>
+      <workItem from="1740960714186" duration="201000" />
+    </task>
+    <servers />
+  </component>
+</project>

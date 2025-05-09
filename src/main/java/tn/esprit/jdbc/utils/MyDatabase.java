@@ -8,7 +8,7 @@ public class MyDatabase {
 
     private final String USER = "root";
     private final String PWD = "";
-    private final String URL = "jdbc:mysql://localhost:3306/urbanlink";
+    private final String URL = "jdbc:mysql://avnadmin:AVNS_aYEcJsYCG52lJEkN-su@mysql-1490d387-achref-urbanlink.j.aivencloud.com:23048/defaultdb?ssl-mode=REQUIRED";
 
     //1st STEP
     public static MyDatabase instance;
